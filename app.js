@@ -732,7 +732,7 @@ class PortfolioApp {
     });
   }
 
-  /* Render Selected Works (Arian Atmar Editorial Master List) */
+  /* Render Selected Works (Dakshesh Das Editorial Master List) */
   renderWorksList(filter = 'all') {
     const container = document.getElementById('works-list-container');
     if (!container) return;
