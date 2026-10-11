@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantitative Statistical Arbitrage Engine</title>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --surface: #171717;
+            --primary: #00ffcc;
+            --primary-dim: rgba(0, 255, 204, 0.1);
+            --text: #e5e5e5;
+            --text-muted: #a3a3a3;
+            --border: #333;
+        }
+        
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border);
+            padding: 3rem 2rem;
+            text-align: center;
+            background: linear-gradient(180deg, var(--primary-dim) 0%, var(--bg) 100%);
+        }
+
+        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; letter-spacing: -0.05em; color: var(--primary); }
+        h2 { color: var(--primary); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+
+        .card {
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+        }
+
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; color: var(--text-muted); font-size: 0.9rem; }
+        .form-group input {
+            width: 100%; padding: 0.8rem;
+            background: var(--bg); border: 1px solid var(--border);
+            color: var(--text); border-radius: 4px; font-family: monospace;
+            box-sizing: border-box;
+        }
+        .form-group input:focus { outline: none; border-color: var(--primary); }
+
+        button {
+            background: var(--primary); color: #000;
+            border: none; padding: 0.8rem 1.5rem;
+            border-radius: 4px; font-weight: bold; cursor: pointer;
+            width: 100%; transition: opacity 0.2s;
+        }
+        button:hover { opacity: 0.8; }
+
+        .result-box {
+            background: #000; border: 1px solid var(--border);
+            padding: 1rem; margin-top: 1rem; border-radius: 4px;
+            font-family: monospace; color: var(--primary);
+        }
+
+        .file-upload-wrapper {
+            border: 2px dashed var(--border);
+            padding: 2rem; text-align: center; border-radius: 8px;
+            cursor: pointer; background: var(--bg); transition: border-color 0.2s;
+        }
+        .file-upload-wrapper:hover { border-color: var(--primary); }
+        input[type="file"] { display: none; }
+        
+        .math-box {
+            background: var(--primary-dim); padding: 1rem;
+            border-radius: 8px; border-left: 4px solid var(--primary);
+            margin: 1.5rem 0; font-family: serif;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Institutional StatArb Engine</h1>
+        <p style="color: var(--text-muted);">Zero-dependency algorithmic trading pipeline. Principal Component Analysis & Mean-Reversion.</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="grid">
+            <!-- DATA UPLOADER -->
+            <div class="card">
+                <h2>Market Data Uploader</h2>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Upload historical asset returns (CSV format) to inject into the Covariance matrix.</p>
+                
+                <label class="file-upload-wrapper" id="drop-zone">
+                    <span id="file-name">Click to upload CSV data matrix</span>
+                    <input type="file" id="csv-file" accept=".csv" onchange="handleFileUpload(event)">
+                </label>
+
+                <div id="upload-status" class="result-box" style="display: none;">
+                    Waiting for data...
+                </div>
+            </div>
+
+            <!-- Z-SCORE / TRADE CALCULATOR -->
+            <div class="card">
+                <h2>StatArb Execution Calculator</h2>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Manually calculate the Ornstein-Uhlenbeck Z-score for live spread execution.</p>
+                
+                <div class="form-group">
+                    <label>Historical Spread Mean (\(\mu\))</label>
+                    <input type="number" id="spread-mean" value="0.0000" step="0.0001">
+                </div>
+                <div class="form-group">
+                    <label>Historical Spread Variance (\(\sigma^2\))</label>
+                    <input type="number" id="spread-var" value="0.0025" step="0.0001">
+                </div>
+                <div class="form-group">
+                    <label>Current Live Spread Value (\(X_t\))</label>
+                    <input type="number" id="spread-current" value="-0.0450" step="0.0001">
+                </div>
+
+                <button onclick="calculateSignal()">Generate Execution Signal</button>
+
+                <div class="result-box">
+                    <div>Z-SCORE: <span id="res-zscore">0.000</span></div>
+                    <div style="margin-top: 10px;">SIGNAL : <span id="res-signal">WAITING</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 3rem;">
+            <h2>The Mathematics</h2>
+            <p>This engine operates purely on mathematical abstractions, isolating alpha from dense covariance matrices using Householder Transformations and Eigenvalue extraction.</p>
+            <div class="math-box">
+                $$ Z_t = \frac{X_t - \mu}{\sqrt{\sigma^2}} $$
+            </div>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">* When \(Z_t > 2.0\), the algorithm initiates a short position on the spread. When \(Z_t < -2.0\), it initiates a long position.</p>
+        </div>
+
+    </div>
+
+    <script>
+        // Data Uploader Logic
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            document.getElementById('file-name').innerText = file.name;
+            const statusBox = document.getElementById('upload-status');
+            statusBox.style.display = 'block';
+            statusBox.innerText = 'Parsing CSV...';
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const text = e.target.result;
+                const rows = text.trim().split('\n');
+                if(rows.length > 0) {
+                    const cols = rows[0].split(',').length;
+                    statusBox.innerHTML = `SUCCESS.<br>Assets (Columns): ${cols}<br>Time Steps (Rows): ${rows.length}<br>Ready for matrix transformation.`;
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        // Calculator Logic
+        function calculateSignal() {
+            const mu = parseFloat(document.getElementById('spread-mean').value);
+            const variance = parseFloat(document.getElementById('spread-var').value);
+            const current = parseFloat(document.getElementById('spread-current').value);
+
+            if (variance <= 0) {
+                alert("Variance must be strictly positive.");
+                return;
+            }
+
+            const stdDev = Math.sqrt(variance);
+            const zScore = (current - mu) / stdDev;
+
+            document.getElementById('res-zscore').innerText = zScore.toFixed(4);
+            
+            let signal = "HOLD (Drift to Mean)";
+            let color = "var(--primary)";
+
+            if (zScore > 2.0) {
+                signal = "SHORT SPREAD (Overbought)";
+                color = "#ff4444"; // Red for short
+            } else if (zScore < -2.0) {
+                signal = "BUY SPREAD (Oversold)";
+                color = "#44ff44"; // Green for buy
+            }
+
+            const signalEl = document.getElementById('res-signal');
+            signalEl.innerText = signal;
+            signalEl.style.color = color;
+        }
+    </script>
+</body>
+</html>

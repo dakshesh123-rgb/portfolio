@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DAKSHESH DAS // FIRST-PRINCIPLES COMPUTATIONAL SYSTEMS</title>
+  <meta name="description" content="Portfolio of Dakshesh Das — 16-year-old computational physicist, systems engineer, and builder. Pure Python zero-dependency engines, quantum tunneling research, in-silico oncology docking, and statistical arbitrage.">
+  <meta name="theme-color" content="#050508">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="DAKSHESH DAS // First-Principles Computational Systems">
+  <meta property="og:description" content="16-Year-Old Researcher & Systems Architect. Quantum Mechanics, Biophysics, Algorithmic Finance, and the Warrior-Philosopher Manifesto.">
+  <meta property="og:type" content="website">
+
+  <!-- Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+  <!-- KaTeX for crisp mathematical equations -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+
+  <!-- Three.js & OrbitControls -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+  <!-- GSAP for buttery smooth animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Custom Magnetic Cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+  <div class="cursor-label"></div>
+
+  <!-- Background WebGL 3D Canvas -->
+  <div id="webgl-container">
+    <canvas id="webgl-canvas"></canvas>
+  </div>
+  <div class="canvas-overlay-noise"></div>
+  <div class="canvas-vignette"></div>
+
+  <!-- Site Content Shell -->
+  <div class="site-wrapper">
+
+    <!-- Top Navigation HUD -->
+    <header class="header-hud">
+      <a href="#hero" class="brand-monogram" data-cursor="CORE">
+        <div class="monogram-symbol">DD</div>
+        <div class="brand-details">
+          <span class="brand-name">DAKSHESH DAS</span>
+          <span class="brand-sub">
+            <span class="pulse-dot"></span>
+            16 Y/O • FIRST-PRINCIPLES LAB
+          </span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#works" class="nav-link active" data-cursor="VIEW">01. Works</a></li>
+          <li><a href="#lab" class="nav-link" data-cursor="EXPERIMENT">02. 3D Lab</a></li>
+          <li><a href="#omni" class="nav-link" data-cursor="STUDIO">03. Omni Studio</a></li>
+          <li><a href="#manifesto" class="nav-link" data-cursor="PHILOSOPHY">04. Manifesto</a></li>
+          <li><a href="#transmission" class="nav-link" data-cursor="TRANSMIT">05. Connect</a></li>
+        </ul>
+      </nav>
+
+      <!-- HUD Action Buttons -->
+      <div class="header-actions">
+        <button id="audio-toggle-btn" class="hud-btn" data-cursor="AUDIO">
+          <div class="audio-eq-bars">
+            <span></span><span></span><span></span>
+          </div>
+          <span class="audio-status-text">AUDIO: MUTED</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section">
+      <div class="hero-content">
+        <div class="hero-tagline">
+          <span class="pulse-dot"></span>
+          <span>EST. 2026 // COMPUTATIONAL FIRST-PRINCIPLES ARCHITECTURE</span>
+        </div>
+
+        <h1 class="hero-title">
+          DAKSHESH<br>DAS
+        </h1>
+
+        <p class="hero-statement">
+          <strong>16-year-old researcher, algorithmic engineer, and builder.</strong> Rejecting black boxes. Writing differential equation solvers, empirical force fields, and quantitative arbitrage pipelines from first principles in pure Python.
+        </p>
+
+        <!-- 3D Interactive Mode Selectors -->
+        <div class="hero-modes-strip">
+          <button class="mode-pill active" data-mode="quantum" data-cursor="3D MODE">
+            <span class="dot"></span> 01. Quantum Dynamics
+          </button>
+          <button class="mode-pill" data-mode="oncology" data-cursor="3D MODE">
+            <span class="dot"></span> 02. EGFR Oncology
+          </button>
+          <button class="mode-pill" data-mode="statarb" data-cursor="3D MODE">
+            <span class="dot"></span> 03. StatArb Surface
+          </button>
+          <button class="mode-pill" data-mode="radar" data-cursor="3D MODE">
+            <span class="dot"></span> 04. RF-Vision Radar
+          </button>
+          <button class="mode-pill" data-mode="aether" data-cursor="3D MODE">
+            <span class="dot"></span> 05. Aether Mesh
+          </button>
+        </div>
+
+        <!-- Telemetry Metrics Bar -->
+        <div class="hero-metrics-bar">
+          <div class="metric-item">
+            <div class="metric-val">11<span class="unit">+</span></div>
+            <div class="metric-label">Verifiable Codebases</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-val">2.3<span class="unit">M×</span></div>
+            <div class="metric-label">Curvature Tunneling Anomaly</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-val">0<span class="unit"> DEPS</span></div>
+            <div class="metric-label">Zero NumPy/Pandas In Core</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-val">180<span class="unit">CM</span></div>
+            <div class="metric-label">Warrior-Philosopher Build</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 01: SELECTED WORKS (Arian Atmar Editorial Master List) -->
+    <section id="works" class="section">
+      <div class="section-header">
+        <div class="section-label">
+          <span>// INDEX OF WORK</span>
+        </div>
+        <h2 class="section-title">Selected Systems</h2>
+        <p class="section-desc">
+          Every system built from fundamental mathematics. Zero artificial abstractions, zero borrowed assumptions.
+        </p>
+      </div>
+
+      <!-- Domain Filter Bar -->
+      <div class="works-filter-bar">
+        <button class="filter-btn active" data-filter="all">All Systems (11)</button>
+        <button class="filter-btn" data-filter="quantum">Quantum & Biophysics</button>
+        <button class="filter-btn" data-filter="systems">Quant & Distributed Systems</button>
+        <button class="filter-btn" data-filter="ai">Autonomous AI & Cyber</button>
+        <button class="filter-btn" data-filter="philosophy">Philosophical Treatises</button>
+      </div>
+
+      <!-- Works Master List (Dynamically Rendered) -->
+      <div id="works-list-container" class="works-list">
+        <!-- Rendered via app.js -->
+      </div>
+    </section>
+
+    <!-- SECTION 02: INTERACTIVE 3D SIMULATION LABORATORY -->
+    <section id="lab" class="section">
+      <div class="section-header">
+        <div class="section-label">
+          <span>// REAL-TIME COMPUTATION</span>
+        </div>
+        <h2 class="section-title">3D Simulation Lab</h2>
+        <p class="section-desc">
+          Directly manipulate physical and mathematical parameters. Rotate the 3D scene, alter potential barrier heights, and inspect non-equilibrium geometries.
+        </p>
+      </div>
+
+      <div class="lab-container">
+        <!-- Viewport HUD card -->
+        <div class="lab-viewport-card" data-cursor="ORBIT 3D">
+          <div class="lab-hud-overlay">
+            <div class="lab-telemetry-badge">
+              <span>ACTIVE SYSTEM: </span><span id="lab-active-mode-label" style="color: var(--accent-cyan); font-weight: 700;">QUANTUM HAMILTONIAN</span>
+            </div>
+            <div class="lab-telemetry-badge">
+              <span>SOLVER: </span><span style="color: var(--accent-gold);">STURM BISECTION 1D</span>
+            </div>
+          </div>
+          <div style="text-align: center; color: var(--text-muted); font-family: var(--font-mono); font-size: 0.8rem; pointer-events: none;">
+            <p style="margin-bottom: 0.5rem; color: #fff;">[ INTERACTIVE WEBGL VIEWPORT ]</p>
+            <p>Drag to rotate camera • Scroll to zoom</p>
+          </div>
+        </div>
+
+        <!-- Controls panel -->
+        <div class="lab-controls-panel">
+          <div class="control-group">
+            <div class="control-label">
+              <span>Barrier Height ($V_0$)</span>
+              <span class="val" id="val-barrier">1.40</span>
+            </div>
+            <input type="range" id="slider-barrier" min="0.5" max="3.0" step="0.05" value="1.40">
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Incident Wave Energy ($E$)</span>
+              <span class="val" id="val-energy">1.20</span>
+            </div>
+            <input type="range" id="slider-energy" min="0.2" max="2.5" step="0.05" value="1.20">
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Molecular Harmonic Vibration</span>
+              <span class="val" id="val-vibration">1.00</span>
+            </div>
+            <input type="range" id="slider-vibration" min="0.1" max="3.0" step="0.1" value="1.00">
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Market Volatility ($\sigma$)</span>
+              <span class="val" id="val-volatility">1.50</span>
+            </div>
+            <input type="range" id="slider-volatility" min="0.2" max="4.0" step="0.1" value="1.50">
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Radar Doppler Frequency</span>
+              <span class="val" id="val-radar">1.00</span>
+            </div>
+            <input type="range" id="slider-radar" min="0.4" max="2.5" step="0.1" value="1.00">
+          </div>
+
+          <div class="lab-toggle-row">
+            <button class="lab-btn active" data-lab-mode="quantum">Quantum</button>
+            <button class="lab-btn" data-lab-mode="oncology">EGFR Kinase</button>
+            <button class="lab-btn" data-lab-mode="statarb">StatArb</button>
+            <button class="lab-btn" data-lab-mode="radar">RF Radar</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 03: GENERATIVE MEDIA & GOOGLE OMNI STUDIO -->
+    <section id="omni" class="section">
+      <div class="section-header">
+        <div class="section-label">
+          <span>// GENERATIVE MEDIA & OMNI RENDERS</span>
+        </div>
+        <h2 class="section-title">Omni Studio & Video Lab</h2>
+        <p class="section-desc">
+          Cinematic visual blueprints engineered for Google Omni, Veo, and Blender rendering. Translating rigorous mathematical proofs into hyper-realistic physical simulations.
+        </p>
+      </div>
+
+      <div class="omni-studio-grid">
+        <!-- Omni Card 1: Quantum Wavefunction -->
+        <div class="omni-card">
+          <div class="omni-preview-box">
+            <span class="omni-badge">GOOGLE OMNI / VEO // 8K</span>
+            <img src="assets/qm_wavepacket.png" alt="Quantum Wavefield" class="omni-preview-img">
+          </div>
+          <div class="omni-card-body">
+            <div class="omni-card-title">01. Quantum Wavepacket Collision</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">
+              Photorealistic volumetric fluid simulation of a Gaussian probability density wavepacket tunneling through a curved titanium potential barrier.
+            </p>
+            <div class="omni-prompt-preview">
+              "Cinematic 8K octane render of a quantum probability wavepacket colliding against a non-standard curved Nordheim potential barrier in deep void, chromatic dispersion, volumetric iridescent glow, transmission wavelets emerging with subtle phase interference, anamorphic lens flare."
+            </div>
+            <button class="copy-prompt-btn" data-prompt="Cinematic 8K octane render of a quantum probability wavepacket colliding against a non-standard curved Nordheim potential barrier in deep void, chromatic dispersion, volumetric iridescent glow, transmission wavelets emerging with subtle phase interference, anamorphic lens flare.">
+              <span>Copy Omni Prompt</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Omni Card 2: EGFR Kinase Binding -->
+        <div class="omni-card">
+          <div class="omni-preview-box">
+            <span class="omni-badge">BLENDER + OMNI // CRYO-EM</span>
+            <img src="assets/cancer_covalent_kinetics.png" alt="EGFR Kinase" class="omni-preview-img">
+          </div>
+          <div class="omni-card-body">
+            <div class="omni-card-title">02. EGFR Kinase Cys797 Covalent Lock</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">
+              Cryo-EM molecular dynamics render showing 3rd-gen Osimertinib locking covalently into the mutated T790M kinase binding pocket.
+            </p>
+            <div class="omni-prompt-preview">
+              "Hyper-detailed molecular simulation of Osimertinib ligand docking into EGFR kinase catalytic cleft, iridescent carbon ribbons, golden covalent bond forming with Cys797 residue, steric methionine gatekeeper exclusion, depth of field, medical animation standard."
+            </div>
+            <button class="copy-prompt-btn" data-prompt="Hyper-detailed molecular simulation of Osimertinib ligand docking into EGFR kinase catalytic cleft, iridescent carbon ribbons, golden covalent bond forming with Cys797 residue, steric methionine gatekeeper exclusion, depth of field, medical animation standard.">
+              <span>Copy Omni Prompt</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Omni Card 3: Quantitative StatArb Manifold -->
+        <div class="omni-card">
+          <div class="omni-preview-box">
+            <span class="omni-badge">HOLOGRAPHIC // OMNI 3D</span>
+            <img src="assets/qm_shape_factor.png" alt="StatArb Manifold" class="omni-preview-img">
+          </div>
+          <div class="omni-card-body">
+            <div class="omni-card-title">03. High-Frequency Eigen-Surface</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">
+              Holographic 3D visualization of a multi-asset covariance surface undulating under Ornstein-Uhlenbeck mean-reverting pressure.
+            </p>
+            <div class="omni-prompt-preview">
+              "Dark architectural trading laboratory, floating 3D Riemannian financial manifold glowing in electric gold and cyan, principal component eigenvector rays intersecting with pulsing mean-reversion drift vectors, frosted glass reflections."
+            </div>
+            <button class="copy-prompt-btn" data-prompt="Dark architectural trading laboratory, floating 3D Riemannian financial manifold glowing in electric gold and cyan, principal component eigenvector rays intersecting with pulsing mean-reversion drift vectors, frosted glass reflections.">
+              <span>Copy Omni Prompt</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 04: THE WARRIOR-PHILOSOPHER MANIFESTO & ACTION TERMINAL -->
+    <section id="manifesto" class="section">
+      <div class="section-header">
+        <div class="section-label">
+          <span>// PHILOSOPHICAL FOUNDATIONS</span>
+        </div>
+        <h2 class="section-title">The Action Manifesto</h2>
+        <p class="section-desc">
+          How ruthless physical discipline and decisive execution cure analytical paralysis.
+        </p>
+      </div>
+
+      <div class="manifesto-layout">
+        <div class="manifesto-prose">
+          <blockquote class="creed-quote">
+            "You cannot defeat analytical overthinking with more thinking. Drop into the body, lift the iron, run the code, and execute."
+          </blockquote>
+
+          <div class="philosophy-card">
+            <div class="philosophy-title">
+              <span>🧠 The Dostoevskian Synthesis</span>
+            </div>
+            <p class="philosophy-text">
+              In <em>Notes from Underground</em>, acute self-awareness freezes men into inaction. When consciousness endlessly analyzes itself, it manufactures excuses: <em>"Does this even matter? Am I just wasting time?"</em> That is analytical inertia trying to halt momentum.
+            </p>
+            <p class="philosophy-text" style="margin-top: 1rem;">
+              The antidote is <strong>Action Mode</strong>. When high intellectual consciousness is anchored to physical iron discipline (180 cm athletic build, relentless gym discipline, conscious celibacy), it synthesizes into the <strong>Warrior-Philosopher</strong>: visionary, sharp, and decisive.
+            </p>
+
+            <ul class="creed-rules-list">
+              <li class="creed-rule-item">
+                <span class="creed-rule-num">01.</span>
+                <div><strong>Never apologize for high ambition.</strong> The world is shaped by those who refuse to be lukewarm.</div>
+              </li>
+              <li class="creed-rule-item">
+                <span class="creed-rule-num">02.</span>
+                <div><strong>When the mind doubts, the body acts.</strong> Physical discipline kills analytical paralysis.</div>
+              </li>
+              <li class="creed-rule-item">
+                <span class="creed-rule-num">03.</span>
+                <div><strong>Master the hard things first.</strong> Mathematics, algorithms, and leverage make you dangerous.</div>
+              </li>
+              <li class="creed-rule-item">
+                <span class="creed-rule-num">04.</span>
+                <div><strong>Stack proof, not words.</strong> Let the work speak for itself.</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Interactive Action Terminal -->
+        <div class="terminal-window" id="action-terminal">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="terminal-dot dot-red"></span>
+              <span class="terminal-dot dot-yellow"></span>
+              <span class="terminal-dot dot-green"></span>
+            </div>
+            <span class="terminal-title">dakshesh@core-terminal // zsh</span>
+          </div>
+
+          <div class="terminal-body">
+            <div id="term-output">
+              <div class="terminal-output"><span class="term-cyan">DAKSHESH DAS CORE OPERATING SYSTEM v2.6</span></div>
+              <div class="terminal-output"><span class="term-dim">Connected to First-Principles Architecture Matrix.</span></div>
+              <div class="terminal-output">Type '<span class="term-cyan">help</span>' to inspect valid system directives.</div>
+            </div>
+
+            <div class="terminal-input-row">
+              <span class="terminal-prompt">dakshesh@core:~$</span>
+              <input type="text" id="term-input" class="terminal-input" placeholder="Type a command (e.g. manifesto, whoami, qm)..." autocomplete="off" spellcheck="false">
+            </div>
+
+            <div class="quick-commands-bar">
+              <button class="quick-cmd-btn" data-cmd="manifesto">manifesto</button>
+              <button class="quick-cmd-btn" data-cmd="whoami">whoami</button>
+              <button class="quick-cmd-btn" data-cmd="stats">stats</button>
+              <button class="quick-cmd-btn" data-cmd="qm">qm</button>
+              <button class="quick-cmd-btn" data-cmd="cancer">cancer</button>
+              <button class="quick-cmd-btn" data-cmd="statarb">statarb</button>
+              <button class="quick-cmd-btn" data-cmd="lift">lift</button>
+              <button class="quick-cmd-btn" data-cmd="clear">clear</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 05: TRANSMISSION & FOOTER -->
+    <footer id="transmission" class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div>
+            <div class="section-label" style="margin-bottom: 0.5rem;">// INITIATE TRANSMISSION</div>
+            <div class="footer-big-title">
+              STACK PROOF.<br>
+              <span>BUILD EMPIRES.</span>
+            </div>
+          </div>
+
+          <div class="footer-contact-actions">
+            <p style="color: var(--text-muted); font-size: 0.95rem; max-width: 320px;">
+              Direct collaborations, mathematical research, algorithmic systems, and venture partnerships.
+            </p>
+            <a href="https://github.com/dakshesh123-rgb" target="_blank" rel="noopener noreferrer" class="footer-email-link" data-cursor="GITHUB">
+              github.com/dakshesh123-rgb ↗
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div>
+            <span>DAKSHESH DAS © 2026 // ALL RIGHTS RESERVED</span>
+          </div>
+
+          <div class="footer-links-row">
+            <a href="https://github.com/dakshesh123-rgb" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
+            <a href="https://dakshesh123-rgb.github.io/qm-project-website/" target="_blank" rel="noopener noreferrer" class="footer-link">QM Research Site</a>
+            <a href="#hero" class="footer-link">Back to Top ↑</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- PROJECT DEEP-DIVE MODAL DRAWER -->
+  <div id="project-modal" class="modal-overlay">
+    <div class="modal-drawer">
+      <button id="modal-close-btn" class="modal-close-btn" data-cursor="CLOSE">✕</button>
+
+      <div class="modal-header">
+        <div id="modal-index-tag" class="modal-index-tag">001 // QUANTUM COMPUTATION</div>
+        <h2 id="modal-title" class="modal-title">Quantum Tunneling Dynamics</h2>
+        <p id="modal-subtitle" class="modal-subtitle">Numerical Investigation of Quantum Tunneling</p>
+
+        <div id="modal-action-links" class="modal-action-links">
+          <!-- Dynamically populated links -->
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <!-- Telemetry Stats -->
+        <div>
+          <div class="modal-section-title">// SYSTEM BENCHMARKS</div>
+          <div id="modal-stats-container" class="hero-metrics-bar" style="border: none; padding: 0;">
+            <!-- Dynamically populated stats -->
+          </div>
+        </div>
+
+        <!-- Breakthrough -->
+        <div>
+          <div class="modal-section-title">// CORE BREAKTHROUGH</div>
+          <p id="modal-breakthrough-text" style="color: #cbd5e1; line-height: 1.7; font-size: 0.95rem;">
+            Breakthrough summary goes here.
+          </p>
+        </div>
+
+        <!-- Research Plot Figure -->
+        <div>
+          <div class="modal-section-title">// ARCHITECTURAL FIGURE</div>
+          <div class="modal-figure-wrapper">
+            <img id="modal-figure-img" src="" alt="Figure">
+            <div id="modal-figure-caption" class="modal-figure-caption">Figure caption</div>
+          </div>
+        </div>
+
+        <!-- Mathematical Foundation -->
+        <div>
+          <div class="modal-section-title">// MATHEMATICAL FORMULATION</div>
+          <div id="modal-math-formula" class="modal-math-box">
+            $$ i\hbar \frac{\partial \psi}{\partial t} = \hat{H}\psi $$
+          </div>
+        </div>
+
+        <!-- Pure Python Source Snippet -->
+        <div>
+          <div class="modal-section-title">// PURE PYTHON KERNEL SNIPPET</div>
+          <pre id="modal-code-snippet" class="modal-code-box"><code># Code snippet</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="three-scene.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
