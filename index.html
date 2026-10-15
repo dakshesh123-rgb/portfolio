@@ -1,482 +1,1251 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dakshesh Das — Computational Physicist & Systems Builder</title>
-  <meta name="description" content="16-year-old computational researcher & systems engineer. Developing numerical quantum mechanics, in-silico oncology drug docking, and zero-dependency statistical arbitrage engines.">
-  <meta name="theme-color" content="#000000">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dakshesh Das — Personal Projects, Code &amp; Notes</title>
+    <meta name="description" content="Personal portfolio and notebook of Dakshesh Das. Curious with a polymath approach — philosophical yet pragmatic. Numerical physics, Termux mobile systems, P2P networks, and grounded philosophy.">
+    <meta name="author" content="Dakshesh Das">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Dakshesh Das — Computational Physicist & Systems Builder">
-  <meta property="og:description" content="Engineered from first principles. Pure mathematics. Zero black boxes.">
-  <meta property="og:type" content="website">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Dakshesh Das — Personal Projects, Code &amp; Notes">
+    <meta property="og:description" content="Curious with a polymath approach — philosophical yet pragmatic. Numerical physics, Termux mobile systems, P2P tools, and notes on philosophy. Without hype.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/dakshesh123-rgb">
 
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Dakshesh Das — Personal Projects, Code &amp; Notes">
+    <meta name="twitter:description" content="Curious with a polymath approach — philosophical yet pragmatic. Numerical quantum mechanics, Termux mobile lab, P2P tools, and grounded philosophy.">
 
-  <!-- Apple Pro Stylesheet -->
-  <link rel="stylesheet" href="apple-style.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['Space Grotesk', 'Plus Jakarta Sans', 'sans-serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Instrument Serif', 'serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        obsidian: '#070709',
+                        obsidianCard: '#0F0F14',
+                        obsidianElevated: '#16161E',
+                        alabaster: '#F4F3EE',
+                        alabasterCard: '#EAE8E1',
+                        alabasterElevated: '#DFDDD4',
+                        amberAccent: '#FF5500',
+                        amberDark: '#E04800',
+                        emeraldAccent: '#00E676',
+                        crimsonAccent: '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* =====================================================
+           THEME TOKENS: OBSIDIAN DARK vs EDITORIAL ALABASTER
+           ===================================================== */
+        :root[data-theme="dark"] {
+            --bg-primary: #070709;
+            --bg-secondary: #0F0F14;
+            --bg-elevated: #16161E;
+            --text-primary: #F4F3EE;
+            --text-secondary: #A3A19A;
+            --text-muted: #5E5D58;
+            --border-color: rgba(244, 243, 238, 0.08);
+            --border-highlight: rgba(244, 243, 238, 0.16);
+            --accent: #FF5500;
+            --accent-glow: rgba(255, 85, 0, 0.18);
+            --pill-bg: rgba(244, 243, 238, 0.04);
+            --terminal-bg: #09090C;
+            --badge-bg: rgba(255, 85, 0, 0.12);
+            --badge-text: #FF5500;
+            --shadow-subtle: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        :root[data-theme="light"] {
+            --bg-primary: #F4F3EE;
+            --bg-secondary: #EAE8E1;
+            --bg-elevated: #DFDDD4;
+            --text-primary: #111113;
+            --text-secondary: #55544F;
+            --text-muted: #87857E;
+            --border-color: rgba(17, 17, 19, 0.11);
+            --border-highlight: rgba(17, 17, 19, 0.22);
+            --accent: #E04800;
+            --accent-glow: rgba(224, 72, 0, 0.12);
+            --pill-bg: rgba(17, 17, 19, 0.05);
+            --terminal-bg: #1A1A1E;
+            --badge-bg: rgba(224, 72, 0, 0.1);
+            --badge-text: #E04800;
+            --shadow-subtle: 0 10px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            min-height: 100vh;
+        }
+
+        /* Subtle Analog Film Grain Overlay */
+        .grain-overlay {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.028;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        /* Dynamic Theme Classes */
+        .theme-border { border-color: var(--border-color); }
+        .theme-border-highlight { border-color: var(--border-highlight); }
+        .theme-bg-sec { background-color: var(--bg-secondary); }
+        .theme-bg-elevated { background-color: var(--bg-elevated); }
+        .theme-text-sec { color: var(--text-secondary); }
+        .theme-text-muted { color: var(--text-muted); }
+        .theme-pill { background-color: var(--pill-bg); }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 5px; height: 5px; }
+        ::-webkit-scrollbar-track { background: var(--bg-primary); }
+        ::-webkit-scrollbar-thumb { background: var(--text-muted); border-radius: 4px; }
+
+        /* =====================================================
+           DUAL VIEWPORT SYSTEM (AUTO / MOBILE APP / PC STUDIO)
+           ===================================================== */
+        #workspace-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.75rem;
+        }
+
+        @media (min-width: 1024px) {
+            body[data-viewport="auto"] #workspace-container,
+            body[data-viewport="pc"] #workspace-container {
+                grid-template-columns: repeat(12, minmax(0, 1fr));
+                gap: 2.25rem;
+            }
+            body[data-viewport="auto"] #profile-column,
+            body[data-viewport="pc"] #profile-column {
+                grid-column: span 5 / span 5;
+            }
+            body[data-viewport="auto"] #content-column,
+            body[data-viewport="pc"] #content-column {
+                grid-column: span 7 / span 7;
+            }
+            body[data-viewport="auto"] #mobile-quick-dock,
+            body[data-viewport="pc"] #mobile-quick-dock {
+                display: none !important;
+            }
+        }
+
+        /* Forced Mobile Viewport Mockup */
+        body[data-viewport="mobile"] #app-shell {
+            max-width: 440px !important;
+            margin: 1.5rem auto 5.5rem auto !important;
+            border: 2px solid rgba(255, 85, 0, 0.4);
+            border-radius: 42px;
+            box-shadow: 0 30px 90px rgba(0, 0, 0, 0.85);
+            background-color: var(--bg-primary);
+            overflow: hidden;
+            position: relative;
+        }
+        body[data-viewport="mobile"] #workspace-container {
+            grid-template-columns: 1fr !important;
+            gap: 1.5rem !important;
+        }
+        body[data-viewport="mobile"] #profile-column {
+            order: 1;
+        }
+        body[data-viewport="mobile"] #content-column {
+            order: 2;
+        }
+        body[data-viewport="mobile"] #mobile-quick-dock {
+            display: block !important;
+            max-width: 440px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 0 0 40px 40px;
+        }
+
+        /* Forced PC Studio View */
+        body[data-viewport="pc"] #app-shell {
+            max-width: 1440px !important;
+        }
+        body[data-viewport="pc"] #workspace-container {
+            grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+            gap: 2.25rem !important;
+        }
+        body[data-viewport="pc"] #profile-column {
+            grid-column: span 5 / span 5 !important;
+            order: 1 !important;
+        }
+        body[data-viewport="pc"] #content-column {
+            grid-column: span 7 / span 7 !important;
+            order: 2 !important;
+        }
+        body[data-viewport="pc"] #mobile-quick-dock {
+            display: none !important;
+        }
+
+        /* Card interaction */
+        .project-card {
+            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255, 85, 0, 0.35);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        /* Terminal styling */
+        .term-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 15px;
+            background: #00E676;
+            vertical-align: middle;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+    </style>
 </head>
-<body>
+<body data-viewport="auto" class="selection:bg-[#FF5500] selection:text-white">
 
-  <!-- Apple Global Navigation Bar -->
-  <header class="apple-nav">
-    <div class="apple-nav-inner">
-      <a href="#" class="nav-brand">
-        <span class="dot-live"></span>
-        Dakshesh Das
-      </a>
+    <!-- Subtle Analog Film Grain -->
+    <div class="grain-overlay"></div>
 
-      <nav>
-        <ul class="nav-links-list">
-          <li class="nav-link-item"><a href="#overview">Overview</a></li>
-          <li class="nav-link-item"><a href="#flagship">Flagship Systems</a></li>
-          <li class="nav-link-item"><a href="#tech-specs">Tech Specs (11)</a></li>
-          <li class="nav-link-item"><a href="#philosophy">First Principles</a></li>
-        </ul>
-      </nav>
-
-      <a href="https://github.com/dakshesh123-rgb" target="_blank" rel="noopener noreferrer" class="nav-cta-btn">
-        GitHub ↗
-      </a>
-    </div>
-  </header>
-
-  <!-- Hero Keynote Announcement Section -->
-  <section id="overview" class="hero-keynote">
-    <!-- Interactive Quantum Wavefield Canvas -->
-    <canvas id="hero-canvas"></canvas>
-
-    <div class="hero-content-wrapper">
-      <div class="hero-eyebrow">
-        <span>Computational Physics &amp; Algorithmic Systems</span>
-        <span class="badge-pill">First Principles</span>
-      </div>
-
-      <h1 class="hero-headline">
-        Engineered from first principles.<br>
-        Pure mathematics. Zero black boxes.
-      </h1>
-
-      <p class="hero-subheadline">
-        <strong>Dakshesh Das</strong> — 16-year-old researcher writing numerical quantum tunneling solvers, empirical molecular mechanics for cancer drug discovery, and zero-dependency statistical arbitrage engines in pure Python.
-      </p>
-
-      <div class="hero-cta-group">
-        <a href="https://dakshesh123-rgb.github.io/qm-project-website/" target="_blank" rel="noopener noreferrer" class="apple-btn-primary">
-          Explore Quantum Paper ↗
-        </a>
-        <a href="https://github.com/dakshesh123-rgb" target="_blank" rel="noopener noreferrer" class="apple-btn-secondary">
-          View GitHub Profile ↗
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- At A Glance Key Specs Ribbon (Apple M-Series Style) -->
-  <section class="specs-ribbon">
-    <div class="specs-grid">
-      <div class="spec-item">
-        <div class="spec-number">2.3<span class="accent">M×</span></div>
-        <div class="spec-label">Tunneling Curvature Amplification over Textbook Models</div>
-      </div>
-
-      <div class="spec-item">
-        <div class="spec-number">0<span class="accent"> DEPS</span></div>
-        <div class="spec-label">Zero External Libraries in Core Numerical Engines (Pure Python)</div>
-      </div>
-
-      <div class="spec-item">
-        <div class="spec-number">11<span class="accent"> SYSTEMS</span></div>
-        <div class="spec-label">Verifiable Codebases Deployed Across Physics, Quant &amp; Systems</div>
-      </div>
-
-      <div class="spec-item">
-        <div class="spec-number">10<span class="accent">⁻¹²</span></div>
-        <div class="spec-label">Machine Precision in Sturm Sequence Hamiltonian Eigensolver</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Flagship Systems Bento Grid (Apple Pro Product Showcase) -->
-  <section id="flagship" class="section-bento">
-    <div class="section-eyebrow">// Flagship Systems</div>
-    <h2 class="section-heading">Built to solve the hardest problems.</h2>
-    <p class="section-subtext">
-      From quantum wave-packet collisions to in-silico oncology docking and high-frequency statistical arbitrage. Every system engineered from fundamental differential equations.
-    </p>
-
-    <div class="bento-grid">
-
-      <!-- Bento 1: Quantum Tunneling Dynamics (Span 8) -->
-      <div class="bento-card bento-span-8">
-        <div class="bento-card-media">
-          <img src="assets/qm_wavepacket.png" alt="Quantum Wavepacket Tunneling Simulation">
-        </div>
-        <div class="bento-card-body">
-          <div class="card-badge-row">
-            <span class="card-category-badge">Computational Quantum Mechanics</span>
-            <span class="card-year-tag">‘26 // 2026</span>
-          </div>
-          <h3 class="bento-card-title">Quantum Tunneling Dynamics</h3>
-          <p class="bento-card-desc">
-            Formal computational research paper proving that non-standard barrier curvature alters quantum transmission by up to 2,300,000× compared to rectangular textbook models. Pure Python 1D finite-difference Hamiltonian solver using Sturm sequence bisection and Crank-Nicolson TDSE.
-          </p>
-          <div class="bento-card-highlight">
-            <span>★ APS / arXiv Standard • 6 Tables • 8 Figures • Nordheim Principles</span>
-          </div>
-          <div class="bento-card-actions">
-            <a href="https://dakshesh123-rgb.github.io/qm-project-website/" target="_blank" rel="noopener noreferrer" class="card-pill-btn primary">
-              Live Research Site ↗
+    <!-- =====================================================
+         1. EDITORIAL HEADER BAR
+         ===================================================== -->
+    <header class="sticky top-0 z-50 border-b theme-border backdrop-blur-xl transition-colors duration-300" style="background-color: color-mix(in srgb, var(--bg-primary) 90%, transparent);">
+        <div class="max-w-[1440px] mx-auto px-4 sm:px-8 h-16 sm:h-20 flex items-center justify-between gap-3">
+            
+            <!-- Left: Identity -->
+            <a href="#" class="flex items-center gap-2.5 sm:gap-3 group focus:outline-none">
+                <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#FF5500] text-white font-mono font-bold text-xs flex items-center justify-center shadow-lg shadow-[#FF5500]/20">
+                    d.
+                </div>
+                <div>
+                    <div class="flex items-center gap-1.5 sm:gap-2">
+                        <span class="font-display font-bold text-sm sm:text-base tracking-tight">dakshesh das</span>
+                        <span class="font-mono text-[10px] px-1.5 py-0.5 rounded bg-[#FF5500]/15 text-[#FF5500] font-semibold border border-[#FF5500]/25">DEV</span>
+                    </div>
+                    <span class="font-mono text-[10px] theme-text-muted block leading-none mt-0.5">curious • polymath approach</span>
+                </div>
             </a>
-            <a href="https://github.com/dakshesh123-rgb/qm-project-website" target="_blank" rel="noopener noreferrer" class="card-pill-btn">
-              View Repository ↗
+
+            <!-- Center: Viewport Mode Switcher (Nocturne Architecture) -->
+            <div class="flex items-center gap-1 p-1 rounded-full theme-pill border theme-border font-mono text-[10px] sm:text-[11px]">
+                <button onclick="setViewportMode('auto')" id="vp-btn-auto" class="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-[#FF5500] text-white font-semibold transition-all">
+                    AUTO
+                </button>
+                <button onclick="setViewportMode('mobile')" id="vp-btn-mobile" class="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full theme-text-sec hover:text-[var(--text-primary)] transition-all flex items-center gap-1">
+                    <i class="ph-bold ph-device-mobile"></i>
+                    <span class="hidden sm:inline">PHONE</span>
+                </button>
+                <button onclick="setViewportMode('pc')" id="vp-btn-pc" class="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full theme-text-sec hover:text-[var(--text-primary)] transition-all flex items-center gap-1">
+                    <i class="ph-bold ph-desktop"></i>
+                    <span class="hidden sm:inline">PC STUDIO</span>
+                </button>
+            </div>
+
+            <!-- Right: Quick Links & Theme Toggle -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <a href="https://github.com/dakshesh123-rgb" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border theme-border theme-pill font-mono text-xs hover:border-[#FF5500] transition-colors" title="GitHub Profile">
+                    <i class="ph-bold ph-github-logo text-sm"></i>
+                    <span>GitHub</span>
+                </a>
+                
+                <a href="https://x.com/dakshesh123-rgb" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border theme-border theme-pill font-mono text-xs hover:border-[#FF5500] transition-colors" title="X (Twitter) Profile">
+                    <i class="ph-bold ph-x-logo text-sm"></i>
+                    <span>X</span>
+                </a>
+
+                <button onclick="toggleTheme()" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full border theme-border theme-pill flex items-center justify-center hover:border-[#FF5500] transition-colors" title="Toggle Dark/Light Mode">
+                    <i id="theme-icon" class="ph ph-sun text-base"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- =====================================================
+         2. MAIN APP SHELL
+         ===================================================== -->
+    <main id="app-shell" class="max-w-[1440px] mx-auto px-4 sm:px-8 pt-6 sm:pt-10 pb-28 lg:pb-16 transition-all duration-300">
+        
+        <div id="workspace-container">
+
+            <!-- -------------------------------------------------
+                 LEFT COLUMN: IDENTITY & CONTEXT (STICKY ON PC)
+                 ------------------------------------------------- -->
+            <aside id="profile-column" class="space-y-6">
+                
+                <!-- Main Identity Card -->
+                <div class="p-6 sm:p-7 rounded-3xl border theme-border theme-bg-sec relative overflow-hidden">
+                    <div class="flex items-start justify-between gap-4 mb-4">
+                        <div>
+                            <span class="font-mono text-[10px] tracking-widest uppercase px-2 py-0.5 rounded-full bg-[#FF5500]/15 text-[#FF5500] font-bold">
+                                PALAKKAD, KERALA // INDIA
+                            </span>
+                            <h1 class="font-display font-bold text-3xl sm:text-4xl tracking-tight mt-2.5">
+                                Dakshesh Das<span class="text-[#FF5500]">.</span>
+                            </h1>
+                            <p class="font-mono text-xs theme-text-sec mt-1">
+                                Curious • Polymath Approach
+                            </p>
+                        </div>
+
+                        <!-- Status Indicator -->
+                        <div class="flex flex-col items-end">
+                            <span class="flex items-center gap-1.5 font-mono text-[11px] text-[#00E676] bg-[#00E676]/10 px-2.5 py-1 rounded-full border border-[#00E676]/25">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#00E676] animate-pulse"></span>
+                                BUILDING
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Grounded, Neutral Bio -->
+                    <p class="text-sm leading-relaxed theme-text-sec mb-5 font-normal">
+                        Curious with a polymath approach — philosophical yet pragmatic. Exploring computational physics, low-level systems, algorithms, and timeless ideas from first principles, with an emphasis on building verifiable implementations over passive theory.
+                    </p>
+
+                    <div class="p-3.5 rounded-2xl theme-bg-elevated border theme-border mb-5">
+                        <div class="font-mono text-[11px] theme-text-muted mb-1 flex items-center gap-1.5">
+                            <i class="ph-bold ph-quotes text-xs text-[#FF5500]"></i>
+                            <span>WORKING MOTTO</span>
+                        </div>
+                        <p class="font-serif italic text-base sm:text-lg leading-snug">
+                            "Think deeply, act intentionally. All the theories are great, but what matters is what we implement."
+                        </p>
+                    </div>
+
+                    <!-- Verified Profile Details -->
+                    <div class="space-y-2 font-mono text-xs border-t theme-border pt-4">
+                        <div class="flex items-center justify-between">
+                            <span class="theme-text-muted">Primary Rig:</span>
+                            <span class="font-medium text-xs">Android + Termux / PRoot Linux</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="theme-text-muted">Core Focus:</span>
+                            <span class="font-medium text-xs">Pure Python, 1D Hamiltonian, P2P</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="theme-text-muted">Local Time:</span>
+                            <span id="live-clock" class="font-semibold text-[#FF5500]">--:--:-- IST</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="theme-text-muted">Repositories:</span>
+                            <span class="font-semibold">11 Public on GitHub</span>
+                        </div>
+                    </div>
+
+                    <!-- Direct Contact / Social Strip -->
+                    <div class="grid grid-cols-2 gap-2 mt-5">
+                        <a href="https://github.com/dakshesh123-rgb" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl border theme-border theme-pill hover:border-[#FF5500] font-mono text-xs transition-colors">
+                            <i class="ph-bold ph-github-logo text-sm"></i>
+                            <span>github.com</span>
+                        </a>
+                        <a href="https://x.com/dakshesh123-rgb" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl border theme-border theme-pill hover:border-[#FF5500] font-mono text-xs transition-colors">
+                            <i class="ph-bold ph-x-logo text-sm"></i>
+                            <span>@dakshesh</span>
+                        </a>
+                        <a href="mailto:dasdakshesh123@gmail.com" class="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl border theme-border theme-pill hover:border-[#FF5500] font-mono text-xs transition-colors">
+                            <i class="ph-bold ph-envelope text-sm"></i>
+                            <span>Email</span>
+                        </a>
+                        <a href="https://essay-blog-3ne.pages.dev" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl border theme-border theme-pill hover:border-[#FF5500] font-mono text-xs transition-colors">
+                            <i class="ph-bold ph-notebook text-sm"></i>
+                            <span>Essays</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Navigation Quick-Links (Desktop) -->
+                <div class="p-4 rounded-3xl border theme-border theme-bg-sec font-mono text-xs space-y-1">
+                    <div class="px-3 py-1 text-[10px] theme-text-muted uppercase tracking-wider font-semibold">
+                        Page Jump
+                    </div>
+                    <a href="#projects" class="block px-3 py-2 rounded-xl hover:bg-white/5 transition-colors flex items-center justify-between">
+                        <span>01 // Selected Projects</span>
+                        <span class="theme-text-muted text-[10px]">10 items</span>
+                    </a>
+                    <a href="#termux-lab" class="block px-3 py-2 rounded-xl hover:bg-white/5 transition-colors flex items-center justify-between">
+                        <span>02 // The Termux Environment</span>
+                        <span class="text-[#00E676] text-[10px]">Interactive CLI</span>
+                    </a>
+                    <a href="#philosophy" class="block px-3 py-2 rounded-xl hover:bg-white/5 transition-colors flex items-center justify-between">
+                        <span>03 // Philosophy &amp; Notes</span>
+                        <span class="theme-text-muted text-[10px]">Action vs Inertia</span>
+                    </a>
+                    <a href="#directory" class="block px-3 py-2 rounded-xl hover:bg-white/5 transition-colors flex items-center justify-between">
+                        <span>04 // Full Systems Registry</span>
+                        <span class="theme-text-muted text-[10px]">Table</span>
+                    </a>
+                </div>
+
+                <!-- Grounded Note on Tooling -->
+                <div class="p-5 rounded-3xl border theme-border theme-bg-sec space-y-2">
+                    <div class="flex items-center gap-2 font-mono text-xs text-[#FF5500]">
+                        <i class="ph-bold ph-terminal-window text-sm"></i>
+                        <span class="font-semibold">WHY ZERO DEPENDENCIES?</span>
+                    </div>
+                    <p class="text-xs theme-text-sec leading-relaxed">
+                        When coding on a phone without high-powered hardware, relying on gigantic third-party packages causes friction. Implementing matrix bisection, QR decompositions, and WebRTC protocols in pure standard library code guarantees complete comprehension and removes black boxes.
+                    </p>
+                </div>
+            </aside>
+
+            <!-- -------------------------------------------------
+                 RIGHT COLUMN: WORK, TERMUX & ESSAYS
+                 ------------------------------------------------- -->
+            <section id="content-column" class="space-y-10">
+
+                <!-- SECTION 1: PROJECTS -->
+                <div id="projects" class="space-y-4">
+                    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b theme-border pb-3">
+                        <div>
+                            <span class="font-mono text-[10px] text-[#FF5500] uppercase tracking-wider font-bold">
+                                // ARCHIVE OF WORK
+                            </span>
+                            <h2 class="font-display font-bold text-2xl sm:text-3xl tracking-tight mt-0.5">
+                                Small Projects &amp; Experiments
+                            </h2>
+                        </div>
+                        <span class="font-mono text-xs theme-text-muted">
+                            Factual • Zero hype
+                        </span>
+                    </div>
+
+                    <!-- Category Filter Buttons -->
+                    <div class="flex flex-wrap gap-1.5 font-mono text-[11px] pb-1">
+                        <button onclick="filterProjects('all')" class="proj-filter px-3 py-1 rounded-full bg-[#FF5500] text-white font-medium" data-cat="all">All (10)</button>
+                        <button onclick="filterProjects('physics')" class="proj-filter px-3 py-1 rounded-full theme-pill border theme-border theme-text-sec hover:text-white" data-cat="physics">Physics &amp; Math</button>
+                        <button onclick="filterProjects('systems')" class="proj-filter px-3 py-1 rounded-full theme-pill border theme-border theme-text-sec hover:text-white" data-cat="systems">Systems &amp; P2P</button>
+                        <button onclick="filterProjects('tools')" class="proj-filter px-3 py-1 rounded-full theme-pill border theme-border theme-text-sec hover:text-white" data-cat="tools">Tools &amp; Android</button>
+                    </div>
+
+                    <!-- Project Cards Grid -->
+                    <div class="grid grid-cols-1 gap-4" id="projects-grid">
+
+                        <!-- 01. Quantum Mechanics Paper -->
+                        <div class="project-card p-5 sm:p-6 rounded-3xl border theme-border theme-bg-sec" data-cat="physics">
+                            <div class="flex items-start justify-between gap-2 mb-2.5">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-mono text-xs px-2 py-0.5 rounded bg-[#FF5500]/15 text-[#FF5500] font-bold">01</span>
+                                    <span class="font-mono text-[11px] theme-text-muted uppercase">Physics / Numerical Solver</span>
+                                </div>
+                                <span class="font-mono text-[10px] theme-text-sec">2026</span>
+                            </div>
+                            <h3 class="font-display font-bold text-lg sm:text-xl tracking-tight mb-2">
+                                Quantum Tunneling Through Non-Standard Barriers
+                            </h3>
+                            <p class="text-xs sm:text-sm theme-text-sec leading-relaxed mb-4">
+                                A 1D finite-difference Schrödinger equation solver written in pure Python (zero external dependencies). Solves tridiagonal Hamiltonian eigenvalues using Sturm sequence bisection and simulates time-dependent wave-packet collisions via Crank-Nicolson. Systematically examined how barrier curvature (exponential, Gaussian, trapezoidal) alters transmission by orders of magnitude compared to standard rectangular textbook models.
+                            </p>
+                            <div class="flex flex-wrap gap-1.5 font-mono text-[10px] mb-4">
+                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">Pure Python 3</span>
+                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">Sturm Bisection</span>
+                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">Crank-Nicolson TDSE</span>
+                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">6 Tables • 8 Plots</span>
+                            </div>
+                            <div class="flex items-center gap-3 font-mono text-xs">
+                                <a href="https://dakshesh123-rgb.github.io/qm-project-website/" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-full bg-[#FF5500] text-white font-semibold flex items-center gap-1 hover:opacity-90">
+                                    <span>Live Research Site</span>
+                                    <i class="ph-bold ph-arrow-up-right text-xs"></i>
+                                </a>
+                                <a href="https://github.com/dakshesh123-rgb/qm-project-website" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-full border theme-border theme-pill theme-text-sec hover:border-[#FF5500] flex items-center gap-1">
+                                    <i class="ph-bold ph-github-logo text-xs"></i>
+                                    <span>Source Code</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- 02. Nocturne Protocol -->
+                        <div class="project-card p-5 sm:p-6 rounded-3xl border theme-border theme-bg-sec" data-cat="tools">
+                            <div class="flex items-start justify-between gap-2 mb-2.5">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-mono text-xs px-2 py-0.5 rounded bg-[#FF5500]/15 text-[#FF5500] font-bold">02</span>
+                                    <span class="font-mono text-[11px] theme-text-muted uppercase">Digital Wellbeing / Web App</span>
+                                </div>
+                                <span class="font-mono text-[10px] theme-text-sec">2026</span>
+                            </div>
+                            <h3 class="font-display font-bold text-lg sm:text-xl tracking-tight mb-2">
+                                NOCTURNE // PROTOCOL — Circadian Enforcement System
+                            </h3>
+                            <p class="text-xs sm:text-sm theme-text-sec leading-relaxed mb-4">
+                                A brutalist-editorial web application designed to combat late-night screen addiction and sleep procrastination. Implements an automatic circadian phase tracker, 56px tactile touch dial bedtime calibrator, guided 4-7-8 parasympathetic breathing rhythm, scotopic red blackout mode, and dual viewport architecture (phone view &amp; PC studio).
+                            </p>
+                            <div class="flex flex-wrap gap-1.5 font-mono text-[10px] mb-4">
+                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">Tailwind CSS</span>
+                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">Dual Viewport Engine</span>
+                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">Scotopic Red Mode</span>
+                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">GSAP</span>
+                            </div>
+                            <div class="flex items-center gap-3 font-mono text-xs">
+                                <span class="px-3 py-1.5 rounded-full border border-[#00E676]/30 bg-[#00E676]/10 text-[#00E676] flex items-center gap-1">
+                                    <i class="ph-fill ph-check-circle text-xs"></i>
+                                    <span>Local Web App Completed</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- 03. Aether P2P -->
+                        <div class="project-card p-5 sm:p-6 rounded-3xl border theme-border theme-bg-sec" data-cat="systems">
+                            <div class="flex items-start justify-between gap-2 mb-2.5">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-mono text-xs px-2 py-0.5 rounded bg-[#FF5500]/15 text-[#FF5500] font-bold">03</span>
+                                    <span class="font-mono text-[11px] theme-text-muted uppercase">Distributed Mesh / P2P</span>
+                                </div>
+                                <span class="font-mono text-[10px] theme-text-sec">2026</span>
+                            </div>
+                            <h3 class="font-display font-bold text-lg sm:text-xl tracking-tight mb-2">
+                                Aether P2P Encrypted Mesh
+                            </h3>
+                            <p class="text-xs sm:text-sm theme-text-sec leading-relaxed mb-4">
+                                Serverless, browser-to-browser peer-to-peer communication and data transfer built over native WebRTC data channels. Features client-side ephemeral key generation using ECDH P-256 and payload encryption using AES-256-GCM, eliminating centralized databases and message logging.
+                            </p>
+                            <div class="flex flex-wrap gap-1.5 font-mono text-[10px] mb-4">
+                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">WebRTC DataChannel</span>
+                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">Web Crypto API</span>
+                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">ECDH P-256</span>
+                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">Cloudflare Pages</span>
+                            </div>
+                            <div class="flex items-center gap-3 font-mono text-xs">
+                                <a href="https://aether-p2p.pages.dev" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-full bg-[#FF5500] text-white font-semibold flex items-center gap-1 hover:opacity-90">
+                                    <span>Live App</span>
+                                    <i class="ph-bold ph-arrow-up-right text-xs"></i>
+                                </a>
+                                <a href="https://github.com/dakshesh123-rgb/aether-p2p" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-full border theme-border theme-pill theme-text-sec hover:border-[#FF5500] flex items-center gap-1">
+                                    <i class="ph-bold ph-github-logo text-xs"></i>
+                                    <span>Repository</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- 04. Pure Python StatArb -->
+                        <div class="project-card p-5 sm:p-6 rounded-3xl border theme-border theme-bg-sec" data-cat="physics">
+                            <div class="flex items-start justify-between gap-2 mb-2.5">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-mono text-xs px-2 py-0.5 rounded bg-[#FF5500]/15 text-[#FF5500] font-bold">04</span>
+                                    <span class="font-mono text-[11px] theme-text-muted uppercase">Quantitative Algorithms</span>
+                                </div>
+                                <span class="font-mono text-[10px] theme-text-sec">2026</span>
+                            </div>
+                            <h3 class="font-display font-bold text-lg sm:text-xl tracking-tight mb-2">
+                                Zero-Dependency Statistical Arbitrage Engine
+                            </h3>
+                            <p class="text-xs sm:text-sm theme-text-sec leading-relaxed mb-4">
+                                An educational algorithmic trading simulation written with zero external libraries (no NumPy, no Pandas, no SciPy). Implements Householder QR tridiagonalization from first principles for covariance matrix decomposition, alongside Ornstein-Uhlenbeck stochastic differential equation models for mean-reversion analysis.
+                            </p>
+                            <div class="flex flex-wrap gap-1.5 font-mono text-[10px] mb-4">
+                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">Python Standard Library</span>
+                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">Householder QR</span>
+                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">Ornstein-Uhlenbeck SDE</span>
+                            </div>
+                            <div class="flex items-center gap-3 font-mono text-xs">
+                                <a href="https://github.com/dakshesh123-rgb/pure-python-statarb" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-full border theme-border theme-pill theme-text-sec hover:border-[#FF5500] flex items-center gap-1">
+                                    <i class="ph-bold ph-github-logo text-xs"></i>
+                                    <span>View on GitHub</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- 05. AI JEE Mentor -->
+                        <div class="project-card p-5 sm:p-6 rounded-3xl border theme-border theme-bg-sec" data-cat="tools">
+                            <div class="flex items-start justify-between gap-2 mb-2.5">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-mono text-xs px-2 py-0.5 rounded bg-[#FF5500]/15 text-[#FF5500] font-bold">05</span>
+                                    <span class="font-mono text-[11px] theme-text-muted uppercase">Educational AI / Physics</span>
+                                </div>
+                                <span class="font-mono text-[10px] theme-text-sec">2026</span>
+                            </div>
+                            <h3 class="font-display font-bold text-lg sm:text-xl tracking-tight mb-2">
+                                AI JEE Socratic Mentor
+                            </h3>
+                            <p class="text-xs sm:text-sm theme-text-sec leading-relaxed mb-4">
+                                A specialized AI assistant interface created for students preparing for the competitive IIT-JEE Advanced examination in Physics and Mathematics. Utilizes structured Socratic guidance to prompt students to derive formulas step-by-step rather than passively reading solution keys.
+                            </p>
+                            <div class="flex flex-wrap gap-1.5 font-mono text-[10px] mb-4">
+                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">LLM Reasoning Loops</span>
+                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">Socratic Prompting</span>
+                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">Cloudflare Pages</span>
+                            </div>
+                            <div class="flex items-center gap-3 font-mono text-xs">
+                                <a href="https://ai-jee-mentor-2eu.pages.dev" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-full bg-[#FF5500] text-white font-semibold flex items-center gap-1 hover:opacity-90">
+                                    <span>Live Prototype</span>
+                                    <i class="ph-bold ph-arrow-up-right text-xs"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- 06. Pythonix -->
+                        <div class="project-card p-5 sm:p-6 rounded-3xl border theme-border theme-bg-sec" data-cat="tools">
+                            <div class="flex items-start justify-between gap-2 mb-2.5">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-mono text-xs px-2 py-0.5 rounded bg-[#FF5500]/15 text-[#FF5500] font-bold">06</span>
+                                    <span class="font-mono text-[11px] theme-text-muted uppercase">Developer Sandbox</span>
+                                </div>
+                                <span class="font-mono text-[10px] theme-text-sec">2026</span>
+                            </div>
+                            <h3 class="font-display font-bold text-lg sm:text-xl tracking-tight mb-2">
+                                Pythonix — In-Browser Python Playground
+                            </h3>
+                            <p class="text-xs sm:text-sm theme-text-sec leading-relaxed mb-4">
+                                Fast, client-side interactive code playground and AST inspector for Python learners. Allows rapid validation of algorithm logic directly in the browser without setup hurdles.
+                            </p>
+                            <div class="flex items-center gap-3 font-mono text-xs">
+                                <a href="https://github.com/dakshesh123-rgb/pythonix" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-full border theme-border theme-pill theme-text-sec hover:border-[#FF5500] flex items-center gap-1">
+                                    <i class="ph-bold ph-github-logo text-xs"></i>
+                                    <span>Repository</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- 07. Usage Analytics -->
+                        <div class="project-card p-5 sm:p-6 rounded-3xl border theme-border theme-bg-sec" data-cat="tools">
+                            <div class="flex items-start justify-between gap-2 mb-2.5">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-mono text-xs px-2 py-0.5 rounded bg-[#FF5500]/15 text-[#FF5500] font-bold">07</span>
+                                    <span class="font-mono text-[11px] theme-text-muted uppercase">Android / Kotlin</span>
+                                </div>
+                                <span class="font-mono text-[10px] theme-text-sec">2026</span>
+                            </div>
+                            <h3 class="font-display font-bold text-lg sm:text-xl tracking-tight mb-2">
+                                Usage Analytics (Android Utility)
+                            </h3>
+                            <p class="text-xs sm:text-sm theme-text-sec leading-relaxed mb-4">
+                                A native Android utility built using Jetpack Compose and `PACKAGE_USAGE_STATS` to inspect app transition sequences and device wake-up habits. Developed to understand dopamine loops and decrease involuntary phone pickups.
+                            </p>
+                            <div class="flex items-center gap-3 font-mono text-xs">
+                                <span class="px-3 py-1.5 rounded-full theme-pill border theme-border theme-text-muted">
+                                    Kotlin • Jetpack Compose
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- 08. Essay Blog -->
+                        <div class="project-card p-5 sm:p-6 rounded-3xl border theme-border theme-bg-sec" data-cat="systems">
+                            <div class="flex items-start justify-between gap-2 mb-2.5">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-mono text-xs px-2 py-0.5 rounded bg-[#FF5500]/15 text-[#FF5500] font-bold">08</span>
+                                    <span class="font-mono text-[11px] theme-text-muted uppercase">Writing &amp; Notebook</span>
+                                </div>
+                                <span class="font-mono text-[10px] theme-text-sec">2026</span>
+                            </div>
+                            <h3 class="font-display font-bold text-lg sm:text-xl tracking-tight mb-2">
+                                Personal Essays &amp; Critical Notes
+                            </h3>
+                            <p class="text-xs sm:text-sm theme-text-sec leading-relaxed mb-4">
+                                A minimal, typography-centric publishing system hosting personal essays on consciousness, Dostoevskian psychology (*Notes from Underground*), Bhagavad Gita philosophy, and breaking intellectual inertia with physical discipline.
+                            </p>
+                            <div class="flex items-center gap-3 font-mono text-xs">
+                                <a href="https://essay-blog-3ne.pages.dev" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-full bg-[#FF5500] text-white font-semibold flex items-center gap-1 hover:opacity-90">
+                                    <span>Read Essays</span>
+                                    <i class="ph-bold ph-arrow-up-right text-xs"></i>
+                                </a>
+                                <a href="https://github.com/dakshesh123-rgb/essay-blog" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-full border theme-border theme-pill theme-text-sec hover:border-[#FF5500] flex items-center gap-1">
+                                    <i class="ph-bold ph-github-logo text-xs"></i>
+                                    <span>Repository</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- 09. Palakkad Spots -->
+                        <div class="project-card p-5 sm:p-6 rounded-3xl border theme-border theme-bg-sec" data-cat="tools">
+                            <div class="flex items-start justify-between gap-2 mb-2.5">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-mono text-xs px-2 py-0.5 rounded bg-[#FF5500]/15 text-[#FF5500] font-bold">09</span>
+                                    <span class="font-mono text-[11px] theme-text-muted uppercase">Local Guide</span>
+                                </div>
+                                <span class="font-mono text-[10px] theme-text-sec">2026</span>
+                            </div>
+                            <h3 class="font-display font-bold text-lg sm:text-xl tracking-tight mb-2">
+                                Palakkad Spots Directory
+                            </h3>
+                            <p class="text-xs sm:text-sm theme-text-sec leading-relaxed mb-4">
+                                A lightweight local web guide highlighting quiet, scenic, and authentic spots around Palakkad, Kerala. Built simply with clean HTML/CSS.
+                            </p>
+                            <div class="flex items-center gap-3 font-mono text-xs">
+                                <a href="https://palakkad-spots.netlify.app/" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-full border theme-border theme-pill theme-text-sec hover:border-[#FF5500] flex items-center gap-1">
+                                    <span>Visit Site</span>
+                                    <i class="ph-bold ph-arrow-up-right text-xs"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- 10. GPS Globe -->
+                        <div class="project-card p-5 sm:p-6 rounded-3xl border theme-border theme-bg-sec" data-cat="systems">
+                            <div class="flex items-start justify-between gap-2 mb-2.5">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-mono text-xs px-2 py-0.5 rounded bg-[#FF5500]/15 text-[#FF5500] font-bold">10</span>
+                                    <span class="font-mono text-[11px] theme-text-muted uppercase">Geospatial Experiment</span>
+                                </div>
+                                <span class="font-mono text-[10px] theme-text-sec">2026</span>
+                            </div>
+                            <h3 class="font-display font-bold text-lg sm:text-xl tracking-tight mb-2">
+                                GPS Globe Visualizer
+                            </h3>
+                            <p class="text-xs sm:text-sm theme-text-sec leading-relaxed mb-4">
+                                Interactive coordinate mapping and 3D globe visualization rendering satellite geolocation coordinates.
+                            </p>
+                            <div class="flex items-center gap-3 font-mono text-xs">
+                                <a href="https://github.com/dakshesh123-rgb/gps-globe" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-full border theme-border theme-pill theme-text-sec hover:border-[#FF5500] flex items-center gap-1">
+                                    <i class="ph-bold ph-github-logo text-xs"></i>
+                                    <span>Repository</span>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- SECTION 2: THE TERMUX MOBILE WORKSTATION -->
+                <div id="termux-lab" class="space-y-4">
+                    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b theme-border pb-3">
+                        <div>
+                            <span class="font-mono text-[10px] text-[#00E676] uppercase tracking-wider font-bold">
+                                // MOBILE COMPUTING SETUP
+                            </span>
+                            <h2 class="font-display font-bold text-2xl sm:text-3xl tracking-tight mt-0.5">
+                                The Termux Mobile Lab
+                            </h2>
+                        </div>
+                        <span class="font-mono text-xs theme-text-muted">
+                            Linux on Android • PRoot Ubuntu
+                        </span>
+                    </div>
+
+                    <!-- Practical Explanation -->
+                    <div class="p-6 rounded-3xl border theme-border theme-bg-sec space-y-3">
+                        <div class="flex items-center gap-2 font-mono text-xs text-[#00E676]">
+                            <i class="ph-bold ph-android-logo text-base"></i>
+                            <span class="font-bold">DEVELOPMENT WITHOUT A DESKTOP PC</span>
+                        </div>
+                        <p class="text-sm theme-text-sec leading-relaxed">
+                            Rather than waiting to acquire an expensive workstation, I configured a full Unix development setup right on my Android phone using <strong>Termux</strong> and <strong>PRoot Linux</strong>.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 font-mono text-xs pt-2">
+                            <div class="p-3 rounded-2xl theme-bg-elevated border theme-border">
+                                <div class="text-[#FF5500] font-bold text-[11px] mb-1">PRoot Ubuntu</div>
+                                <div class="theme-text-muted text-[11px]">Full Linux userland running without root permissions.</div>
+                            </div>
+                            <div class="p-3 rounded-2xl theme-bg-elevated border theme-border">
+                                <div class="text-[#FF5500] font-bold text-[11px] mb-1">Standard Python</div>
+                                <div class="theme-text-muted text-[11px]">Compiling and running matrix ODE solvers in seconds.</div>
+                            </div>
+                            <div class="p-3 rounded-2xl theme-bg-elevated border theme-border">
+                                <div class="text-[#FF5500] font-bold text-[11px] mb-1">Git &amp; Cloudflare</div>
+                                <div class="theme-text-muted text-[11px]">Pushing code and deploying web tools anywhere, anytime.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Termux Terminal Simulator -->
+                    <div class="rounded-3xl border theme-border overflow-hidden shadow-2xl" style="background-color: var(--terminal-bg);">
+                        <!-- Terminal Bar -->
+                        <div class="px-4 py-3 border-b theme-border flex items-center justify-between text-xs font-mono theme-text-muted bg-black/40">
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-[#DC2626]/80"></span>
+                                <span class="w-3 h-3 rounded-full bg-[#FFB800]/80"></span>
+                                <span class="w-3 h-3 rounded-full bg-[#00E676]/80"></span>
+                                <span class="ml-2 text-white/70">dakshesh@termux: ~</span>
+                            </div>
+                            <span class="text-[10px] hidden sm:inline">aarch64 • 8 cores • Linux 5.10</span>
+                        </div>
+
+                        <!-- Terminal Output Window -->
+                        <div class="p-4 sm:p-5 font-mono text-xs space-y-3 min-h-[220px] max-h-[360px] overflow-y-auto text-zinc-300" id="term-log">
+                            <div>
+                                <span class="text-[#00E676]">dakshesh@android</span>:<span class="text-[#FF5500]">~</span>$ uname -mrs<br>
+                                <span class="text-zinc-400">Linux 5.10.149-android aarch64 (PRoot Ubuntu)</span>
+                            </div>
+                            <div>
+                                <span class="text-[#00E676]">dakshesh@android</span>:<span class="text-[#FF5500]">~</span>$ cat ~/environment.txt<br>
+                                <span class="text-zinc-400">
+                                • Hardware: Mobile handset (arm64)<br>
+                                • Shell: Bash + Termux<br>
+                                • Workspace: /root/qm_project &amp; /root/portfolio<br>
+                                • Toolchain: Python 3.14, Git, Neovim, Wrangler CLI
+                                </span>
+                            </div>
+                            <div id="term-dynamic"></div>
+                            <div class="flex items-center gap-1">
+                                <span class="text-[#00E676]">dakshesh@android</span>:<span class="text-[#FF5500]">~</span>$&nbsp;<span id="term-cmd-display" class="text-white"></span><span class="term-cursor"></span>
+                            </div>
+                        </div>
+
+                        <!-- Interactive Terminal Controls -->
+                        <div class="p-3 border-t theme-border bg-black/30 flex flex-wrap items-center gap-2 font-mono text-[11px]">
+                            <span class="text-zinc-500 text-[10px] mr-1">RUN COMMAND:</span>
+                            <button onclick="runTermCmd('qm_solver')" class="px-2.5 py-1 rounded-lg theme-pill border theme-border hover:border-[#00E676] text-zinc-300 hover:text-white transition-colors">
+                                ./run_qm_solver.py
+                            </button>
+                            <button onclick="runTermCmd('neofetch')" class="px-2.5 py-1 rounded-lg theme-pill border theme-border hover:border-[#00E676] text-zinc-300 hover:text-white transition-colors">
+                                neofetch
+                            </button>
+                            <button onclick="runTermCmd('philosophy')" class="px-2.5 py-1 rounded-lg theme-pill border theme-border hover:border-[#00E676] text-zinc-300 hover:text-white transition-colors">
+                                cat notes.txt
+                            </button>
+                            <button onclick="runTermCmd('git_status')" class="px-2.5 py-1 rounded-lg theme-pill border theme-border hover:border-[#00E676] text-zinc-300 hover:text-white transition-colors">
+                                git status
+                            </button>
+                            <button onclick="runTermCmd('clear')" class="px-2.5 py-1 rounded-lg theme-pill border theme-border hover:border-[#DC2626] text-zinc-400 hover:text-white transition-colors ml-auto">
+                                clear
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECTION 3: PHILOSOPHY WITHOUT EXAGGERATION -->
+                <div id="philosophy" class="space-y-4">
+                    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b theme-border pb-3">
+                        <div>
+                            <span class="font-mono text-[10px] text-[#FF5500] uppercase tracking-wider font-bold">
+                                // MINDSET &amp; INQUIRIES
+                            </span>
+                            <h2 class="font-display font-bold text-2xl sm:text-3xl tracking-tight mt-0.5">
+                                Philosophy Without Exaggeration
+                            </h2>
+                        </div>
+                        <span class="font-mono text-xs theme-text-muted">
+                            Notes &amp; Principles
+                        </span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        
+                        <!-- Card 1: Action vs Inertia -->
+                        <div class="p-6 rounded-3xl border theme-border theme-bg-sec space-y-2.5">
+                            <div class="flex items-center gap-2 font-mono text-xs text-[#FF5500]">
+                                <i class="ph-bold ph-lightning text-sm"></i>
+                                <span class="font-bold">THE "UNDERGROUND" INERTIA</span>
+                            </div>
+                            <h3 class="font-display font-bold text-base">Overcoming Analytical Paralysis</h3>
+                            <p class="text-xs sm:text-sm theme-text-sec leading-relaxed">
+                                Dostoevsky's <em>Notes from Underground</em> illustrates the danger of acute self-consciousness: hyper-analyzing everything until you cannot act. You cannot think your way out of overthinking. The only real antidote is physical grounding—daily physical training, lifting, and shipping functional code. When in doubt, the body acts.
+                            </p>
+                        </div>
+
+                        <!-- Card 2: Consume to Execute -->
+                        <div class="p-6 rounded-3xl border theme-border theme-bg-sec space-y-2.5">
+                            <div class="flex items-center gap-2 font-mono text-xs text-[#00E676]">
+                                <i class="ph-bold ph-check-square-offset text-sm"></i>
+                                <span class="font-bold">CONSUMPTION TO ACTION</span>
+                            </div>
+                            <h3 class="font-display font-bold text-base">No Fluff, Just Practice</h3>
+                            <p class="text-xs sm:text-sm theme-text-sec leading-relaxed">
+                                Reading articles and books without immediate practical execution is passive entertainment masquerading as work. Every piece of consumed knowledge must be distilled into a clear, verifiable action, script, or habit within a defined time limit.
+                            </p>
+                        </div>
+
+                        <!-- Card 3: The Law of 33% -->
+                        <div class="p-6 rounded-3xl border theme-border theme-bg-sec space-y-2.5">
+                            <div class="flex items-center gap-2 font-mono text-xs text-[#FF5500]">
+                                <i class="ph-bold ph-chart-pie-slice text-sm"></i>
+                                <span class="font-bold">THE LAW OF 33%</span>
+                            </div>
+                            <h3 class="font-display font-bold text-base">Grounded Calibration</h3>
+                            <p class="text-xs sm:text-sm theme-text-sec leading-relaxed">
+                                Spend 33% of time with mentors and books who push you far past comfort; 33% with peers on the same level to collaborate with; and 33% teaching and simplifying ideas for those beginning. It preserves humility while preventing complacency.
+                            </p>
+                        </div>
+
+                        <!-- Card 4: Duty & Detachment -->
+                        <div class="p-6 rounded-3xl border theme-border theme-bg-sec space-y-2.5">
+                            <div class="flex items-center gap-2 font-mono text-xs text-[#00E676]">
+                                <i class="ph-bold ph-compass text-sm"></i>
+                                <span class="font-bold">GITA &amp; STOIC REFLECTION</span>
+                            </div>
+                            <h3 class="font-display font-bold text-base">Execution Without Hype</h3>
+                            <p class="text-xs sm:text-sm theme-text-sec leading-relaxed">
+                                Constant attachment to external outcome, praise, or vanity creates anxiety. Grounding oneself in duty (doing the work with complete technical rigor without needing to brag) is the most sustainable way to build longevity.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Reading List Strip -->
+                    <div class="p-5 sm:p-6 rounded-3xl border theme-border theme-bg-sec space-y-3">
+                        <div class="font-mono text-xs theme-text-muted uppercase tracking-wider flex items-center justify-between">
+                            <span>Influential Texts &amp; Books Read</span>
+                            <span>Direct list from personal notes</span>
+                        </div>
+                        <div class="flex flex-wrap gap-2 font-mono text-xs">
+                            <span class="px-3 py-1.5 rounded-xl theme-pill border theme-border">Notes from Underground (Dostoevsky)</span>
+                            <span class="px-3 py-1.5 rounded-xl theme-pill border theme-border">Bhagavad Gita</span>
+                            <span class="px-3 py-1.5 rounded-xl theme-pill border theme-border">Meditations (Marcus Aurelius)</span>
+                            <span class="px-3 py-1.5 rounded-xl theme-pill border theme-border">1984 (George Orwell)</span>
+                            <span class="px-3 py-1.5 rounded-xl theme-pill border theme-border">Arthashastra &amp; Chanakya Neeti</span>
+                            <span class="px-3 py-1.5 rounded-xl theme-pill border theme-border">Zero to One (Peter Thiel)</span>
+                            <span class="px-3 py-1.5 rounded-xl theme-pill border theme-border">White Nights (Dostoevsky)</span>
+                            <span class="px-3 py-1.5 rounded-xl theme-pill border theme-border">Ikigai</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECTION 4: FULL SYSTEMS DIRECTORY -->
+                <div id="directory" class="space-y-4">
+                    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b theme-border pb-3">
+                        <div>
+                            <span class="font-mono text-[10px] text-[#FF5500] uppercase tracking-wider font-bold">
+                                // COMPLETE DIRECTORY
+                            </span>
+                            <h2 class="font-display font-bold text-2xl sm:text-3xl tracking-tight mt-0.5">
+                                Systems Registry
+                            </h2>
+                        </div>
+                        <span class="font-mono text-xs theme-text-muted">
+                            All 10 Verifiable Works
+                        </span>
+                    </div>
+
+                    <div class="rounded-3xl border theme-border theme-bg-sec overflow-hidden">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left font-mono text-xs">
+                                <thead>
+                                    <tr class="border-b theme-border bg-white/[0.02] text-zinc-400">
+                                        <th class="py-3 px-4 font-semibold">#</th>
+                                        <th class="py-3 px-4 font-semibold">Project Name</th>
+                                        <th class="py-3 px-4 font-semibold hidden sm:table-cell">Discipline</th>
+                                        <th class="py-3 px-4 font-semibold">Implementation</th>
+                                        <th class="py-3 px-4 font-semibold text-right">Link</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y theme-border">
+                                    <tr class="hover:bg-white/[0.02] transition-colors">
+                                        <td class="py-3 px-4 text-[#FF5500] font-bold">01</td>
+                                        <td class="py-3 px-4 font-medium font-sans">Quantum Tunneling Solver</td>
+                                        <td class="py-3 px-4 theme-text-muted hidden sm:table-cell">Computational Physics</td>
+                                        <td class="py-3 px-4 theme-text-sec text-[11px]">Pure Python Sturm &amp; Crank-Nicolson</td>
+                                        <td class="py-3 px-4 text-right">
+                                            <a href="https://dakshesh123-rgb.github.io/qm-project-website/" target="_blank" rel="noopener noreferrer" class="text-[#FF5500] hover:underline">Site ↗</a>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-white/[0.02] transition-colors">
+                                        <td class="py-3 px-4 text-[#FF5500] font-bold">02</td>
+                                        <td class="py-3 px-4 font-medium font-sans">Nocturne Protocol</td>
+                                        <td class="py-3 px-4 theme-text-muted hidden sm:table-cell">Circadian Architecture</td>
+                                        <td class="py-3 px-4 theme-text-sec text-[11px]">Brutalist Phone Lock &amp; Breathing Pacer</td>
+                                        <td class="py-3 px-4 text-right text-zinc-500">Local</td>
+                                    </tr>
+                                    <tr class="hover:bg-white/[0.02] transition-colors">
+                                        <td class="py-3 px-4 text-[#FF5500] font-bold">03</td>
+                                        <td class="py-3 px-4 font-medium font-sans">Aether P2P Mesh</td>
+                                        <td class="py-3 px-4 theme-text-muted hidden sm:table-cell">Distributed Systems</td>
+                                        <td class="py-3 px-4 theme-text-sec text-[11px]">Serverless WebRTC ECDH P-256</td>
+                                        <td class="py-3 px-4 text-right">
+                                            <a href="https://aether-p2p.pages.dev" target="_blank" rel="noopener noreferrer" class="text-[#FF5500] hover:underline">App ↗</a>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-white/[0.02] transition-colors">
+                                        <td class="py-3 px-4 text-[#FF5500] font-bold">04</td>
+                                        <td class="py-3 px-4 font-medium font-sans">Pure Python StatArb</td>
+                                        <td class="py-3 px-4 theme-text-muted hidden sm:table-cell">Algorithmic Finance</td>
+                                        <td class="py-3 px-4 theme-text-sec text-[11px]">Householder QR &amp; Ornstein-Uhlenbeck</td>
+                                        <td class="py-3 px-4 text-right">
+                                            <a href="https://github.com/dakshesh123-rgb/pure-python-statarb" target="_blank" rel="noopener noreferrer" class="text-[#FF5500] hover:underline">Git ↗</a>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-white/[0.02] transition-colors">
+                                        <td class="py-3 px-4 text-[#FF5500] font-bold">05</td>
+                                        <td class="py-3 px-4 font-medium font-sans">AI JEE Socratic Mentor</td>
+                                        <td class="py-3 px-4 theme-text-muted hidden sm:table-cell">Educational AI</td>
+                                        <td class="py-3 px-4 theme-text-sec text-[11px]">First-Principles Physics Derivations</td>
+                                        <td class="py-3 px-4 text-right">
+                                            <a href="https://ai-jee-mentor-2eu.pages.dev" target="_blank" rel="noopener noreferrer" class="text-[#FF5500] hover:underline">App ↗</a>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-white/[0.02] transition-colors">
+                                        <td class="py-3 px-4 text-[#FF5500] font-bold">06</td>
+                                        <td class="py-3 px-4 font-medium font-sans">Pythonix Cloud Sandbox</td>
+                                        <td class="py-3 px-4 theme-text-muted hidden sm:table-cell">Developer Tooling</td>
+                                        <td class="py-3 px-4 theme-text-sec text-[11px]">Client-Side In-Browser Python AST</td>
+                                        <td class="py-3 px-4 text-right">
+                                            <a href="https://github.com/dakshesh123-rgb/pythonix" target="_blank" rel="noopener noreferrer" class="text-[#FF5500] hover:underline">Git ↗</a>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-white/[0.02] transition-colors">
+                                        <td class="py-3 px-4 text-[#FF5500] font-bold">07</td>
+                                        <td class="py-3 px-4 font-medium font-sans">Usage Analytics</td>
+                                        <td class="py-3 px-4 theme-text-muted hidden sm:table-cell">Android Systems</td>
+                                        <td class="py-3 px-4 theme-text-sec text-[11px]">Kotlin Compose Screen-Time Tracker</td>
+                                        <td class="py-3 px-4 text-right text-zinc-500">APK</td>
+                                    </tr>
+                                    <tr class="hover:bg-white/[0.02] transition-colors">
+                                        <td class="py-3 px-4 text-[#FF5500] font-bold">08</td>
+                                        <td class="py-3 px-4 font-medium font-sans">Personal Essays Blog</td>
+                                        <td class="py-3 px-4 theme-text-muted hidden sm:table-cell">Philosophy &amp; Notes</td>
+                                        <td class="py-3 px-4 theme-text-sec text-[11px]">Cloudflare Edge + Vanilla JS</td>
+                                        <td class="py-3 px-4 text-right">
+                                            <a href="https://essay-blog-3ne.pages.dev" target="_blank" rel="noopener noreferrer" class="text-[#FF5500] hover:underline">Blog ↗</a>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-white/[0.02] transition-colors">
+                                        <td class="py-3 px-4 text-[#FF5500] font-bold">09</td>
+                                        <td class="py-3 px-4 font-medium font-sans">Palakkad Spots</td>
+                                        <td class="py-3 px-4 theme-text-muted hidden sm:table-cell">Local Web</td>
+                                        <td class="py-3 px-4 theme-text-sec text-[11px]">Kerala Local Directory &amp; Map</td>
+                                        <td class="py-3 px-4 text-right">
+                                            <a href="https://palakkad-spots.netlify.app/" target="_blank" rel="noopener noreferrer" class="text-[#FF5500] hover:underline">Site ↗</a>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-white/[0.02] transition-colors">
+                                        <td class="py-3 px-4 text-[#FF5500] font-bold">10</td>
+                                        <td class="py-3 px-4 font-medium font-sans">GPS Globe</td>
+                                        <td class="py-3 px-4 theme-text-muted hidden sm:table-cell">Geospatial</td>
+                                        <td class="py-3 px-4 theme-text-sec text-[11px]">3D Coordinate Plotter</td>
+                                        <td class="py-3 px-4 text-right">
+                                            <a href="https://github.com/dakshesh123-rgb/gps-globe" target="_blank" rel="noopener noreferrer" class="text-[#FF5500] hover:underline">Git ↗</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Minimal Footer -->
+                <footer class="pt-8 border-t theme-border font-mono text-xs theme-text-muted flex flex-col sm:flex-row items-center justify-between gap-3">
+                    <div>
+                        dakshesh das • palakkad kerala india • 2026
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <a href="https://github.com/dakshesh123-rgb" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">GitHub</a>
+                        <a href="https://x.com/dakshesh123-rgb" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">X</a>
+                        <a href="mailto:dasdakshesh123@gmail.com" class="hover:text-white transition-colors">Email</a>
+                        <a href="#" class="text-[#FF5500] hover:underline">Back to Top ↑</a>
+                    </div>
+                </footer>
+
+            </section>
+        </div>
+    </main>
+
+    <!-- =====================================================
+         3. MOBILE QUICK DOCK (VISIBLE ON MOBILE ONLY)
+         ===================================================== -->
+    <nav id="mobile-quick-dock" class="fixed bottom-0 inset-x-0 z-40 p-3 bg-black/85 backdrop-blur-xl border-t theme-border">
+        <div class="max-w-md mx-auto grid grid-cols-4 gap-1 font-mono text-[10px] text-center">
+            <a href="#projects" class="py-2 px-1 rounded-xl theme-pill hover:bg-white/10 flex flex-col items-center gap-1">
+                <i class="ph-bold ph-squares-four text-base text-[#FF5500]"></i>
+                <span>Works</span>
             </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bento 2: Zero-Dependency StatArb Engine (Span 4) -->
-      <div class="bento-card bento-span-4">
-        <div class="bento-card-media">
-          <img src="assets/qm_shape_factor.png" alt="StatArb Volatility Manifold">
-        </div>
-        <div class="bento-card-body">
-          <div class="card-badge-row">
-            <span class="card-category-badge">Quantitative Finance</span>
-            <span class="card-year-tag">‘26 // 2026</span>
-          </div>
-          <h3 class="bento-card-title">Zero-Dependency StatArb Engine</h3>
-          <p class="bento-card-desc">
-            Algorithmic trading engine isolating alpha from asset return covariance matrices using Householder QR tridiagonalization and Ornstein-Uhlenbeck mean-reversion SDEs. Built with zero external math libraries (no numpy, no pandas).
-          </p>
-          <div class="bento-card-highlight">
-            <span>★ 100% Native Standard Library Matrix Algebra</span>
-          </div>
-          <div class="bento-card-actions">
-            <a href="https://github.com/dakshesh123-rgb/pure-python-statarb" target="_blank" rel="noopener noreferrer" class="card-pill-btn primary">
-              View Repository ↗
+            <a href="#termux-lab" class="py-2 px-1 rounded-xl theme-pill hover:bg-white/10 flex flex-col items-center gap-1">
+                <i class="ph-bold ph-terminal text-base text-[#00E676]"></i>
+                <span>Termux</span>
             </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bento 3: In-Silico EGFR Drug Discovery (Span 4) -->
-      <div class="bento-card bento-span-4">
-        <div class="bento-card-media">
-          <img src="assets/cancer_covalent_kinetics.png" alt="EGFR Kinase Covalent Docking">
-        </div>
-        <div class="bento-card-body">
-          <div class="card-badge-row">
-            <span class="card-category-badge">Biophysics &amp; Oncology</span>
-            <span class="card-year-tag">‘26 // 2026</span>
-          </div>
-          <h3 class="bento-card-title">In-Silico EGFR Drug Discovery</h3>
-          <p class="bento-card-desc">
-            Complete empirical force field (AMBER-style) and steepest-descent Cartesian minimizer in pure Python. Verified Osimertinib covalent locking to Cys797 overcoming the T790M resistance mutation.
-          </p>
-          <div class="bento-card-highlight">
-            <span>★ Lennard-Jones 12-6 • Cys797 Covalent Lock</span>
-          </div>
-          <div class="bento-card-actions">
-            <a href="#tech-specs" class="card-pill-btn">
-              View Specs ↓
+            <a href="#philosophy" class="py-2 px-1 rounded-xl theme-pill hover:bg-white/10 flex flex-col items-center gap-1">
+                <i class="ph-bold ph-book-open text-base text-[#FF5500]"></i>
+                <span>Notes</span>
             </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bento 4: RF-Vision Ghost Murmur Radar (Span 4) -->
-      <div class="bento-card bento-span-4">
-        <div class="bento-card-media">
-          <img src="assets/qm_resonant_tunneling.png" alt="RF CSI Phase Response">
-        </div>
-        <div class="bento-card-body">
-          <div class="card-badge-row">
-            <span class="card-category-badge">Defense &amp; Signal Processing</span>
-            <span class="card-year-tag">‘26 // 2026</span>
-          </div>
-          <h3 class="bento-card-title">RF-Vision // Ghost Murmur</h3>
-          <p class="bento-card-desc">
-            Wi-Fi Channel State Information (CSI) passive detector tracking sub-millimeter chest wall displacements (respiration + cardiac Doppler shifts) through concrete walls without wearables.
-          </p>
-          <div class="bento-card-highlight">
-            <span>★ Subcarrier Phase Sanitization • 0.2 - 2.5 Hz DSP</span>
-          </div>
-          <div class="bento-card-actions">
-            <a href="#tech-specs" class="card-pill-btn">
-              View Specs ↓
+            <a href="https://github.com/dakshesh123-rgb" target="_blank" rel="noopener noreferrer" class="py-2 px-1 rounded-xl theme-pill hover:bg-white/10 flex flex-col items-center gap-1">
+                <i class="ph-bold ph-github-logo text-base text-zinc-300"></i>
+                <span>GitHub</span>
             </a>
-          </div>
         </div>
-      </div>
+    </nav>
 
-      <!-- Bento 5: HexStrike AI Cybersecurity Platform (Span 4) -->
-      <div class="bento-card bento-span-4">
-        <div class="bento-card-media">
-          <img src="assets/hexstrike_logo.png" alt="HexStrike AI Security Platform">
-        </div>
-        <div class="bento-card-body">
-          <div class="card-badge-row">
-            <span class="card-category-badge">Autonomous Cybersecurity</span>
-            <span class="card-year-tag">‘24 // 2024</span>
-          </div>
-          <h3 class="bento-card-title">HexStrike AI Platform</h3>
-          <p class="bento-card-desc">
-            Autonomous Model Context Protocol (MCP) red-teaming orchestrator connecting AI reasoning loops to 120+ vulnerability scanning tools, CVE verification, and automated threat graphs.
-          </p>
-          <div class="bento-card-highlight">
-            <span>★ Model Context Protocol v6.0 Swarm</span>
-          </div>
-          <div class="bento-card-actions">
-            <a href="https://github.com/0x4m4/hexstrike-ai" target="_blank" rel="noopener noreferrer" class="card-pill-btn primary">
-              View Repository ↗
-            </a>
-          </div>
-        </div>
-      </div>
+    <!-- =====================================================
+         4. JAVASCRIPT LOGIC & INTERACTIVITY
+         ===================================================== -->
+    <script>
+        // --- 1. Live Indian Standard Time (IST UTC+5:30) Clock ---
+        function updateClock() {
+            const now = new Date();
+            // Calculate IST
+            const options = { timeZone: 'Asia/Kolkata', hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            const timeStr = new Intl.DateTimeFormat('en-GB', options).format(now);
+            const el = document.getElementById('live-clock');
+            if (el) el.textContent = timeStr + ' IST';
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
 
-    </div>
-  </section>
+        // --- 2. Theme Toggler (Obsidian Dark vs Alabaster Light) ---
+        function toggleTheme() {
+            const html = document.documentElement;
+            const current = html.getAttribute('data-theme') || 'dark';
+            const next = current === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', next);
+            localStorage.setItem('dakshesh_theme', next);
+            
+            const icon = document.getElementById('theme-icon');
+            if (icon) {
+                icon.className = next === 'dark' ? 'ph ph-sun text-base' : 'ph ph-moon text-base';
+            }
+        }
 
-  <!-- Complete Systems Tech Specs Table (All 11 Projects) -->
-  <section id="tech-specs" class="section-specs-table">
-    <div class="section-eyebrow">// Systems Directory</div>
-    <h2 class="section-heading">Compare All 11 Systems.</h2>
-    <p class="section-subtext">
-      A complete, transparent archive of all computational codebases, papers, and deployed platforms.
-    </p>
+        // Initialize Theme from localStorage
+        (function initTheme() {
+            const saved = localStorage.getItem('dakshesh_theme');
+            if (saved) {
+                document.documentElement.setAttribute('data-theme', saved);
+                const icon = document.getElementById('theme-icon');
+                if (icon) {
+                    icon.className = saved === 'dark' ? 'ph ph-sun text-base' : 'ph ph-moon text-base';
+                }
+            }
+        })();
 
-    <!-- Filter Pills -->
-    <div class="filter-pills-bar">
-      <button class="filter-pill active" data-filter="all">All Systems (11)</button>
-      <button class="filter-pill" data-filter="physics">Physics &amp; Biophysics</button>
-      <button class="filter-pill" data-filter="quant">Quantitative Finance</button>
-      <button class="filter-pill" data-filter="systems">Distributed &amp; Cyber Systems</button>
-    </div>
+        // --- 3. Viewport Mode Switcher (Nocturne Dual-Viewport Architecture) ---
+        function setViewportMode(mode) {
+            document.body.setAttribute('data-viewport', mode);
+            
+            const buttons = ['auto', 'mobile', 'pc'];
+            buttons.forEach(b => {
+                const btn = document.getElementById(`vp-btn-${b}`);
+                if (!btn) return;
+                if (b === mode) {
+                    btn.className = 'px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-[#FF5500] text-white font-semibold transition-all';
+                } else {
+                    btn.className = 'px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full theme-text-sec hover:text-[var(--text-primary)] transition-all flex items-center gap-1';
+                }
+            });
 
-    <!-- Tech Specs Table -->
-    <div class="specs-table-wrapper">
+            // Smooth scroll into view if user changed to mobile mode
+            if (mode === 'mobile') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
 
-      <!-- 001 -->
-      <div class="table-row" data-category="physics">
-        <div class="table-col-num">001</div>
-        <div class="table-col-title">
-          <div class="table-project-name">Quantum Tunneling Dynamics</div>
-          <div class="table-project-tag">Quantum Mechanics // 2026</div>
-        </div>
-        <div class="table-col-desc">
-          Numerical 1D finite-difference Hamiltonian solver. Proved barrier curvature alters quantum transmission by up to 2.3×10⁶× compared to rectangular models. APS standard paper with 6 tables and 8 figures.
-        </div>
-        <div class="table-col-action">
-          <a href="https://dakshesh123-rgb.github.io/qm-project-website/" target="_blank" rel="noopener noreferrer" class="table-btn primary">Live Site ↗</a>
-          <a href="https://github.com/dakshesh123-rgb/qm-project-website" target="_blank" rel="noopener noreferrer" class="table-btn">GitHub ↗</a>
-        </div>
-      </div>
+        // --- 4. Project Filtering ---
+        function filterProjects(cat) {
+            const cards = document.querySelectorAll('#projects-grid .project-card');
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-cat');
+                if (cat === 'all' || cardCat === cat) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
 
-      <!-- 002 -->
-      <div class="table-row" data-category="physics">
-        <div class="table-col-num">002</div>
-        <div class="table-col-title">
-          <div class="table-project-name">EGFR In-Silico Oncology</div>
-          <div class="table-project-tag">Biophysics // 2026</div>
-        </div>
-        <div class="table-col-desc">
-          AMBER empirical force fields and steepest-descent Cartesian minimizer built in pure Python. Verified Osimertinib covalent locking to Cys797 residue overcoming T790M drug resistance.
-        </div>
-        <div class="table-col-action">
-          <span class="table-btn" style="opacity: 0.6;">Paper Stage</span>
-        </div>
-      </div>
+            // Update filter pill styles
+            document.querySelectorAll('.proj-filter').forEach(btn => {
+                if (btn.getAttribute('data-cat') === cat) {
+                    btn.className = 'proj-filter px-3 py-1 rounded-full bg-[#FF5500] text-white font-medium';
+                } else {
+                    btn.className = 'proj-filter px-3 py-1 rounded-full theme-pill border theme-border theme-text-sec hover:text-white';
+                }
+            });
+        }
 
-      <!-- 003 -->
-      <div class="table-row" data-category="quant">
-        <div class="table-col-num">003</div>
-        <div class="table-col-title">
-          <div class="table-project-name">Zero-Dependency StatArb</div>
-          <div class="table-project-tag">Algorithmic Finance // 2026</div>
-        </div>
-        <div class="table-col-desc">
-          Zero external dependencies (no numpy, no pandas). Native Householder QR tridiagonalization, eigenvalue extraction, and Ornstein-Uhlenbeck mean-reversion trade execution.
-        </div>
-        <div class="table-col-action">
-          <a href="https://github.com/dakshesh123-rgb/pure-python-statarb" target="_blank" rel="noopener noreferrer" class="table-btn primary">GitHub ↗</a>
-        </div>
-      </div>
+        // --- 5. Interactive Termux Simulator ---
+        const terminalCommands = {
+            qm_solver: [
+                "$ python3 verify_pure_python.py",
+                "[*] Initializing Tridiagonal Hamiltonian Grid (N=400)...",
+                "[+] Sturm sequence bisection initialized. Precision: 1e-12",
+                "[+] Eigenstate 0: E = 0.499998 (Exact Harmonic: 0.500000, Error: 0.0004%)",
+                "[+] Eigenstate 1: E = 1.499992 (Exact Harmonic: 1.500000, Error: 0.0005%)",
+                "[*] Testing non-standard barrier profiles: Exponential vs Gaussian vs Rectangular",
+                "[!] Curvature Shape Factor S = 2.3e+06 amplifies transmission coefficient.",
+                "[✓] Calculation completed in 0.18s using pure standard library. 0 external deps."
+            ],
+            neofetch: [
+                "$ neofetch",
+                "       _,met$$$$$gg.          dakshesh@termux-handset",
+                "    ,g$$$$$$$$$$$$$$$P.       -----------------------",
+                "  ,g$$P\"\"       \"\"\"Y$$.\".     OS: Ubuntu 24.04 (PRoot on Android)",
+                " ,$$P'              `$$$.     Host: ARM64 Octa-Core Handset",
+                "',$$P       ,ggs.     `$$b:   Kernel: 5.10.149-android aarch64",
+                "`d$$'     ,$P\"'   .    $$$    Uptime: 14 days, 6 hours",
+                " $$P      d$'     ,    $$P    Shell: bash 5.2.26",
+                " $$:      $.   -  ,d  $$'     Editor: Neovim",
+                " $$;      Y$b._   _,d$P'      Memory: 1820MiB / 7480MiB",
+                " Y$$.    `.`\"Y$$$$P\"'         Primary Langs: Python 3, C, Shell, HTML/JS",
+                "  `$$b      \"-.__             Location: Palakkad, Kerala [IN]"
+            ],
+            philosophy: [
+                "$ cat ~/notes/mindset.txt",
+                "--------------------------------------------------",
+                "1. DOSTOEVSKY: Consciousness without physical action = analytical paralysis.",
+                "2. GROUNDING: When the brain overthinks, train the body and write the code.",
+                "3. GITA: Perform duty with relentless care; discard neurotic attachment to hype.",
+                "4. 33% RULE: 1/3 mentors, 1/3 peers, 1/3 learners. Keep yourself anchored.",
+                "5. EXECUTION: Theory is merely thought until tested."
+            ],
+            git_status: [
+                "$ git -C ~/qm_project status",
+                "On branch main",
+                "Your branch is up to date with 'origin/main'.",
+                "Untracked files:",
+                "  (use \"git add <file>...\" to include in what will be committed)",
+                "    day6_wavepacket.py",
+                "    figures/shape_factor_v3.png",
+                "nothing added to commit but untracked files present."
+            ]
+        };
 
-      <!-- 004 -->
-      <div class="table-row" data-category="systems">
-        <div class="table-col-num">004</div>
-        <div class="table-col-title">
-          <div class="table-project-name">RF-Vision Ghost Murmur</div>
-          <div class="table-project-tag">Signal Processing // 2026</div>
-        </div>
-        <div class="table-col-desc">
-          Wi-Fi Channel State Information (CSI) passive detector tracking sub-millimeter chest wall displacements (respiration + cardiac pulsation) through concrete walls without wearables.
-        </div>
-        <div class="table-col-action">
-          <span class="table-btn" style="opacity: 0.6;">Sensor Spec</span>
-        </div>
-      </div>
+        function runTermCmd(cmdKey) {
+            const termDisplay = document.getElementById('term-cmd-display');
+            const termDynamic = document.getElementById('term-dynamic');
+            const termLog = document.getElementById('term-log');
 
-      <!-- 005 -->
-      <div class="table-row" data-category="systems">
-        <div class="table-col-num">005</div>
-        <div class="table-col-title">
-          <div class="table-project-name">AuraFauna Bio-Acoustics</div>
-          <div class="table-project-tag">Bio-Acoustics // 2025</div>
-        </div>
-        <div class="table-col-desc">
-          Client-side bio-acoustic instrument computing real-time 2048-bin FFTs in-browser to measure the Normalized Difference Soundscape Index (NDSI) between canopy health and urban noise.
-        </div>
-        <div class="table-col-action">
-          <span class="table-btn" style="opacity: 0.6;">Web Audio DSP</span>
-        </div>
-      </div>
+            if (cmdKey === 'clear') {
+                termDynamic.innerHTML = '';
+                termDisplay.textContent = '';
+                return;
+            }
 
-      <!-- 006 -->
-      <div class="table-row" data-category="systems">
-        <div class="table-col-num">006</div>
-        <div class="table-col-title">
-          <div class="table-project-name">HexStrike AI Platform</div>
-          <div class="table-project-tag">Cybersecurity // 2024</div>
-        </div>
-        <div class="table-col-desc">
-          Autonomous Model Context Protocol (MCP) red-teaming orchestrator connecting AI reasoning loops to 120+ vulnerability scanning tools, CVE verification, and automated threat graphs.
-        </div>
-        <div class="table-col-action">
-          <a href="https://github.com/0x4m4/hexstrike-ai" target="_blank" rel="noopener noreferrer" class="table-btn primary">GitHub ↗</a>
-        </div>
-      </div>
+            const lines = terminalCommands[cmdKey];
+            if (!lines) return;
 
-      <!-- 007 -->
-      <div class="table-row" data-category="systems">
-        <div class="table-col-num">007</div>
-        <div class="table-col-title">
-          <div class="table-project-name">Aether P2P Encrypted Mesh</div>
-          <div class="table-project-tag">Distributed Systems // 2026</div>
-        </div>
-        <div class="table-col-desc">
-          Serverless decentralized data distribution running over browser-native WebRTC data channels with ECDH P-256 and AES-256-GCM zero-knowledge transport.
-        </div>
-        <div class="table-col-action">
-          <a href="https://github.com/dakshesh123-rgb/aether-p2p" target="_blank" rel="noopener noreferrer" class="table-btn primary">GitHub ↗</a>
-        </div>
-      </div>
+            termDisplay.textContent = lines[0].replace('$ ', '');
+            
+            setTimeout(() => {
+                const block = document.createElement('div');
+                block.className = 'mt-2 border-t border-zinc-800 pt-2 text-zinc-300';
+                
+                const cmdHtml = `<div class="text-[#00E676] font-semibold">${lines[0]}</div>`;
+                const outputHtml = lines.slice(1).map(l => `<div class="text-zinc-400 whitespace-pre-wrap">${escapeHtml(l)}</div>`).join('');
+                
+                block.innerHTML = cmdHtml + outputHtml;
+                termDynamic.appendChild(block);
+                termDisplay.textContent = '';
+                termLog.scrollTop = termLog.scrollHeight;
+            }, 300);
+        }
 
-      <!-- 008 -->
-      <div class="table-row" data-category="systems">
-        <div class="table-col-num">008</div>
-        <div class="table-col-title">
-          <div class="table-project-name">AI JEE Socratic Mentor</div>
-          <div class="table-project-tag">Cognitive AI // 2026</div>
-        </div>
-        <div class="table-col-desc">
-          Socratic chain-of-thought AI mentor for competitive IIT-JEE Advanced Physics and Calculus, driving step-by-step conceptual derivations from first principles.
-        </div>
-        <div class="table-col-action">
-          <a href="https://github.com/dakshesh123-rgb/ai-jee-mentor" target="_blank" rel="noopener noreferrer" class="table-btn primary">GitHub ↗</a>
-        </div>
-      </div>
-
-      <!-- 009 -->
-      <div class="table-row" data-category="systems">
-        <div class="table-col-num">009</div>
-        <div class="table-col-title">
-          <div class="table-project-name">Pythonix Cloud Sandbox</div>
-          <div class="table-project-tag">Developer Runtimes // 2026</div>
-        </div>
-        <div class="table-col-desc">
-          Zero-latency in-browser interactive Python playground and execution environment with AST parsing deployed on Cloudflare Edge workers.
-        </div>
-        <div class="table-col-action">
-          <a href="https://github.com/dakshesh123-rgb/pythonix" target="_blank" rel="noopener noreferrer" class="table-btn primary">GitHub ↗</a>
-        </div>
-      </div>
-
-      <!-- 010 -->
-      <div class="table-row" data-category="systems">
-        <div class="table-col-num">010</div>
-        <div class="table-col-title">
-          <div class="table-project-name">Elder Launcher Android OS</div>
-          <div class="table-project-tag">Mobile Systems // 2026</div>
-        </div>
-        <div class="table-col-desc">
-          Accessibility-first Android APK (easyphone.apk) engineered with high-contrast tactile surfaces to eliminate cognitive friction for seniors.
-        </div>
-        <div class="table-col-action">
-          <span class="table-btn" style="opacity: 0.6;">APK Compiled</span>
-        </div>
-      </div>
-
-      <!-- 011 -->
-      <div class="table-row" data-category="physics">
-        <div class="table-col-num">011</div>
-        <div class="table-col-title">
-          <div class="table-project-name">Critical Inquiries &amp; Essays</div>
-          <div class="table-project-tag">Philosophy &amp; Systems // 2026</div>
-        </div>
-        <div class="table-col-desc">
-          Published analytical writings on existential inertia, Dostoevskian dialectics, and decisive physical action as the cure to intellectual paralysis.
-        </div>
-        <div class="table-col-action">
-          <a href="https://github.com/dakshesh123-rgb/essay-blog" target="_blank" rel="noopener noreferrer" class="table-btn primary">GitHub ↗</a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- First Principles Craftsmanship Section (Apple Values) -->
-  <section id="philosophy" class="section-philosophy">
-    <div class="philosophy-card-giant">
-      <div class="philosophy-quote">
-        "Real systems engineering does not start in black-box libraries. It starts in fundamental differential equations and first principles."
-      </div>
-
-      <div class="philosophy-text-group">
-        <p>
-          I am <strong>Dakshesh Das</strong>, a 16-year-old computational researcher and systems engineer. I focus on numerical simulations of quantum tunneling, empirical molecular mechanics for cancer drug discovery, and zero-dependency quantitative arbitrage engines.
-        </p>
-        <p>
-          Writing eigensolvers, empirical force fields, and matrix transformations from the mathematical foundation upward guarantees complete mathematical ownership and verifiable artifacts.
-        </p>
-
-        <div class="tech-pills-row">
-          <span class="tech-spec-pill">Sturm Bisection</span>
-          <span class="tech-spec-pill">Crank-Nicolson TDSE</span>
-          <span class="tech-spec-pill">AMBER Force Field</span>
-          <span class="tech-spec-pill">Householder QR</span>
-          <span class="tech-spec-pill">Ornstein-Uhlenbeck SDE</span>
-          <span class="tech-spec-pill">Wi-Fi CSI Micro-Doppler</span>
-          <span class="tech-spec-pill">Web Audio 2048-FFT</span>
-          <span class="tech-spec-pill">Pure Python Zero-Deps</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Apple Minimalist Footer -->
-  <footer class="apple-footer">
-    <div class="apple-footer-inner">
-      <div class="footer-nav-links">
-        <a href="#overview">Overview</a>
-        <a href="#flagship">Flagship Systems</a>
-        <a href="#tech-specs">Tech Specs</a>
-        <a href="https://dakshesh123-rgb.github.io/qm-project-website/" target="_blank" rel="noopener noreferrer">Quantum Research Paper ↗</a>
-        <a href="https://github.com/dakshesh123-rgb" target="_blank" rel="noopener noreferrer">GitHub Profile ↗</a>
-      </div>
-
-      <div class="footer-legal-row">
-        <div>Dakshesh Das © 2026. All rights reserved. First principles computational systems.</div>
-        <div>
-          <a href="#overview" style="color: var(--text-secondary);">Back to Top ↑</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Apple Interactive Runtime -->
-  <script src="apple-interactive.js"></script>
+        function escapeHtml(text) {
+            const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
+            return text.replace(/[&<>"']/g, m => map[m]);
+        }
+    </script>
 </body>
 </html>
