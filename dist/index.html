@@ -416,6 +416,10 @@
                     <i class="ph-bold ph-table"></i>
                     <span>Systems Registry</span>
                 </button>
+                <button onclick="switchPage('devlogs')" id="nav-btn-devlogs" class="nav-tab px-3.5 py-1.5 rounded-full theme-text-sec hover:text-white transition-all flex items-center gap-1.5">
+                    <i class="ph-bold ph-newspaper"></i>
+                    <span>Devlogs</span>
+                </button>
                 <button onclick="switchPage('about')" id="nav-btn-about" class="nav-tab px-3.5 py-1.5 rounded-full theme-text-sec hover:text-white transition-all flex items-center gap-1.5">
                     <i class="ph-bold ph-user"></i>
                     <span>About</span>
@@ -762,6 +766,41 @@
                         </div>
                     </div>
 
+                    <!-- 07. Personal Portfolio & Systems Hub -->
+                    <div class="work-card p-5 rounded-3xl border theme-border theme-bg-sec flex flex-col justify-between" data-cat="tools">
+                        <div>
+                            <div class="flex items-start justify-between gap-2 mb-2">
+                                <span class="font-mono text-xs px-2 py-0.5 rounded bg-[#FF5500]/15 text-[#FF5500] font-bold">07</span>
+                                <span class="font-mono text-[10px] theme-text-muted">PORTFOLIO // HUB</span>
+                            </div>
+                            <h3 class="font-display font-bold text-lg tracking-tight mb-1.5">
+                                Personal Portfolio &amp; Systems Hub
+                            </h3>
+                            <p class="text-xs theme-text-sec leading-relaxed mb-4">
+                                Brutalist-editorial digital notebook, systems registry, and interactive simulation console. Deployed on Cloudflare Pages edge with GSAP animations, interactive phone showcase, and Hack Club Stardance devlogs.
+                            </p>
+                        </div>
+                        <div class="space-y-3 pt-2 border-t theme-border">
+                            <div class="flex flex-wrap gap-1 font-mono text-[10px]">
+                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">Tailwind CSS</span>
+                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">GSAP 3.12</span>
+                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">Cloudflare Edge</span>
+                            </div>
+                            <div class="flex items-center gap-2 font-mono text-xs">
+                                <a href="https://dakshesh-portfolio.pages.dev" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-full bg-[#FF5500] text-white font-semibold text-[11px] hover:opacity-90">
+                                    Live App ↗
+                                </a>
+                                <a href="https://github.com/dakshesh123-rgb/portfolio" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-full border theme-border theme-pill theme-text-sec hover:border-[#FF5500] text-[11px]">
+                                    GitHub
+                                </a>
+                                <a href="https://stardance.hackclub.com/projects/69869" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-full border border-[#EC3750]/30 bg-[#EC3750]/10 text-[#EC3750] text-[11px] font-semibold flex items-center gap-1">
+                                    <i class="ph-fill ph-star"></i>
+                                    <span>Stardance</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -1037,13 +1076,22 @@
                             </tr>
                             <tr class="hover:bg-white/[0.02] transition-colors">
                                 <td class="py-3.5 px-4 text-[#FF5500] font-bold">07</td>
+                                <td class="py-3.5 px-4 font-medium font-sans">Personal Portfolio &amp; Systems Hub</td>
+                                <td class="py-3.5 px-4 theme-text-muted hidden md:table-cell">Web Systems &amp; UI</td>
+                                <td class="py-3.5 px-4 theme-text-sec text-[11px]">Cloudflare Edge, GSAP &amp; Stardance Sync</td>
+                                <td class="py-3.5 px-4 text-right">
+                                    <a href="https://dakshesh-portfolio.pages.dev" target="_blank" rel="noopener noreferrer" class="text-[#FF5500] hover:underline">Site ↗</a>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-white/[0.02] transition-colors">
+                                <td class="py-3.5 px-4 text-[#FF5500] font-bold">08</td>
                                 <td class="py-3.5 px-4 font-medium font-sans">Usage Analytics</td>
                                 <td class="py-3.5 px-4 theme-text-muted hidden md:table-cell">Android Systems</td>
                                 <td class="py-3.5 px-4 theme-text-sec text-[11px]">Kotlin Compose Screen-Time Tracker</td>
                                 <td class="py-3.5 px-4 text-right text-zinc-500">APK</td>
                             </tr>
                             <tr class="hover:bg-white/[0.02] transition-colors">
-                                <td class="py-3.5 px-4 text-[#FF5500] font-bold">08</td>
+                                <td class="py-3.5 px-4 text-[#FF5500] font-bold">09</td>
                                 <td class="py-3.5 px-4 font-medium font-sans">Personal Essays Blog</td>
                                 <td class="py-3.5 px-4 theme-text-muted hidden md:table-cell">Philosophy &amp; Notes</td>
                                 <td class="py-3.5 px-4 theme-text-sec text-[11px]">Cloudflare Edge + Vanilla JS</td>
@@ -1052,7 +1100,7 @@
                                 </td>
                             </tr>
                             <tr class="hover:bg-white/[0.02] transition-colors">
-                                <td class="py-3.5 px-4 text-[#FF5500] font-bold">09</td>
+                                <td class="py-3.5 px-4 text-[#FF5500] font-bold">10</td>
                                 <td class="py-3.5 px-4 font-medium font-sans">GPS Globe Visualizer</td>
                                 <td class="py-3.5 px-4 theme-text-muted hidden md:table-cell">Geospatial</td>
                                 <td class="py-3.5 px-4 theme-text-sec text-[11px]">3D Satellite Coordinate Plotter</td>
@@ -1169,6 +1217,192 @@
             </div>
         </div>
 
+        <!-- =================================================
+             PAGE 6: DEVLOGS & STARDANCE HACK CLUB STATION
+             ================================================= -->
+        <div id="page-devlogs" class="portfolio-page space-y-8" style="display: none;">
+            <div class="border-b theme-border pb-4 flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="font-mono text-[10px] text-[#EC3750] uppercase tracking-wider font-bold flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-[#EC3750] animate-pulse"></span>
+                            // HACK CLUB STARDANCE TELEMETRY
+                        </span>
+                        <span class="font-mono text-[10px] px-2 py-0.5 rounded-full bg-[#EC3750]/15 text-[#EC3750] border border-[#EC3750]/30 font-semibold">
+                            BUILDER @dakshesh236
+                        </span>
+                    </div>
+                    <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight mt-1">
+                        Engineering Devlogs &amp; Dispatches
+                    </h2>
+                    <p class="text-sm theme-text-sec max-w-2xl mt-1.5 leading-relaxed">
+                        Unfiltered, chronological developer logs, time-tracked work sprints, and architectural breakthroughs logged across Hack Club Stardance and personal repositories.
+                    </p>
+                </div>
+                <div class="flex items-center gap-2 shrink-0">
+                    <a href="https://stardance.hackclub.com/@dakshesh236" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-full border border-[#EC3750]/40 bg-[#EC3750]/10 text-[#EC3750] text-xs font-mono font-semibold flex items-center gap-1.5 hover:bg-[#EC3750]/20 transition-all">
+                        <i class="ph-bold ph-arrow-up-right"></i>
+                        <span>Stardance Profile</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Stardance Projects Grid -->
+            <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                    <span class="font-mono text-xs uppercase text-zinc-400 font-bold tracking-wider">// STARDANCE REGISTERED PROJECTS</span>
+                    <span class="font-mono text-[11px] theme-text-muted">3 ACTIVE CODEBASES</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <!-- Project 1: Portfolio -->
+                    <div class="p-4 rounded-2xl border theme-border theme-bg-sec flex flex-col justify-between space-y-3">
+                        <div>
+                            <div class="flex items-center justify-between text-xs font-mono mb-1.5">
+                                <span class="text-[#EC3750] font-bold">#69869</span>
+                                <span class="px-2 py-0.5 rounded bg-[#00E676]/10 text-[#00E676] text-[10px]">LIVE ON EDGE</span>
+                            </div>
+                            <h4 class="font-display font-bold text-base tracking-tight mb-1">Portfolio &amp; Systems Hub</h4>
+                            <p class="text-xs theme-text-sec leading-relaxed">Brutalist-editorial digital notebook, systems registry, and interactive simulation console with GSAP animations.</p>
+                        </div>
+                        <div class="pt-2 border-t theme-border flex items-center justify-between font-mono text-xs">
+                            <a href="https://dakshesh-portfolio.pages.dev" target="_blank" rel="noopener noreferrer" class="text-[#FF5500] hover:underline">dakshesh-portfolio.pages.dev ↗</a>
+                            <a href="https://stardance.hackclub.com/projects/69869" target="_blank" rel="noopener noreferrer" class="theme-text-muted hover:text-white">Stardance ↗</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: QM Solver -->
+                    <div class="p-4 rounded-2xl border theme-border theme-bg-sec flex flex-col justify-between space-y-3">
+                        <div>
+                            <div class="flex items-center justify-between text-xs font-mono mb-1.5">
+                                <span class="text-[#EC3750] font-bold">#68268</span>
+                                <span class="px-2 py-0.5 rounded bg-[#38BDF8]/10 text-[#38BDF8] text-[10px]">RESEARCH PAPER</span>
+                            </div>
+                            <h4 class="font-display font-bold text-base tracking-tight mb-1">Quantum Tunneling Dynamics</h4>
+                            <p class="text-xs theme-text-sec leading-relaxed">Computational quantum physics research solving 1D TDSE barrier curvature transmission divergence.</p>
+                        </div>
+                        <div class="pt-2 border-t theme-border flex items-center justify-between font-mono text-xs">
+                            <a href="https://dakshesh123-rgb.github.io/qm-project-website/" target="_blank" rel="noopener noreferrer" class="text-[#FF5500] hover:underline">Research Site ↗</a>
+                            <a href="https://stardance.hackclub.com/projects/68268" target="_blank" rel="noopener noreferrer" class="theme-text-muted hover:text-white">Stardance ↗</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: AI JEE Mentor -->
+                    <div class="p-4 rounded-2xl border theme-border theme-bg-sec flex flex-col justify-between space-y-3">
+                        <div>
+                            <div class="flex items-center justify-between text-xs font-mono mb-1.5">
+                                <span class="text-[#EC3750] font-bold">#20886</span>
+                                <span class="px-2 py-0.5 rounded bg-[#A855F7]/10 text-[#A855F7] text-[10px]">PROTOTYPE</span>
+                            </div>
+                            <h4 class="font-display font-bold text-base tracking-tight mb-1">AI JEE Socratic Mentor</h4>
+                            <p class="text-xs theme-text-sec leading-relaxed">First-principles physics &amp; calculus Socratic problem solver for competitive examination candidates.</p>
+                        </div>
+                        <div class="pt-2 border-t theme-border flex items-center justify-between font-mono text-xs">
+                            <a href="https://ai-jee-mentor-2eu.pages.dev" target="_blank" rel="noopener noreferrer" class="text-[#FF5500] hover:underline">Live Prototype ↗</a>
+                            <a href="https://stardance.hackclub.com/projects/20886" target="_blank" rel="noopener noreferrer" class="theme-text-muted hover:text-white">Stardance ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chronological Devlog Feed -->
+            <div class="space-y-6">
+                <div class="flex items-center justify-between border-b theme-border pb-2">
+                    <span class="font-mono text-xs uppercase text-zinc-400 font-bold tracking-wider">// CHRONOLOGICAL DEVLOG LOGS</span>
+                    <span class="font-mono text-[11px] theme-text-muted">SORTED BY RECENCY</span>
+                </div>
+
+                <!-- Devlog Entry 01: Portfolio -->
+                <article class="p-6 rounded-3xl border theme-border theme-bg-sec space-y-4">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b theme-border pb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="font-mono text-xs px-2.5 py-1 rounded-full bg-[#EC3750]/15 text-[#EC3750] font-bold border border-[#EC3750]/30">
+                                DEVLOG #01
+                            </span>
+                            <span class="font-mono text-xs text-white font-semibold">Personal Portfolio &amp; Systems Hub</span>
+                            <span class="font-mono text-[11px] text-[#00E676]">// PROJECT #69869</span>
+                        </div>
+                        <div class="font-mono text-xs theme-text-muted flex items-center gap-3">
+                            <span><i class="ph ph-clock mr-1"></i>Logged: 14h 20m</span>
+                            <span><i class="ph ph-calendar-blank mr-1"></i>Oct 15, 2026</span>
+                        </div>
+                    </div>
+                    <div class="prose prose-invert max-w-none text-xs sm:text-sm theme-text-sec space-y-3 leading-relaxed">
+                        <p class="text-white font-medium">
+                            Architected and shipped the unified digital systems notebook and brutalist-editorial portfolio at <a href="https://dakshesh-portfolio.pages.dev" target="_blank" class="text-[#FF5500] underline font-mono">dakshesh-portfolio.pages.dev</a>.
+                        </p>
+                        <p>
+                            Replaced conventional static portfolio grids with a zero-reload multi-page application shell powered by GSAP 3.12 timeline animations, stateful URL hash routing (<code class="text-[#FF5500] font-mono px-1 rounded bg-black/40">#works</code>, <code class="text-[#FF5500] font-mono px-1 rounded bg-black/40">#termux</code>, <code class="text-[#FF5500] font-mono px-1 rounded bg-black/40">#registry</code>, <code class="text-[#FF5500] font-mono px-1 rounded bg-black/40">#devlogs</code>), and real-time Stardance API telemetry.
+                        </p>
+                        <div class="p-3.5 rounded-xl bg-black/40 border theme-border font-mono text-xs space-y-1 text-zinc-300">
+                            <div class="text-[#00E676] font-semibold">// Technical Highlights:</div>
+                            <div>• 60fps interactive iPhone canvas with Nocturne Protocol circadian dial &amp; parasympathetic breathing guide.</div>
+                            <div>• Pure Python and WebRTC systems registry with transparent code verification links.</div>
+                            <div>• Deployed with Cloudflare Pages automated edge pipeline and sub-50ms TTFB worldwide.</div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Devlog Entry 02: QM Paper -->
+                <article class="p-6 rounded-3xl border theme-border theme-bg-sec space-y-4">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b theme-border pb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="font-mono text-xs px-2.5 py-1 rounded-full bg-[#38BDF8]/15 text-[#38BDF8] font-bold border border-[#38BDF8]/30">
+                                DEVLOG #02
+                            </span>
+                            <span class="font-mono text-xs text-white font-semibold">Quantum Tunneling Dynamics Solver</span>
+                            <span class="font-mono text-[11px] text-[#38BDF8]">// PROJECT #68268</span>
+                        </div>
+                        <div class="font-mono text-xs theme-text-muted flex items-center gap-3">
+                            <span><i class="ph ph-clock mr-1"></i>Logged: 36h 45m</span>
+                            <span><i class="ph ph-calendar-blank mr-1"></i>Oct 06, 2026</span>
+                        </div>
+                    </div>
+                    <div class="prose prose-invert max-w-none text-xs sm:text-sm theme-text-sec space-y-3 leading-relaxed">
+                        <p class="text-white font-medium">
+                            Resolved curvature transmission divergence in 1D Time-Dependent Schrödinger Equation (TDSE) simulations using Sturm sequence bisection tridiagonal solver.
+                        </p>
+                        <p>
+                            Standard rectangular barrier models fail to capture the exponential decay damping when boundary gradients are non-zero. By formulating a pure-Python finite difference grid without heavyweight BLAS dependencies, verified transmission coefficients differing by up to 2.3×10⁶× from textbook approximations.
+                        </p>
+                        <div class="flex items-center gap-2 font-mono text-xs pt-1">
+                            <a href="https://dakshesh123-rgb.github.io/qm-project-website/" target="_blank" rel="noopener noreferrer" class="text-[#FF5500] hover:underline">Read Research Paper ↗</a>
+                            <span class="theme-text-muted">•</span>
+                            <a href="https://github.com/dakshesh123-rgb/qm-project-website" target="_blank" rel="noopener noreferrer" class="theme-text-muted hover:text-white">GitHub Solver Code ↗</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Devlog Entry 03: AI JEE Mentor -->
+                <article class="p-6 rounded-3xl border theme-border theme-bg-sec space-y-4">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b theme-border pb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="font-mono text-xs px-2.5 py-1 rounded-full bg-[#A855F7]/15 text-[#A855F7] font-bold border border-[#A855F7]/30">
+                                DEVLOG #03
+                            </span>
+                            <span class="font-mono text-xs text-white font-semibold">AI JEE Socratic Reasoning Engine</span>
+                            <span class="font-mono text-[11px] text-[#A855F7]">// PROJECT #20886</span>
+                        </div>
+                        <div class="font-mono text-xs theme-text-muted flex items-center gap-3">
+                            <span><i class="ph ph-clock mr-1"></i>Logged: 22h 10m</span>
+                            <span><i class="ph ph-calendar-blank mr-1"></i>Sep 29, 2026</span>
+                        </div>
+                    </div>
+                    <div class="prose prose-invert max-w-none text-xs sm:text-sm theme-text-sec space-y-3 leading-relaxed">
+                        <p class="text-white font-medium">
+                            Constructed multi-modal Socratic physics derivation graph capable of analyzing raw student camera uploads and guiding through JEE Advanced calculus/mechanics proofs.
+                        </p>
+                        <p>
+                            Refactored backend inferencing onto edge workers to eliminate cold-start latency. Built constraint gates ensuring the AI asks illuminating diagnostic questions rather than spitting out end solutions, accelerating genuine conceptual mastery.
+                        </p>
+                        <div class="flex items-center gap-2 font-mono text-xs pt-1">
+                            <a href="https://ai-jee-mentor-2eu.pages.dev" target="_blank" rel="noopener noreferrer" class="text-[#FF5500] hover:underline">Open Live Prototype ↗</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+
         <!-- Global Minimal Footer -->
         <footer class="mt-16 pt-8 border-t theme-border font-mono text-xs theme-text-muted flex flex-col sm:flex-row items-center justify-between gap-3">
             <div>
@@ -1186,7 +1420,7 @@
          4. MOBILE QUICK BOTTOM DOCK (MOBILE PHONES ONLY)
          ===================================================== -->
     <nav class="md:hidden fixed bottom-0 inset-x-0 z-40 p-2.5 bg-black/85 backdrop-blur-xl border-t theme-border">
-        <div class="max-w-md mx-auto grid grid-cols-5 gap-1 font-mono text-[10px] text-center">
+        <div class="max-w-md mx-auto grid grid-cols-6 gap-1 font-mono text-[9px] sm:text-[10px] text-center">
             <button onclick="switchPage('works')" id="mob-nav-works" class="py-2 px-1 rounded-xl bg-[#FF5500] text-white flex flex-col items-center gap-0.5">
                 <i class="ph-bold ph-squares-four text-sm"></i>
                 <span>Works</span>
@@ -1202,6 +1436,10 @@
             <button onclick="switchPage('registry')" id="mob-nav-registry" class="py-2 px-1 rounded-xl theme-pill theme-text-sec flex flex-col items-center gap-0.5">
                 <i class="ph-bold ph-table text-sm"></i>
                 <span>Systems</span>
+            </button>
+            <button onclick="switchPage('devlogs')" id="mob-nav-devlogs" class="py-2 px-1 rounded-xl theme-pill theme-text-sec flex flex-col items-center gap-0.5">
+                <i class="ph-bold ph-newspaper text-sm"></i>
+                <span>Devlogs</span>
             </button>
             <button onclick="switchPage('about')" id="mob-nav-about" class="py-2 px-1 rounded-xl theme-pill theme-text-sec flex flex-col items-center gap-0.5">
                 <i class="ph-bold ph-user text-sm"></i>
@@ -1312,7 +1550,7 @@
         }
 
         // --- 2. Multi-Page View Switcher ---
-        const pageIds = ['works', 'termux', 'philosophy', 'registry', 'about'];
+        const pageIds = ['works', 'termux', 'philosophy', 'registry', 'devlogs', 'about'];
 
         function switchPage(pageKey) {
             if (!pageIds.includes(pageKey)) pageKey = 'works';
