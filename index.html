@@ -23,8 +23,8 @@
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;family=Instrument+Serif:ital@0;1&amp;family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -135,6 +135,43 @@
         .theme-text-sec { color: var(--text-secondary); }
         .theme-text-muted { color: var(--text-muted); }
         .theme-pill { background-color: var(--pill-bg); }
+
+        /* =====================================================
+           SEAMLESS HEADER BANNER BLEND ("The world is your 888")
+           ===================================================== */
+        .hero-banner-wrap {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: -0.5rem auto -0.25rem auto;
+            max-width: 340px;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .hero-banner-img {
+            width: 100%;
+            height: auto;
+            max-height: 68px;
+            object-fit: contain;
+            /* Screen blend mode drops the black #000 background so it melts into #070709 */
+            mix-blend-mode: screen;
+            /* Color-matched to blend warm gold with your #FF5500 amber theme */
+            filter: contrast(1.18) brightness(0.94) saturate(1.15) hue-rotate(-4deg);
+            /* Feathered radial mask ensures zero harsh edges */
+            -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, #000 60%, transparent 100%);
+            mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, #000 60%, transparent 100%);
+            opacity: 0.92;
+            transition: filter 0.3s ease, opacity 0.3s ease;
+        }
+
+        /* Automatic Adaptation for Light Theme */
+        :root[data-theme="light"] .hero-banner-img {
+            mix-blend-mode: multiply;
+            filter: invert(1) sepia(1) saturate(4) hue-rotate(345deg) contrast(1.15);
+            opacity: 0.85;
+        }
 
         /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 5px; height: 5px; }
@@ -306,7 +343,7 @@
             </button>
         </div>
 
-        <!-- Center: Artistic, poetic title (Subtle, Not shouting ego) -->
+        <!-- Center: Artistic, poetic title -->
         <div class="my-auto max-w-4xl">
             <div class="font-mono text-xs sm:text-sm text-[#FF5500] tracking-widest uppercase mb-3 flex items-center gap-2">
                 <span class="inline-block w-6 h-[1px] bg-[#FF5500]"></span>
@@ -332,7 +369,7 @@
         <!-- Bottom row: Counter & Progress Line -->
         <div class="space-y-3">
             <div class="flex items-baseline justify-between font-mono text-xs sm:text-sm text-zinc-400">
-                <span id="pre-status">INITIALIZING WORKSPACE &bull; VERIFYING CODEBASES...</span>
+                <span id="pre-status">INITIALIZING WORKSPACE...</span>
                 <span class="text-2xl sm:text-3xl font-light text-[#FF5500]" id="pre-counter">00%</span>
             </div>
             <div class="w-full h-[2px] bg-white/10 overflow-hidden rounded-full">
@@ -357,7 +394,7 @@
                         <span class="font-display font-bold text-sm sm:text-base tracking-tight">dakshesh das</span>
                         <span class="font-mono text-[9px] sm:text-[10px] px-1.5 py-0.5 rounded bg-[#FF5500]/15 text-[#FF5500] font-semibold border border-[#FF5500]/25">DEV</span>
                     </div>
-                    <span class="font-mono text-[10px] theme-text-muted block leading-none mt-0.5">curious &bull; polymath approach</span>
+                    <span class="font-mono text-[10px] theme-text-muted block leading-none mt-0.5">curious • polymath approach</span>
                 </div>
             </a>
 
@@ -385,23 +422,16 @@
                 </button>
             </nav>
 
-            <!-- Right: Download HTML Button & Theme Toggle -->
+            <!-- Right: External Links & Theme Toggle -->
             <div class="flex items-center gap-2 sm:gap-3 shrink-0">
-                <!-- Direct HTML File Download Button -->
-                <button onclick="downloadPortfolioFile()" class="px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-full border border-[#FF5500]/40 bg-[#FF5500]/10 text-[#FF5500] hover:bg-[#FF5500] hover:text-white font-mono text-[11px] font-bold transition-all flex items-center gap-1.5 shadow-sm" title="Download standalone portfolio HTML file">
-                    <i class="ph-bold ph-download-simple text-sm"></i>
-                    <span class="hidden sm:inline">Download HTML</span>
-                    <span class="sm:hidden">Save</span>
-                </button>
-
-                <a href="https://github.com/dakshesh123-rgb" target="_blank" rel="noopener noreferrer" class="hidden lg:inline-flex items-center gap-1 px-3 py-1.5 rounded-full border theme-border theme-pill font-mono text-xs hover:border-[#FF5500] transition-colors" title="GitHub">
+                <a href="https://github.com/dakshesh123-rgb" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border theme-border theme-pill font-mono text-xs hover:border-[#FF5500] transition-colors" title="GitHub">
                     <i class="ph-bold ph-github-logo text-sm"></i>
                     <span>GitHub</span>
                 </a>
                 
-                <a href="https://x.com/dakshesh123-rgb" target="_blank" rel="noopener noreferrer" class="hidden lg:inline-flex items-center gap-1 px-3 py-1.5 rounded-full border theme-border theme-pill font-mono text-xs hover:border-[#FF5500] transition-colors" title="X (Twitter)">
-                    <i class="ph-bold ph-x-logo text-sm"></i>
-                    <span>X</span>
+                <a href="https://substack.com/@dakshesh003?utm_source=share&amp;utm_medium=android&amp;r=882xgd" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border theme-border theme-pill font-mono text-xs hover:border-[#FF5500] transition-colors" title="Substack">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
+                    <span>Substack</span>
                 </a>
 
                 <button onclick="toggleTheme()" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full border theme-border theme-pill flex items-center justify-center hover:border-[#FF5500] transition-colors" title="Toggle Dark/Light Mode">
@@ -414,15 +444,26 @@
     <!-- =====================================================
          3. MAIN APP SHELL WITH DISCRETE PAGES
          ===================================================== -->
-    <main class="max-w-[1440px] mx-auto px-4 sm:px-8 pt-6 sm:pt-8 pb-28 md:pb-16 transition-all duration-300">
+    <main class="max-w-[1440px] mx-auto px-4 sm:px-8 pt-3 sm:pt-5 pb-28 md:pb-16 transition-all duration-300">
         
         <!-- =================================================
              PAGE 1: WORKS & SHOWCASE (CENTRAL IPHONE VIDEO)
              ================================================= -->
         <div id="page-works" class="portfolio-page active-page space-y-12">
             
-            <!-- Hero Announcement with Subdued Polymath Ethos -->
-            <div class="text-center max-w-3xl mx-auto space-y-3 pt-2 sm:pt-4">
+            <!-- Hero Announcement with Blended Header Banner -->
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                
+                <!-- NEW: Blended Golden Calligraphy Header Banner -->
+                <div class="hero-banner-wrap">
+                    <img 
+                        src="IMG_20261015_150433.jpg" 
+                        alt="The world is your 888" 
+                        class="hero-banner-img"
+                        onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,' + encodeURIComponent('<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 600 155&quot;><defs><linearGradient id=&quot;g&quot; x1=&quot;0%&quot; y1=&quot;0%&quot; x2=&quot;100%&quot; y2=&quot;100%&quot;><stop offset=&quot;0%&quot; stop-color=&quot;%23FFE082&quot;/><stop offset=&quot;50%&quot; stop-color=&quot;%23ECA038&quot;/><stop offset=&quot;100%&quot; stop-color=&quot;%23B86B14&quot;/></linearGradient></defs><rect width=&quot;600&quot; height=&quot;155&quot; fill=&quot;%23000000&quot;/><text x=&quot;50%&quot; y=&quot;64&quot; fill=&quot;url(%23g)&quot; font-family=&quot;Great Vibes, Instrument Serif, Georgia, serif&quot; font-style=&quot;italic&quot; font-size=&quot;44&quot; text-anchor=&quot;middle&quot; letter-spacing=&quot;1.5&quot;>The world is your</text><text x=&quot;50%&quot; y=&quot;136&quot; fill=&quot;url(%23g)&quot; font-family=&quot;Instrument Serif, Georgia, serif&quot; font-style=&quot;italic&quot; font-size=&quot;34&quot; text-anchor=&quot;middle&quot; letter-spacing=&quot;3&quot;>888</text></svg>');"
+                    >
+                </div>
+
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full theme-pill border theme-border font-mono text-[11px] text-[#FF5500]">
                     <span class="w-1.5 h-1.5 rounded-full bg-[#00E676] animate-pulse"></span>
                     <span>RESEARCH // LOW-LEVEL SYSTEMS // P2P</span>
@@ -458,7 +499,7 @@
 
                         <!-- Mini Top Status Bar -->
                         <div class="pt-3 px-5 flex items-center justify-between font-mono text-[10px] text-white/80 z-20 pointer-events-none">
-                            <span id="iphone-clock">10:42</span>
+                            <span id="iphone-clock">09:05</span>
                             <div class="flex items-center gap-1.5">
                                 <i class="ph-bold ph-wifi-high text-xs"></i>
                                 <i class="ph-bold ph-battery-charging text-sm"></i>
@@ -467,11 +508,7 @@
 
                         <!-- Active Video Container -->
                         <div class="relative w-full h-full flex items-center justify-center overflow-hidden bg-black">
-                            <video id="iphone-video" 
-                                   src="clips/clip_1_1791767662.mp4" 
-                                   poster="clips/clip_1_1791767662_thumb.jpg" 
-                                   autoplay loop muted playsinline 
-                                   class="w-full h-full object-cover">
+                            <video id="iphone-video" src="clips/video_ai_jee_mentor_web.mp4" poster="clips/video_ai_jee_mentor_thumb.jpg" autoplay="" loop="" muted="" playsinline="" class="w-full h-full object-cover">
                             </video>
 
                             <!-- Gradient Protection for Overlays -->
@@ -482,17 +519,17 @@
                             <div class="absolute inset-x-0 bottom-4 px-4 z-20 space-y-2">
                                 <div class="bg-black/70 backdrop-blur-md p-3 rounded-2xl border border-white/10 text-left">
                                     <div class="flex items-center justify-between text-[10px] font-mono text-[#FF5500] font-semibold mb-1">
-                                        <span id="clip-index-tag">CLIP 01 / 07</span>
+                                        <span id="clip-index-tag">CLIP 01 / 02</span>
                                         <span class="text-[#00E676] flex items-center gap-1">
                                             <span class="w-1.5 h-1.5 rounded-full bg-[#00E676] animate-pulse"></span>
                                             LIVE WORK
                                         </span>
                                     </div>
                                     <h4 id="clip-title-tag" class="font-display font-bold text-sm text-white truncate">
-                                        Nocturne // Sleep Architecture
+                                        AI JEE Socratic Mentor
                                     </h4>
                                     <p id="clip-desc-tag" class="text-[11px] text-zinc-300 line-clamp-2 mt-0.5 leading-snug">
-                                        Circadian enforcement engine with 56px touch dial &amp; phone blackout mode.
+                                        Socratic problem solver guiding through JEE Advanced physics &amp; math from first principles.
                                     </p>
                                 </div>
 
@@ -523,28 +560,13 @@
                 </div>
 
                 <!-- Playlist Selector Pills Underneath iPhone -->
-                <div class="max-w-2xl mx-auto mt-6">
-                    <div class="flex items-center justify-center gap-1.5 flex-wrap font-mono text-[11px]">
-                        <button onclick="loadVideoClip(0)" id="clip-btn-0" class="clip-selector active px-3 py-1.5 rounded-xl border border-[#FF5500] bg-[#FF5500]/15 text-[#FF5500] font-semibold transition-all">
-                            01. Nocturne Protocol
+                <div class="max-w-xl mx-auto mt-6">
+                    <div class="flex items-center justify-center gap-2 flex-wrap font-mono text-[11px]">
+                        <button onclick="loadVideoClip(0)" id="clip-btn-0" class="clip-selector active px-4 py-2 rounded-xl border border-[#FF5500] bg-[#FF5500]/15 text-[#FF5500] font-semibold transition-all">
+                            01. AI JEE Mentor
                         </button>
-                        <button onclick="loadVideoClip(1)" id="clip-btn-1" class="clip-selector px-3 py-1.5 rounded-xl border theme-border theme-pill theme-text-sec hover:border-[#FF5500] transition-all">
-                            02. Quantum Wavepacket
-                        </button>
-                        <button onclick="loadVideoClip(2)" id="clip-btn-2" class="clip-selector px-3 py-1.5 rounded-xl border theme-border theme-pill theme-text-sec hover:border-[#FF5500] transition-all">
-                            03. Aether Mesh
-                        </button>
-                        <button onclick="loadVideoClip(3)" id="clip-btn-3" class="clip-selector px-3 py-1.5 rounded-xl border theme-border theme-pill theme-text-sec hover:border-[#FF5500] transition-all">
-                            04. Termux Environment
-                        </button>
-                        <button onclick="loadVideoClip(4)" id="clip-btn-4" class="clip-selector px-3 py-1.5 rounded-xl border theme-border theme-pill theme-text-sec hover:border-[#FF5500] transition-all">
-                            05. StatArb Engine
-                        </button>
-                        <button onclick="loadVideoClip(5)" id="clip-btn-5" class="clip-selector px-3 py-1.5 rounded-xl border theme-border theme-pill theme-text-sec hover:border-[#FF5500] transition-all">
-                            06. AST Playground
-                        </button>
-                        <button onclick="loadVideoClip(6)" id="clip-btn-6" class="clip-selector px-3 py-1.5 rounded-xl border theme-border theme-pill theme-text-sec hover:border-[#FF5500] transition-all">
-                            07. Socratic Model
+                        <button onclick="loadVideoClip(1)" id="clip-btn-1" class="clip-selector px-4 py-2 rounded-xl border theme-border theme-pill theme-text-sec hover:border-[#FF5500] transition-all">
+                            02. Aether P2P
                         </button>
                     </div>
                 </div>
@@ -582,7 +604,7 @@
                                 Quantum Tunneling Dynamics
                             </h3>
                             <p class="text-xs theme-text-sec leading-relaxed mb-4">
-                                Pure Python 1D finite-difference Hamiltonian solver using Sturm sequence bisection and Crank-Nicolson TDSE. Proved barrier curvature alters transmission coefficients by up to $2.3 \times 10^6\times$ compared to textbook rectangular barriers.
+                                Pure Python 1D finite-difference Hamiltonian solver using Sturm sequence bisection and Crank-Nicolson TDSE. Proved barrier curvature alters transmission coefficients by up to 2.3×10⁶× compared to textbook rectangular barriers.
                             </p>
                         </div>
                         <div class="space-y-3 pt-2 border-t theme-border">
@@ -803,7 +825,7 @@
                         <span class="w-3 h-3 rounded-full bg-[#00E676]/80"></span>
                         <span class="ml-2 text-white/80">dakshesh@termux: ~</span>
                     </div>
-                    <span class="text-[11px] hidden sm:inline text-zinc-500">ARM64 Handset &bull; Linux 5.10 &bull; PRoot Ubuntu</span>
+                    <span class="text-[11px] hidden sm:inline text-zinc-500">ARM64 Handset • Linux 5.10 • PRoot Ubuntu</span>
                 </div>
 
                 <!-- Terminal Output Window -->
@@ -818,7 +840,7 @@
                         • Environment: Termux + PRoot Linux (Ubuntu 24.04)<br>
                         • Editor: Neovim with custom keybindings<br>
                         • Numerical stack: Python 3 standard library (no dependencies)<br>
-                        • Primary repositories: /root/qm_project &bull; /root/portfolio
+                        • Primary repositories: /root/qm_project • /root/portfolio
                         </span>
                     </div>
                     <div id="term-dynamic"></div>
@@ -916,7 +938,7 @@
             <!-- Reading List Strip -->
             <div class="p-6 rounded-3xl border theme-border theme-bg-sec space-y-3">
                 <div class="font-mono text-xs theme-text-muted uppercase tracking-wider flex items-center justify-between">
-                    <span>Reading Archive &bull; Texts Read</span>
+                    <span>Reading Archive • Texts Read</span>
                     <span class="text-[10px]">DIRECT FROM NOTES</span>
                 </div>
                 <div class="flex flex-wrap gap-2 font-mono text-xs">
@@ -1050,7 +1072,7 @@
         <div id="page-about" class="portfolio-page space-y-8">
             <div class="border-b theme-border pb-4">
                 <span class="font-mono text-[10px] text-[#FF5500] uppercase tracking-wider font-bold">
-                    // CURIOUS &bull; POLYMATH APPROACH
+                    // CURIOUS • POLYMATH APPROACH
                 </span>
                 <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight mt-1">
                     About Dakshesh Das
@@ -1091,7 +1113,7 @@
                         </div>
                         <div class="flex items-center justify-between border-b theme-border pb-2">
                             <span class="theme-text-muted">Approach:</span>
-                            <span class="font-semibold text-white">Polymath &bull; Pragmatic</span>
+                            <span class="font-semibold text-white">Polymath • Pragmatic</span>
                         </div>
                         <div class="flex items-center justify-between border-b theme-border pb-2">
                             <span class="theme-text-muted">Primary Rig:</span>
@@ -1107,7 +1129,7 @@
                         </div>
                         <div class="flex items-center justify-between">
                             <span class="theme-text-muted">System Time:</span>
-                            <span id="utc-clock" class="font-semibold text-[#FF5500]">--:--:-- UTC</span>
+                            <span id="utc-clock" class="font-semibold text-[#FF5500]">09:05:55 UTC</span>
                         </div>
                     </div>
 
@@ -1117,9 +1139,9 @@
                             <i class="ph-bold ph-github-logo text-base block mb-1"></i>
                             <span class="text-xs">GitHub</span>
                         </a>
-                        <a href="https://x.com/dakshesh123-rgb" target="_blank" rel="noopener noreferrer" class="p-3 rounded-2xl theme-bg-sec border theme-border hover:border-[#FF5500] text-center transition-colors">
-                            <i class="ph-bold ph-x-logo text-base block mb-1"></i>
-                            <span class="text-xs">@dakshesh</span>
+                        <a href="https://substack.com/@dakshesh003?utm_source=share&amp;utm_medium=android&amp;r=882xgd" target="_blank" rel="noopener noreferrer" class="p-3 rounded-2xl theme-bg-sec border theme-border hover:border-[#FF5500] text-center transition-colors">
+                            <svg class="w-4 h-4 fill-current mx-auto mb-1" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
+                            <span class="text-xs">Substack</span>
                         </a>
                         <a href="mailto:dasdakshesh123@gmail.com" class="p-3 rounded-2xl theme-bg-sec border theme-border hover:border-[#FF5500] text-center transition-colors">
                             <i class="ph-bold ph-envelope text-base block mb-1"></i>
@@ -1137,15 +1159,11 @@
         <!-- Global Minimal Footer -->
         <footer class="mt-16 pt-8 border-t theme-border font-mono text-xs theme-text-muted flex flex-col sm:flex-row items-center justify-between gap-3">
             <div>
-                dakshesh das &bull; autonomous systems &bull; 2026
+                dakshesh das • autonomous systems • 2026
             </div>
             <div class="flex items-center gap-4">
-                <button onclick="downloadPortfolioFile()" class="text-[#FF5500] hover:underline flex items-center gap-1">
-                    <i class="ph-bold ph-download-simple"></i>
-                    <span>Download File</span>
-                </button>
                 <a href="https://github.com/dakshesh123-rgb" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">GitHub</a>
-                <a href="https://x.com/dakshesh123-rgb" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">X</a>
+                <a href="https://substack.com/@dakshesh003?utm_source=share&amp;utm_medium=android&amp;r=882xgd" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Substack</a>
                 <a href="#" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;" class="hover:text-white transition-colors">Top ↑</a>
             </div>
         </footer>
@@ -1186,53 +1204,20 @@
         // --- 1. Video Showcase Catalog Data ---
         const videoClips = [
             {
-                src: "clips/clip_1_1791767662.mp4",
-                thumb: "clips/clip_1_1791767662_thumb.jpg",
-                index: "CLIP 01 / 07",
-                title: "Nocturne // Sleep Architecture",
-                desc: "Circadian enforcement engine with 56px touch dial & phone blackout mode."
-            },
-            {
-                src: "clips/clip_1_1791767791.mp4",
-                thumb: "clips/clip_1_1791767791_thumb.jpg",
-                index: "CLIP 02 / 07",
-                title: "Quantum Barrier Wavepacket",
-                desc: "Crank-Nicolson wave-packet scattering against non-standard curvature barriers."
-            },
-            {
-                src: "clips/clip_1_1791768368.mp4",
-                thumb: "clips/clip_1_1791768368_thumb.jpg",
-                index: "CLIP 03 / 07",
-                title: "Aether P2P Encrypted Mesh",
-                desc: "Serverless WebRTC direct data-channel transmission with ECDH P-256 keys."
-            },
-            {
-                src: "clips/clip_1_1791810704.mp4",
-                thumb: "clips/clip_1_1791810704_thumb.jpg",
-                index: "CLIP 04 / 07",
-                title: "Termux Mobile Environment",
-                desc: "Local ARM64 PRoot Ubuntu terminal compiling ODE algorithms directly on handset."
-            },
-            {
-                src: "clips/clip_1_1791822298.mp4",
-                thumb: "clips/clip_1_1791822298_thumb.jpg",
-                index: "CLIP 05 / 07",
-                title: "Zero-Dependency StatArb",
-                desc: "Pure Python standard-library Householder QR matrix tridiagonalization solver."
-            },
-            {
-                src: "clips/clip_1_1791823236.mp4",
-                thumb: "clips/clip_1_1791823236_thumb.jpg",
-                index: "CLIP 06 / 07",
-                title: "Pythonix AST Playground",
-                desc: "Interactive in-browser Python execution sandbox running on Cloudflare Edge."
-            },
-            {
-                src: "clips/clip_1_1791853341.mp4",
-                thumb: "clips/clip_1_1791853341_thumb.jpg",
-                index: "CLIP 07 / 07",
+                src: "clips/video_ai_jee_mentor_web.mp4",
+                fallbackSrc: "clips/video_ai_jee_mentor.mp4",
+                thumb: "clips/video_ai_jee_mentor_thumb.jpg",
+                index: "CLIP 01 / 02",
                 title: "AI JEE Socratic Mentor",
-                desc: "Socratic prompting pipeline driving step-by-step calculus & mechanics derivations."
+                desc: "Socratic problem solver guiding through JEE Advanced physics & math from first principles."
+            },
+            {
+                src: "clips/video_aether_p2p_web.mp4",
+                fallbackSrc: "clips/video_aether_p2p.mp4",
+                thumb: "clips/video_aether_p2p_thumb.jpg",
+                index: "CLIP 02 / 02",
+                title: "Aether P2P Encrypted Mesh",
+                desc: "Browser-native peer-to-peer data transport over WebRTC channels with zero central relays."
             }
         ];
 
@@ -1244,6 +1229,13 @@
             const clip = videoClips[currentClipIdx];
             
             if (iphoneVid) {
+                iphoneVid.onerror = () => {
+                    if (clip.fallbackSrc && !iphoneVid.src.includes(clip.fallbackSrc)) {
+                        iphoneVid.src = clip.fallbackSrc;
+                        iphoneVid.load();
+                        iphoneVid.play().catch(() => {});
+                    }
+                };
                 iphoneVid.src = clip.src;
                 iphoneVid.poster = clip.thumb;
                 iphoneVid.load();
@@ -1259,9 +1251,9 @@
                 const btn = document.getElementById(`clip-btn-${i}`);
                 if (btn) {
                     if (i === currentClipIdx) {
-                        btn.className = 'clip-selector active px-3 py-1.5 rounded-xl border border-[#FF5500] bg-[#FF5500]/15 text-[#FF5500] font-semibold transition-all';
+                        btn.className = 'clip-selector active px-4 py-2 rounded-xl border border-[#FF5500] bg-[#FF5500]/15 text-[#FF5500] font-semibold transition-all';
                     } else {
-                        btn.className = 'clip-selector px-3 py-1.5 rounded-xl border theme-border theme-pill theme-text-sec hover:border-[#FF5500] transition-all';
+                        btn.className = 'clip-selector px-4 py-2 rounded-xl border theme-border theme-pill theme-text-sec hover:border-[#FF5500] transition-all';
                     }
                 }
             }
@@ -1320,7 +1312,11 @@
                 if (id === pageKey) {
                     if (pageEl) {
                         pageEl.style.display = 'block';
-                        gsap.fromTo(pageEl, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" });
+                        if (typeof gsap !== 'undefined') {
+                            gsap.fromTo(pageEl, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" });
+                        } else {
+                            pageEl.style.opacity = '1';
+                        }
                     }
                     if (navBtn) navBtn.className = 'nav-tab active px-3.5 py-1.5 rounded-full transition-all flex items-center gap-1.5';
                     if (mobBtn) mobBtn.className = 'py-2 px-1 rounded-xl bg-[#FF5500] text-white flex flex-col items-center gap-0.5';
@@ -1331,14 +1327,10 @@
                 }
             });
 
-            // Smooth scroll to top of page content
             window.scrollTo({ top: 0, behavior: 'smooth' });
-
-            // Update URL hash
             history.replaceState(null, '', `#${pageKey}`);
         }
 
-        // Initialize Page from URL Hash
         window.addEventListener('DOMContentLoaded', () => {
             const hash = window.location.hash.replace('#', '');
             if (pageIds.includes(hash)) {
@@ -1375,16 +1367,34 @@
             preloaderSkipped = true;
             const pre = document.getElementById('preloader');
             if (pre) {
-                gsap.to(pre, {
-                    yPercent: -100,
-                    duration: 0.5,
-                    ease: "expo.inOut",
-                    onComplete: () => { pre.style.display = 'none'; }
-                });
+                if (typeof gsap !== 'undefined') {
+                    gsap.to(pre, {
+                        yPercent: -100,
+                        duration: 0.5,
+                        ease: "expo.inOut",
+                        onComplete: () => { pre.style.display = 'none'; }
+                    });
+                } else {
+                    pre.style.opacity = '0';
+                    pre.style.transition = 'opacity 0.3s ease';
+                    setTimeout(() => { pre.style.display = 'none'; }, 300);
+                }
             }
         }
 
         (function runPreloader() {
+            const pre = document.getElementById('preloader');
+            if (typeof gsap === 'undefined') {
+                if (pre) {
+                    setTimeout(() => {
+                        pre.style.opacity = '0';
+                        pre.style.transition = 'opacity 0.4s ease';
+                        setTimeout(() => { pre.style.display = 'none'; }, 400);
+                    }, 500);
+                }
+                return;
+            }
+
             let counterObj = { val: 0 };
             const counterEl = document.getElementById('pre-counter');
             const barEl = document.getElementById('pre-bar');
@@ -1400,9 +1410,9 @@
                     if (counterEl) counterEl.textContent = `${String(v).padStart(2, '0')}%`;
                     if (barEl) barEl.style.width = `${v}%`;
                     if (v > 30 && v < 70 && statusEl) {
-                        statusEl.textContent = 'CALIBRATING ARM64 RUNTIME &amp; P2P CHANNELS...';
+                        statusEl.textContent = 'CALIBRATING ARM64 RUNTIME & P2P CHANNELS...';
                     } else if (v >= 70 && statusEl) {
-                        statusEl.textContent = 'RECONSTRUCTION READY &bull; OPENING WORKSPACE...';
+                        statusEl.textContent = 'RECONSTRUCTION READY • OPENING WORKSPACE...';
                     }
                 },
                 onComplete: () => {
@@ -1412,8 +1422,8 @@
                         duration: 0.7,
                         ease: "expo.inOut",
                         onComplete: () => {
-                            const pre = document.getElementById('preloader');
-                            if (pre) pre.style.display = 'none';
+                            const p = document.getElementById('preloader');
+                            if (p) p.style.display = 'none';
                         }
                     });
                 }
@@ -1427,7 +1437,6 @@
             const utcEl = document.getElementById('utc-clock');
             if (utcEl) utcEl.textContent = timeStr;
 
-            // iPhone clock format HH:MM
             const hours = String(now.getUTCHours()).padStart(2, '0');
             const mins = String(now.getUTCMinutes()).padStart(2, '0');
             const iphoneClock = document.getElementById('iphone-clock');
@@ -1478,13 +1487,8 @@
                 "       _,met$$$$$gg.          dakshesh@termux-handset",
                 "    ,g$$$$$$$$$$$$$$$P.       -----------------------",
                 "  ,g$$P\"\"       \"\"\"Y$$.\".     OS: Ubuntu 24.04 (PRoot on Android)",
-                " ,$$P'              `$$$.     Host: ARM64 Octa-Core Handset",
-                "',$$P       ,ggs.     `$$b:   Kernel: 5.10.149-android aarch64",
-                "`d$$'     ,$P\"'   .    $$$    Uptime: 14 days, 6 hours",
-                " $$P      d$'     ,    $$P    Shell: bash 5.2.26",
-                " $$:      $.   -  ,d  $$'     Editor: Neovim",
-                " $$;      Y$b._   _,d$P'      Memory: 1820MiB / 7480MiB",
-                " Y$$.    `.`\"Y$$$$P\"'         Primary Langs: Python 3, C, Shell, HTML/JS"
+                " ,$$P'              `$$$.     Host: ARM64 Octa-Core Handset", "',$$P       ,ggs.     `$$b:   Kernel: 5.10.149-android aarch64",
+                "`d$$'     ,$P\"'   .    $$$    Uptime: 14 days, 6 hours", " $$P      d$'     ,    $$P    Shell: bash 5.2.26", " $$:      $.   -  ,d$$'     Editor: Neovim", " $$;      Y$b._   _,d$P'      Memory: 1820MiB / 7480MiB", " Y$$.    `.`\"Y$$$$P\"'         Primary Langs: Python 3, C, Shell, HTML/JS"
             ],
             philosophy: [
                 "$ cat ~/notes/mindset.txt",
@@ -1540,20 +1544,6 @@
         function escapeHtml(text) {
             const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
             return text.replace(/[&<>"']/g, m => map[m]);
-        }
-
-        // --- 8. Standalone File Downloader ---
-        function downloadPortfolioFile() {
-            const htmlContent = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
-            const blob = new Blob([htmlContent], { type: 'text/html' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'dakshesh_portfolio.html';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
         }
     </script>
 </body>

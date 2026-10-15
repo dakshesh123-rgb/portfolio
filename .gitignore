@@ -1,0 +1,15 @@
+*.py
+!serve.py
+*.backup*
+vugola*
+app.js
+apple*
+legacy*
+three-scene.js
+_next/
+img/
+hero/
+features/
+integrations/
+node_modules/
+.wrangler/
