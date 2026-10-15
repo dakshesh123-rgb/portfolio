@@ -1075,7 +1075,7 @@
                     // CURIOUS • POLYMATH APPROACH
                 </span>
                 <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight mt-1">
-                    About Dakshesh Das
+                    About Dakshesh
                 </h2>
                 <p class="text-sm theme-text-sec max-w-2xl mt-1.5 leading-relaxed">
                     Philosophical yet pragmatic. Building systems from mathematical foundations and physical grounding.
@@ -1388,9 +1388,9 @@
                 if (pre) {
                     setTimeout(() => {
                         pre.style.opacity = '0';
-                        pre.style.transition = 'opacity 0.4s ease';
-                        setTimeout(() => { pre.style.display = 'none'; }, 400);
-                    }, 500);
+                        pre.style.transition = 'opacity 0.5s ease';
+                        setTimeout(() => { pre.style.display = 'none'; }, 500);
+                    }, 5500);
                 }
                 return;
             }
@@ -1402,16 +1402,20 @@
 
             gsap.to(counterObj, {
                 val: 100,
-                duration: 1.1,
-                ease: "power2.inOut",
+                duration: 5.2,
+                ease: "power1.inOut",
                 onUpdate: () => {
                     if (preloaderSkipped) return;
                     const v = Math.round(counterObj.val);
                     if (counterEl) counterEl.textContent = `${String(v).padStart(2, '0')}%`;
                     if (barEl) barEl.style.width = `${v}%`;
-                    if (v > 30 && v < 70 && statusEl) {
+                    if (v < 25 && statusEl) {
+                        statusEl.textContent = 'INITIALIZING QUANTUM STATE & NUMERICAL CORE...';
+                    } else if (v >= 25 && v < 55 && statusEl) {
                         statusEl.textContent = 'CALIBRATING ARM64 RUNTIME & P2P CHANNELS...';
-                    } else if (v >= 70 && statusEl) {
+                    } else if (v >= 55 && v < 85 && statusEl) {
+                        statusEl.textContent = 'SYNCHRONIZING CIRCADIAN PROTOCOL & LOCAL GRAPH...';
+                    } else if (v >= 85 && statusEl) {
                         statusEl.textContent = 'RECONSTRUCTION READY • OPENING WORKSPACE...';
                     }
                 },
@@ -1419,7 +1423,7 @@
                     if (preloaderSkipped) return;
                     gsap.to('#preloader', {
                         yPercent: -100,
-                        duration: 0.7,
+                        duration: 0.8,
                         ease: "expo.inOut",
                         onComplete: () => {
                             const p = document.getElementById('preloader');
