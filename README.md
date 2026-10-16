@@ -1,4 +1,4 @@
-# Dakshesh Das — Systems, Physics & Inquiries Portfolio
+# Dakshesh — Systems, Physics & Inquiries Portfolio
 
 [![Cloudflare Pages](https://img.shields.io/badge/Deployed%20on-Cloudflare%20Pages-F38020?style=flat&logo=cloudflare&logoColor=white)](https://dakshesh-portfolio.pages.dev)
 [![Hack Club Stardance](https://img.shields.io/badge/Hack%20Club-Stardance%20%2369869-EC3750?style=flat&logo=hackclub&logoColor=white)](https://stardance.hackclub.com/projects/69869)
@@ -17,13 +17,13 @@
 
 ---
 
-## 🛠️ Systems & Featured Projects
+## Systems & Featured Projects
 
 1. **Quantum Tunneling Dynamics Solver** ([Research Site](https://dakshesh123-rgb.github.io/qm-project-website/) | [Code](https://github.com/dakshesh123-rgb/qm-project-website))
    * Pure Python 1D finite-difference Hamiltonian solver using Sturm sequence bisection and Crank-Nicolson TDSE.
    * Proved barrier curvature alters transmission coefficients by up to $2.3 \times 10^6 \times$ compared to standard rectangular barriers.
 2. **NOCTURNE // PROTOCOL**
-   * Brutalist-editorial circadian enforcement and phone blackout system with 56px touch dial bedtime scheduler, scotopic red mode, and guided parasympathetic breathing pacer.
+   * circadian enforcement and phone blackout system with 56px touch dial bedtime scheduler, scotopic red mode, and guided parasympathetic breathing pacer.
 3. **Aether P2P Encrypted Mesh** ([Live App](https://aether-p2p.pages.dev) | [Code](https://github.com/dakshesh123-rgb/aether-p2p))
    * Serverless, browser-to-browser communication protocol utilizing WebRTC data channels with ECDH P-256 key exchange and AES-256-GCM zero-knowledge transport.
 4. **Zero-Dependency StatArb Engine** ([Code](https://github.com/dakshesh123-rgb/pure-python-statarb))
@@ -37,17 +37,16 @@
 
 ---
 
-## 🏗️ Architecture & Tech Stack
+##  Architecture & Tech Stack
 
-* **Design Philosophy:** Brutalist-editorial typographic precision, high-contrast dark/light obsidian palettes, and tactile micro-interactions.
-* **Frontend:** Semantic HTML5, Tailwind CSS, Vanilla Modern JavaScript (ES6+).
+* **Design**  dark/light obsidian palettes, and tactile micro-interactions.
+* **Frontend** Semantic HTML5, Tailwind CSS, Vanilla Modern JavaScript (ES6+).
 * **Interactivity & Animation:** GSAP (GreenSock Animation Platform 3.12), Three.js WebGL canvas.
-* **Icons & Typography:** Phosphor Icons, Google Fonts (*Instrument Serif*, *Space Grotesk*, *Plus Jakarta Sans*, *JetBrains Mono*).
+* **Icons & Typography** Phosphor Icons, Google Fonts (*Instrument Serif*, *Space Grotesk*, *Plus Jakarta Sans*, *JetBrains Mono*).
 * **Hosting & Edge Delivery:** Cloudflare Pages with global CDN edge routing and instant cache invalidation.
 
----
 
-## 💻 Local Development
+##  Local Development
 
 Clone the repository and serve locally:
 
