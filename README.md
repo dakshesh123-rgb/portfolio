@@ -32,7 +32,7 @@ Then open `http://localhost:8080` in your browser.
 
 ## How I built it & technical choices
 
-Earlier I tried adapting an existing website template, but it had a bunch of bloated scripts and didn't feel like my own work. When a Stardance reviewer pointed that out, I decided to scrap the entire thing and start fresh with plain HTML, CSS, and JavaScript.
+I built this website completely from scratch using clean, handwritten HTML, CSS, and vanilla JavaScript designed for fast loading on mobile and desktop.
 
 Some choices I made:
 1. **No frameworks**: React or Next.js would have added hundreds of megabytes of dependencies that are painful to manage on Termux. Plain HTML and CSS load in milliseconds and are easy to maintain on a phone.

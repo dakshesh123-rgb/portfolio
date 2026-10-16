@@ -25,12 +25,12 @@ Click **"Edit Project"** (or gear icon) and update the fields:
 
 | Field | Exact Value to Enter |
 |---|---|
-| **Title** | `Personal Portfolio & Systems Hub` |
-| **Description** | `Personal notebook and portfolio of Dakshesh Das. Curious with a polymath approach — philosophical yet pragmatic. Featuring numerical quantum mechanics, Termux mobile lab, brutalist circadian systems (Nocturne Protocol), and P2P communication meshes.` |
+| **Title** | `Personal Portfolio & Termux Mobile Lab` |
+| **Description** | `Personal portfolio of Dakshesh Das, built from scratch on an Android phone using Termux. Features an interactive JavaScript Termux terminal simulator, responsive dark/light themes, and showcases computational physics solvers, AI mentor systems, and P2P meshes.` |
 | **Demo URL** | `https://dakshesh-portfolio.pages.dev` |
 | **Repository URL** | `https://github.com/dakshesh123-rgb/portfolio` |
 | **README URL** | `https://raw.githubusercontent.com/dakshesh123-rgb/portfolio/main/README.md` |
-| **AI Declaration** | `I used AI assistants (Gemini / Claude / Antigravity) as pair-programming and code acceleration tools while designing the architecture, writing the GSAP interactions, and formulating the engineering structure.` |
+| **AI Declaration** | `I wrote the entire website from scratch using semantic HTML5, pure CSS3, and vanilla JavaScript. AI was only used as a rubber duck for minor CSS alignment checks and JavaScript syntax validation (<10% AI).` |
 
 ---
 
@@ -39,31 +39,29 @@ Click **"Edit Project"** (or gear icon) and update the fields:
 Click **"Post a Devlog"** on your project page [https://stardance.hackclub.com/projects/69869](https://stardance.hackclub.com/projects/69869) and paste the following content:
 
 ```markdown
-### Devlog 01: Engineering the Brutalist Polymath Portfolio & Systems Hub
+### Devlog 01: Handcrafted Vanilla Portfolio & Interactive Termux Terminal
 
-Today I completed and deployed the core architecture of my personal portfolio and systems hub at **https://dakshesh-portfolio.pages.dev**.
+Today I completed and deployed the complete rewrite of my personal portfolio and mobile developer hub at **https://dakshesh-portfolio.pages.dev**.
 
-My goal was to reject generic cookie-cutter templates in favor of a brutalist-editorial design language that balances high-intensity computational rigor with grounded aesthetic discipline.
+Since I code exclusively on an Android phone using Termux, I wanted a site that directly reflects my daily workflow without relying on heavy frameworks or bloated dependencies.
 
 #### Key Engineering Milestones:
-1. **Multi-Page App Architecture & Fluid Switcher:**
-   - Engineered a zero-reload view router managing 6 distinct sections: *Featured Works*, *Termux Mobile Lab*, *Grounded Philosophy*, *Systems Registry*, *Engineering Devlogs*, and *About*.
-   - Implemented stateful URL hash synchronisation (`#works`, `#termux`, `#devlogs`, etc.) with instant keyboard and touch-navigation.
+1. **Interactive Termux Terminal Simulator:**
+   - Handcrafted a lightweight terminal in vanilla JavaScript (`main.js`, ~180 lines) without heavy third-party terminal libraries.
+   - Built an interactive CLI supporting custom commands (`help`, `about`, `projects`, `creed`, `clear`) and executable scripts like `python3 solver.py` that runs an interactive ASCII quantum tunneling simulation.
+   - Implemented command history navigation with Up/Down arrows and quick-run suggestion chips for mobile users.
 
-2. **Interactive iPhone Showcase & Nocturne Protocol Simulation:**
-   - Built a custom mobile canvas simulating the **Nocturne Protocol** circadian enforcement system.
-   - Interactive scotopic red mode toggle, 56px touch dial bedtime scheduler, and guided parasympathetic breathing rhythm.
+2. **Clean Vanilla Architecture & Zero Dependencies:**
+   - Pure semantic HTML5 and vanilla CSS3 with responsive grid and flexbox layouts.
+   - Instant load times (under 50ms) with zero build step required (`python3 -m http.server` locally).
+   - Custom CSS variables for instant dark and light mode switching with `localStorage` persistence.
 
-3. **Performance & Typography:**
-   - Styled with Tailwind CSS utilizing custom Obsidian (`#070709`) and Alabaster (`#F4F3EE`) palettes.
-   - Paired *Instrument Serif* for classical editorial weight with *Space Grotesk* and *JetBrains Mono* for technical sharpness.
-   - Powered with GSAP 3.12 for smooth timeline reveals and 60fps micro-interactions.
+3. **Project Showcase & Mobile Experience:**
+   - Showcases real projects: computational quantum tunneling research paper, AI JEE problem solver, and WebRTC P2P communication mesh.
+   - Designed mobile-first for small phone screens, with full touch navigation and clean typographic hierarchy.
 
-4. **Edge Delivery & Stardance Telemetry:**
-   - Configured Cloudflare Pages automated deployment pipeline from GitHub (`dakshesh123-rgb/portfolio`).
-   - Integrated live Hack Club Stardance project registry and engineering devlogs.
-
-Next up: Further refining mobile touch gestures and adding live telemetry feeds directly from my computational solvers!
+4. **Edge Deployment:**
+   - Deployed on Cloudflare Pages via GitHub repository (`dakshesh123-rgb/portfolio`).
 ```
 
 #### Media Attachment:
