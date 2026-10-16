@@ -5,7 +5,7 @@ A personal website to showcase the projects I've built from my phone.
 Live link: [https://dakshesh-portfolio.pages.dev](https://dakshesh-portfolio.pages.dev)  
 Stardance project: [#69869](https://stardance.hackclub.com/projects/69869)
 
-![Portfolio Preview](Screenshot_20260930_200509.jpg)
+![Portfolio Preview](https://raw.githubusercontent.com/dakshesh123-rgb/portfolio/main/Screenshot_20260930_200509.jpg)
 
 ## Why I made this
 
