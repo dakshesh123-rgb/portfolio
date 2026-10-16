@@ -65,4 +65,4 @@ Since I code exclusively on an Android phone using Termux, I wanted a site that 
 ```
 
 #### Media Attachment:
-* Attach `/root/portfolio/Screenshot_20260930_200509.jpg` or `og-preview.jpg` when posting the devlog on Stardance (Stardance requires at least 1 image/video attachment per devlog).
+* Attach `/root/portfolio/Screenshot_20260930_200509.jpg` when posting the devlog on Stardance (Stardance requires at least 1 image/video attachment per devlog).
