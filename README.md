@@ -1,111 +1,58 @@
-# Dakshesh's Systems & Physics Portfolio
+# Dakshesh's Portfolio
 
-> A lightweight, zero-dependency personal website showcasing computational quantum physics simulations, terminal tools, and mobile software experiments — built and deployed entirely from an Android phone in Termux.
+A personal website to showcase the projects I've built from my phone.
 
-[![Cloudflare Pages](https://img.shields.io/badge/Deployed%20on-Cloudflare%20Pages-F38020?style=flat&logo=cloudflare&logoColor=white)](https://dakshesh-portfolio.pages.dev)
-[![Hack Club Stardance](https://img.shields.io/badge/Hack%20Club-Stardance%20%2369869-EC3750?style=flat&logo=hackclub&logoColor=white)](https://stardance.hackclub.com/projects/69869)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+Live link: [https://dakshesh-portfolio.pages.dev](https://dakshesh-portfolio.pages.dev)  
+Stardance project: [#69869](https://stardance.hackclub.com/projects/69869)
 
----
+![Portfolio Preview](Screenshot_20260930_200509.jpg)
 
-## 📸 Preview
+## Why I made this
 
-![Portfolio Screenshot](Screenshot_20260930_200509.jpg)
+I'm Dakshesh Das, a 16-year-old student currently in 11th grade. I don't have a desktop computer or laptop, so everything I code — from differential equation physics solvers to small web apps — is done directly on an Android phone using Termux.
 
----
+I wanted a clean, fast personal site to collect my work in one place without needing a heavy frontend framework that lags on mobile.
 
-## 🌐 Try It Out
+## What's in it
 
-* 👉 **Live Website:** [https://dakshesh-portfolio.pages.dev](https://dakshesh-portfolio.pages.dev)
-* ⭐ **Stardance Project Page:** [Project #69869](https://stardance.hackclub.com/projects/69869)
-* 👤 **Stardance Builder Profile:** [@dakshesh236](https://stardance.hackclub.com/@dakshesh236)
-* 🐙 **GitHub Repository:** [https://github.com/dakshesh123-rgb/portfolio](https://github.com/dakshesh123-rgb/portfolio)
+- **Interactive Termux terminal**: Since I do all my work in the terminal on Android, I built a small terminal emulator in JavaScript right into the page. You can click commands or type `python3 solver.py` to see a simulation of my quantum tunneling solver, or check `cat about.txt`, `cat creed.txt`, and `projects`.
+- **Project gallery**: Links to my real projects with demos and GitHub repos, like my quantum tunneling research paper, an AI JEE problem-solving helper, and a WebRTC P2P mesh tool.
+- **Dark and light mode**: A simple theme toggle that saves your preference in localStorage.
+- **Built for phones first**: Since I wrote and previewed this on a 6-inch phone screen, it's designed to be lightweight, responsive, and fast.
 
----
+## Running it locally
 
-## ⚡ Quick Start
-
-You can run this portfolio locally in two simple commands (no `npm install`, no heavy dependencies):
+You don't need npm or node_modules. Any basic HTTP server will work:
 
 ```bash
 git clone https://github.com/dakshesh123-rgb/portfolio.git
-cd portfolio && python3 -m http.server 8080
+cd portfolio
+python3 -m http.server 8080
 ```
 
-Open [http://localhost:8080](http://localhost:8080) in any browser.
+Then open `http://localhost:8080` in your browser.
 
----
+## How I built it & technical choices
 
-## ✨ Features
+Earlier I tried adapting an existing website template, but it had a bunch of bloated scripts and didn't feel like my own work. When a Stardance reviewer pointed that out, I decided to scrap the entire thing and start fresh with plain HTML, CSS, and JavaScript.
 
-* **Handcrafted Zero-Dependency Stack:** Written in semantic HTML5, pure CSS3, and vanilla modern JavaScript. Loads in under 80ms with zero framework bloat.
-* **Interactive Termux Terminal Playground:** Built-in terminal emulator simulating my actual Android Termux environment (`aarch64`). Run `python3 solver.py` to see the Crank-Nicolson quantum tunneling solver in action, `cat about.txt`, `cat creed.txt`, or `projects`.
-* **Live Project Showcases:** Direct links and documentation for my computational physics research paper, AI JEE Socratic mentor, Aether P2P WebRTC mesh, and Pythonix cloud sandbox.
-* **Domain Category Filtering:** Instantly filter projects by category (*Physics & Math*, *Web & P2P*, *Mobile & Systems*).
-* **Persistent Obsidian Dark / Light Theme:** Custom typographic palette with state saved automatically in `localStorage`.
-* **Mobile-First Responsive Layout:** Designed and tested directly on a 6-inch Android smartphone screen, ensuring flawless responsiveness on phones, tablets, and desktops.
+Some choices I made:
+1. **No frameworks**: React or Next.js would have added hundreds of megabytes of dependencies that are painful to manage on Termux. Plain HTML and CSS load in milliseconds and are easy to maintain on a phone.
+2. **Custom CSS variables**: I used standard CSS custom properties for theming so switching between dark and light mode only requires changing variables on the `:root` element.
+3. **Vanilla JS terminal**: Instead of pulling in a heavy terminal library like xterm.js, I wrote a lightweight ~180-line JavaScript script (`main.js`) that handles command input, history, and outputs colored responses.
 
----
+## AI usage
 
-## 💻 How to Run Locally
+I want to be completely upfront:
+- All the design, HTML layout, CSS styling, and project writeups were written by me.
+- The concept of the interactive Termux terminal is my own idea based on my daily workflow.
+- I used AI like a rubber duck — mostly asking how to fix specific CSS alignment issues on mobile or double-checking JavaScript syntax.
+- Overall AI contribution is well under 10%.
 
-### Requirements
-* Any modern web browser (Chrome, Firefox, Safari, Edge).
-* Python 3.8+ (to run a local HTTP server) or any static file server like `npx serve` or `caddy`.
+## About me
 
-### Step-by-Step
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/dakshesh123-rgb/portfolio.git
-   cd portfolio
-   ```
-2. Start the local server:
-   ```bash
-   python3 -m http.server 8080
-   ```
-3. Visit [http://localhost:8080](http://localhost:8080) to explore the site and test the terminal.
+I'm 16 years old, into physics, math, and coding. When I'm not studying or building things on Termux, I'm usually working out at the gym or reading philosophy.
 
----
-
-## 🛠️ How It Works & Technical Choices
-
-### 1. Why I Rebuilt This from Scratch (Addressing Reviewer Feedback)
-When I first submitted this project to Stardance, I made the mistake of adapting an agency web template with automated transformation scripts. The Stardance reviewer (@Celestial) rightly pointed out that the code felt artificial, exceeded the AI limit, and had an impersonal README.
-
-They were 100% right. That wasn't who I am as a hacker.
-
-I threw away the entire template, purged all scraper scripts and external assets, and rebuilt this website from the ground up with clean, handcrafted HTML, CSS, and vanilla JS. Every single line of code, every CSS custom property, and every word in this portfolio is now mine.
-
-### 2. The Phone Constraint: Coding on Termux
-I am 16 years old, currently in 11th grade. I don't code on a multi-monitor desktop setup; I do all my work on an Android phone using Termux and Linux chroots. 
-
-A 6-inch screen forces extreme discipline. You cannot afford 300MB `node_modules` folders, slow Webpack bundles, or fragile dependencies. Writing vanilla HTML, CSS, and JS means zero build steps, instant reloads, and blazing performance on native ARM64.
-
-### 3. The Interactive Terminal
-Because the Linux command line is where all my real work happens (compiling C++, running Crank-Nicolson quantum simulations, and managing git), I wanted visitors to experience that exact workflow. 
-
-I wrote a small, robust terminal emulator in vanilla JavaScript (`main.js`). It intercepts command input, prints formatted ANSI-style responses, and even runs a simulated run of my quantum tunneling numerical solver (`python3 solver.py`) showing calculated transmission coefficients ($T \approx 2.3 \times 10^{-4}$) vs textbook rectangular barriers.
-
----
-
-## 🤖 AI Usage Declaration
-
-In accordance with Hack Club Stardance guidelines (<30% AI assistance):
-
-* **Architecture, Design & Concept:** **100% Human** (my personal design, layout, and mobile-first concept).
-* **Content & Copy:** **100% Human** (my genuine story, background, and project documentation).
-* **Code Implementation:** **~10% AI assistance**. All HTML, CSS, and JavaScript was handwritten by me; AI was only used as a sounding board to double-check cross-browser CSS flexbox quirks and syntax references.
-
----
-
-## 📜 Credits & Acknowledgments
-
-* **Typography:** [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk), [Plus Jakarta Sans](https://fonts.google.com/specimen/Plus+Jakarta+Sans), and [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) via Google Fonts.
-* **Hosting:** Cloudflare Pages for ultra-fast global CDN routing.
-* **Community:** [Hack Club Stardance](https://stardance.hackclub.com) for building a great community of high schoolers and pushing me to build authentic, handcrafted software.
-
----
-
-## 📄 License
-
-MIT License © 2026 Dakshesh Das.
+- GitHub: https://github.com/dakshesh123-rgb
+- Stardance: https://stardance.hackclub.com/@dakshesh236
+- Project ID: #69869
