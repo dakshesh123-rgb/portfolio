@@ -5,8 +5,6 @@ A personal website to showcase the projects I've built from my phone.
 Live link: [https://dakshesh-portfolio.pages.dev](https://dakshesh-portfolio.pages.dev)  
 Stardance project: [#69869](https://stardance.hackclub.com/projects/69869)
 
-![Portfolio Preview](https://raw.githubusercontent.com/dakshesh123-rgb/portfolio/main/Screenshot_20260930_200509.jpg)
-
 ## Why I made this
 
 I'm Dakshesh Das, a 16-year-old student currently in 11th grade. I don't have a desktop computer or laptop, so everything I code — from differential equation physics solvers to small web apps — is done directly on an Android phone using Termux.
