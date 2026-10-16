@@ -71,11 +71,11 @@ const TERMINAL_COMMANDS = {
 <span class="term-accent">[✓] Curvature enhancement factor: 2.30 × 10⁶ ×</span>
 [✓] Simulation converged in 12.8ms. Research paper: APS format.`,
 
-  'cat creed.txt': `=== THE PERSONAL CREED ===
-1. <span class="term-accent">Never apologize for high ambition.</span> The world is shaped by those who refuse to be lukewarm.
-2. <span class="term-accent">When the mind doubts, the body acts.</span> Physical discipline kills analytical paralysis.
-3. <span class="term-accent">Master the hard things first.</span> Mathematics, differential equations, and low-level code create permanent leverage.
-4. <span class="term-accent">Stack proof, not words.</span> Let verifiable artifacts speak for themselves.`,
+  'cat creed.txt': `=== PERSONAL RULES ===
+1. <span class="term-accent">Work with what you have:</span> You don't need an expensive laptop to learn math, physics, or programming.
+2. <span class="term-accent">Action over overthinking:</span> When you get stuck in your head, either write the code or go lift.
+3. <span class="term-accent">Learn the fundamentals:</span> Understanding differential equations and how systems work under the hood never goes out of style.
+4. <span class="term-accent">Ship real things:</span> A working script beats a half-finished idea every time.`,
 
   projects: `ACTIVE PROJECTS ON GITHUB & LIVE DEMOS:
 1. <span class="term-accent">Quantum Tunneling Research</span> -> https://dakshesh123-rgb.github.io/qm-project-website/
