@@ -82,7 +82,8 @@ const TERMINAL_COMMANDS = {
 2. <span class="term-accent">AI JEE Socratic Mentor</span>     -> https://ai-jee-mentor-bxa.caffeine.xyz/
 3. <span class="term-accent">Pythonix Cloud Sandbox</span>     -> https://github.com/dakshesh123-rgb/pythonix
 4. <span class="term-accent">Aether P2P Encrypted Mesh</span>  -> https://github.com/dakshesh123-rgb/aether-p2p
-5. <span class="term-accent">Nocturne Circadian Focus</span>   -> Handcrafted mobile blackout utility`,
+5. <span class="term-accent">Personal Essay Blog</span>       -> https://essay-blog.pages.dev
+6. <span class="term-accent">Nocturne Circadian Focus</span>   -> Handcrafted mobile blackout utility`,
 
   whoami: `dakshesh (16yo student & researcher @ Termux Android)`,
 
