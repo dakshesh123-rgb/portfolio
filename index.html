@@ -1,1805 +1,467 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Dakshesh Das — Projects, Systems &amp; Inquiries</title>
-    <meta name="description" content="Personal notebook and portfolio of Dakshesh Das. Curious with a polymath approach — philosophical yet pragmatic. Numerical physics, Termux mobile systems, P2P networks, and grounded philosophy.">
-    <meta name="author" content="Dakshesh Das">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dakshesh Das — Systems, Physics &amp; Software Portfolio</title>
+  <meta name="description" content="Personal engineering notebook and portfolio of Dakshesh Das. 16-year-old builder coding computational physics simulations and systems from an Android phone in Termux.">
+  <meta name="author" content="Dakshesh Das">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Dakshesh Das — Projects, Systems &amp; Inquiries">
-    <meta property="og:description" content="Curious with a polymath approach — philosophical yet pragmatic. Numerical physics, Termux mobile systems, P2P tools, and notes on philosophy.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://github.com/dakshesh123-rgb">
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="Dakshesh Das — Systems, Physics &amp; Software Portfolio">
+  <meta property="og:description" content="16-year-old high school builder. Computational quantum mechanics, Android/Termux mobile systems, P2P tools, and philosophy.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dakshesh-portfolio.pages.dev">
+  <meta property="og:image" content="Screenshot_20260930_200509.jpg">
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Dakshesh Das — Projects, Systems &amp; Inquiries">
-    <meta name="twitter:description" content="Curious with a polymath approach — philosophical yet pragmatic. Numerical quantum mechanics, Termux mobile lab, P2P tools, and grounded philosophy.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;family=Instrument+Serif:ital@0;1&amp;family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-
-    <!-- Phosphor Icons -->
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        display: ['Space Grotesk', 'Plus Jakarta Sans', 'sans-serif'],
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                        serif: ['Instrument Serif', 'serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    colors: {
-                        obsidian: '#070709',
-                        obsidianCard: '#0F0F14',
-                        obsidianElevated: '#16161E',
-                        alabaster: '#F4F3EE',
-                        alabasterCard: '#EAE8E1',
-                        alabasterElevated: '#DFDDD4',
-                        amberAccent: '#FF5500',
-                        amberDark: '#E04800',
-                        emeraldAccent: '#00E676',
-                        crimsonAccent: '#DC2626',
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        /* =====================================================
-           THEME TOKENS
-           ===================================================== */
-        :root[data-theme="dark"] {
-            --bg-primary: #070709;
-            --bg-secondary: #0F0F14;
-            --bg-elevated: #16161E;
-            --text-primary: #F4F3EE;
-            --text-secondary: #A3A19A;
-            --text-muted: #5E5D58;
-            --border-color: rgba(244, 243, 238, 0.08);
-            --border-highlight: rgba(244, 243, 238, 0.16);
-            --accent: #FF5500;
-            --accent-glow: rgba(255, 85, 0, 0.2);
-            --pill-bg: rgba(244, 243, 238, 0.04);
-            --terminal-bg: #09090C;
-            --iphone-rim: #242429;
-            --iphone-inner: #0A0A0C;
-            --shadow-subtle: 0 10px 30px rgba(0, 0, 0, 0.6);
-        }
-
-        :root[data-theme="light"] {
-            --bg-primary: #F4F3EE;
-            --bg-secondary: #EAE8E1;
-            --bg-elevated: #DFDDD4;
-            --text-primary: #111113;
-            --text-secondary: #55544F;
-            --text-muted: #87857E;
-            --border-color: rgba(17, 17, 19, 0.11);
-            --border-highlight: rgba(17, 17, 19, 0.22);
-            --accent: #E04800;
-            --accent-glow: rgba(224, 72, 0, 0.15);
-            --pill-bg: rgba(17, 17, 19, 0.05);
-            --terminal-bg: #1A1A1E;
-            --iphone-rim: #D4D2CA;
-            --iphone-inner: #0A0A0C;
-            --shadow-subtle: 0 10px 30px rgba(0, 0, 0, 0.08);
-        }
-
-        * {
-            box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            overflow-x: hidden;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            min-height: 100vh;
-        }
-
-        /* Subtle Analog Film Grain Overlay */
-        .grain-overlay {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 9990;
-            opacity: 0.028;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-        }
-
-        .theme-border { border-color: var(--border-color); }
-        .theme-border-highlight { border-color: var(--border-highlight); }
-        .theme-bg-sec { background-color: var(--bg-secondary); }
-        .theme-bg-elevated { background-color: var(--bg-elevated); }
-        .theme-text-sec { color: var(--text-secondary); }
-        .theme-text-muted { color: var(--text-muted); }
-        .theme-pill { background-color: var(--pill-bg); }
-
-        /* =====================================================
-           SEAMLESS HEADER BANNER BLEND ("The world is your 888")
-           ===================================================== */
-        .hero-banner-wrap {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: -0.5rem auto -0.25rem auto;
-            max-width: 340px;
-            pointer-events: none;
-            user-select: none;
-        }
-
-        .hero-banner-img {
-            width: 100%;
-            height: auto;
-            max-height: 68px;
-            object-fit: contain;
-            /* Screen blend mode drops the black #000 background so it melts into #070709 */
-            mix-blend-mode: screen;
-            /* Color-matched to blend warm gold with your #FF5500 amber theme */
-            filter: contrast(1.18) brightness(0.94) saturate(1.15) hue-rotate(-4deg);
-            /* Feathered radial mask ensures zero harsh edges */
-            -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, #000 60%, transparent 100%);
-            mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, #000 60%, transparent 100%);
-            opacity: 0.92;
-            transition: filter 0.3s ease, opacity 0.3s ease;
-        }
-
-        /* Automatic Adaptation for Light Theme */
-        :root[data-theme="light"] .hero-banner-img {
-            mix-blend-mode: multiply;
-            filter: invert(1) sepia(1) saturate(4) hue-rotate(345deg) contrast(1.15);
-            opacity: 0.85;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 5px; height: 5px; }
-        ::-webkit-scrollbar-track { background: var(--bg-primary); }
-        ::-webkit-scrollbar-thumb { background: var(--text-muted); border-radius: 4px; }
-
-        /* Navigation Tab Active Indicator */
-        .nav-tab.active {
-            background-color: #FF5500;
-            color: #FFFFFF !important;
-            border-color: #FF5500;
-            font-weight: 600;
-        }
-
-        /* Page Container Transitions */
-        .portfolio-page {
-            display: none;
-            opacity: 0;
-        }
-        .portfolio-page.active-page {
-            display: block;
-            opacity: 1;
-        }
-
-        /* =====================================================
-           REALISTIC IPHONE 16 PRO CASE CHASSIS
-           ===================================================== */
-        .iphone-case {
-            position: relative;
-            width: 100%;
-            max-width: 320px;
-            aspect-ratio: 9 / 18.8;
-            border-radius: 52px;
-            padding: 11px;
-            background: linear-gradient(145deg, #323238 0%, #17171a 45%, #2a2a30 100%);
-            box-shadow: 
-                0 0 0 1.5px rgba(255, 255, 255, 0.12) inset,
-                0 30px 80px -15px rgba(0, 0, 0, 0.85),
-                0 0 35px var(--accent-glow);
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
-        }
-        @media (min-width: 640px) {
-            .iphone-case {
-                max-width: 340px;
-                border-radius: 54px;
-                padding: 12px;
-            }
-        }
-        .iphone-case:hover {
-            transform: translateY(-4px) scale(1.01);
-            box-shadow: 
-                0 0 0 1.5px rgba(255, 255, 255, 0.18) inset,
-                0 35px 90px -15px rgba(0, 0, 0, 0.95),
-                0 0 50px var(--accent-glow);
-        }
-
-        /* Side physical buttons */
-        .iphone-case::before {
-            content: '';
-            position: absolute;
-            left: -3px;
-            top: 110px;
-            width: 3px;
-            height: 48px;
-            background: #404048;
-            border-radius: 3px 0 0 3px;
-            box-shadow: 0 60px 0 #404048, 0 -30px 0 #FF5500;
-        }
-        .iphone-case::after {
-            content: '';
-            position: absolute;
-            right: -3px;
-            top: 130px;
-            width: 3px;
-            height: 65px;
-            background: #404048;
-            border-radius: 0 3px 3px 0;
-        }
-
-        /* Screen bezel & viewport */
-        .iphone-screen {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            border-radius: 42px;
-            overflow: hidden;
-            background-color: #000000;
-            box-shadow: 0 0 0 1.5px #000000 inset;
-        }
-
-        /* Dynamic Island */
-        .iphone-island {
-            position: absolute;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 96px;
-            height: 24px;
-            background: #000000;
-            border-radius: 999px;
-            z-index: 30;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 8px;
-            box-shadow: 0 1px 3px rgba(255, 255, 255, 0.05);
-            pointer-events: none;
-        }
-        .camera-lens {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: radial-gradient(circle at 35% 35%, #182233 0%, #050508 100%);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .sensor-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: #0f1620;
-        }
-
-        /* Bottom Home Bar Indicator */
-        .iphone-home-bar {
-            position: absolute;
-            bottom: 8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 110px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 999px;
-            z-index: 25;
-            pointer-events: none;
-        }
-
-        /* Terminal Cursor */
-        .term-cursor {
-            display: inline-block;
-            width: 8px;
-            height: 14px;
-            background: #00E676;
-            vertical-align: middle;
-            animation: blink 1s infinite;
-        }
-        @keyframes blink {
-            0%, 49% { opacity: 1; }
-            50%, 100% { opacity: 0; }
-        }
-    </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="selection:bg-[#FF5500] selection:text-white">
+<body>
 
-    <!-- Subtle Analog Film Grain -->
-    <div class="grain-overlay"></div>
+  <!-- ==========================================================================
+       Site Navigation
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="#" class="nav-brand">
+        <img src="avatar_dakshesh.jpg" alt="Dakshesh Das" class="avatar-small">
+        <span>DAKSHESH DAS</span>
+        <span class="brand-badge">TERMUX / ARM64</span>
+      </a>
 
-    <!-- =====================================================
-         1. ARTISTIC CINEMATIC INTRO PRELOADER
-         ===================================================== -->
-    <div id="preloader" class="fixed inset-0 z-[300] bg-[#070709] text-[#F4F3EE] flex flex-col justify-between p-6 sm:p-12 select-none overflow-hidden">
-        <!-- Top row: System status + Skip Intro button -->
-        <div class="flex items-center justify-between font-mono text-[11px] tracking-widest uppercase text-zinc-500">
-            <div class="flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-[#FF5500] animate-pulse"></span>
-                <span>SYSTEM CALIBRATION // 2026</span>
-            </div>
-            <button onclick="skipPreloader()" class="px-3.5 py-1.5 rounded-full border border-white/20 hover:border-[#FF5500] text-xs font-mono uppercase tracking-wider text-white transition-colors">
-                Skip Intro →
-            </button>
-        </div>
+      <ul class="nav-links">
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#terminal" class="nav-link">Termux CLI</a></li>
+        <li><a href="#philosophy" class="nav-link">Story &amp; Creed</a></li>
+        <li><a href="#proof" class="nav-link">Hack Club Proof</a></li>
+      </ul>
 
-        <!-- Center: Artistic, poetic title -->
-        <div class="my-auto max-w-4xl">
-            <div class="font-mono text-xs sm:text-sm text-[#FF5500] tracking-widest uppercase mb-3 flex items-center gap-2">
-                <span class="inline-block w-6 h-[1px] bg-[#FF5500]"></span>
-                <span>FIRST PRINCIPLES • SYSTEMS • INQUIRY</span>
-            </div>
-
-            <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4">
-                <h1 class="font-serif italic font-normal text-4xl sm:text-7xl lg:text-8xl tracking-tight text-zinc-200">
-                    the polymath protocol<span class="text-[#FF5500]">.</span>
-                </h1>
-            </div>
-
-            <p class="font-sans text-xs sm:text-sm text-zinc-400 font-light mt-4 max-w-xl leading-relaxed">
-                Philosophical yet pragmatic. Building numerical physics, P2P protocols, and mobile Unix tooling from ground principles.
-            </p>
-
-            <!-- Understated author wordmark -->
-            <div class="font-mono text-xs text-zinc-500 mt-6 tracking-wider">
-                archive of works // dakshesh das
-            </div>
-        </div>
-
-        <!-- Bottom row: Counter & Progress Line -->
-        <div class="space-y-3">
-            <div class="flex items-baseline justify-between font-mono text-xs sm:text-sm text-zinc-400">
-                <span id="pre-status">INITIALIZING WORKSPACE...</span>
-                <span class="text-2xl sm:text-3xl font-light text-[#FF5500]" id="pre-counter">00%</span>
-            </div>
-            <div class="w-full h-[2px] bg-white/10 overflow-hidden rounded-full">
-                <div id="pre-bar" class="h-full bg-[#FF5500] w-0 transition-all duration-75"></div>
-            </div>
-        </div>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark/light theme">
+          <svg id="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" fill="currentColor"/>
+          </svg>
+        </button>
+        <a href="https://github.com/dakshesh123-rgb" target="_blank" rel="noopener noreferrer" class="cta-btn-sm">GitHub</a>
+      </div>
     </div>
+  </header>
 
-    <!-- =====================================================
-         2. TOP EDITORIAL NAVIGATION HEADER
-         ===================================================== -->
-    <header class="sticky top-0 z-50 border-b theme-border backdrop-blur-xl transition-colors duration-300" style="background-color: color-mix(in srgb, var(--bg-primary) 92%, transparent);">
-        <div class="max-w-[1440px] mx-auto px-4 sm:px-8 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4">
-            
-            <!-- Left: Identity -->
-            <a href="#" onclick="switchPage('works'); return false;" class="flex items-center gap-2.5 sm:gap-3 group focus:outline-none shrink-0">
-                <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#FF5500] text-white font-mono font-bold text-xs flex items-center justify-center shadow-lg shadow-[#FF5500]/25">
-                    d.
-                </div>
-                <div>
-                    <div class="flex items-center gap-1.5 sm:gap-2">
-                        <span class="font-display font-bold text-sm sm:text-base tracking-tight">dakshesh das</span>
-                        <span class="font-mono text-[9px] sm:text-[10px] px-1.5 py-0.5 rounded bg-[#FF5500]/15 text-[#FF5500] font-semibold border border-[#FF5500]/25">DEV</span>
-                    </div>
-                    <span class="font-mono text-[10px] theme-text-muted block leading-none mt-0.5">curious • polymath approach</span>
-                </div>
+  <!-- ==========================================================================
+       Hero Section
+       ========================================================================== -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-text-content">
+        <div class="hero-status-pill">
+          <span class="status-dot"></span>
+          <span>16yo Builder • 11th Grade • Building from Android Termux</span>
+        </div>
+
+        <h1 class="hero-title">
+          Mastering hard physics, algorithms &amp; systems — <span class="highlight">from a smartphone.</span>
+        </h1>
+
+        <p class="hero-bio">
+          I'm Dakshesh Das. I don't use a laptop or a multi-monitor desk setup; I write computational quantum physics solvers, WebRTC meshes, and terminal tools entirely inside <strong>Termux on an Android phone</strong>. When I'm not coding, I'm lifting heavy iron or reading Dostoevsky.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#projects" class="btn-primary">
+            <span>Explore Projects</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#terminal" class="btn-secondary">
+            <span>Launch Termux Demo</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number">16</span>
+            <span class="stat-label">Years Old</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">14</span>
+            <span class="stat-label">Open Projects</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Mobile Built</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">13h+</span>
+            <span class="stat-label">Hackatime Logged</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-image-card">
+        <img src="avatar_dakshesh.jpg" alt="Dakshesh Das" class="hero-avatar">
+        <div class="hero-image-overlay">
+          <span class="avatar-caption-title">Dakshesh Das</span>
+          <span class="avatar-caption-sub">Builder, High Schooler &amp; Researcher</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Interactive Termux Terminal Playground
+       ========================================================================== -->
+  <section id="terminal" class="terminal-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Interactive Environment</span>
+        <h2 class="section-title">Test My Real Mobile Workspace</h2>
+        <p class="section-subtitle">
+          Because I code exclusively on Android, here is an interactive Termux terminal emulator right inside the browser. Click any chip or type a command below.
+        </p>
+      </div>
+
+      <div class="terminal-wrapper">
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <div class="terminal-title">dakshesh@termux: ~ (bash 5.2 • aarch64)</div>
+          <div style="width: 3rem;"></div>
+        </div>
+
+        <div class="terminal-chips">
+          <span class="chips-label">Quick Commands:</span>
+          <button class="chip-btn" data-cmd="python3 solver.py">python3 solver.py</button>
+          <button class="chip-btn" data-cmd="cat about.txt">cat about.txt</button>
+          <button class="chip-btn" data-cmd="cat creed.txt">cat creed.txt</button>
+          <button class="chip-btn" data-cmd="projects">projects</button>
+          <button class="chip-btn" data-cmd="whoami">whoami</button>
+          <button class="chip-btn" data-cmd="clear">clear</button>
+        </div>
+
+        <div class="terminal-body">
+          <div id="term-output" class="terminal-output">
+            <div class="term-line">
+              <span class="term-prompt">dakshesh@termux:~$</span> <span class="term-cmd">python3 solver.py</span>
+            </div>
+            <div class="term-response"><span class="term-green">[+] Initializing Crank-Nicolson 1D TDSE Hamiltonian...</span>
+[+] Spatial grid: Nx = 1024 points, dx = 0.05 a.u., dt = 0.002
+[+] Potential: Non-standard asymmetric curved barrier
+[+] Barrier curvature parameter: κ = 0.428 a.u.⁻¹
+[+] Solving tridiagonal system via Thomas algorithm...
+[+] Transmission Coefficient T: <span class="term-cyan">2.348e-04</span> (Standard rectangular barrier: 1.021e-10)
+<span class="term-accent">[✓] Curvature enhancement factor: 2.30 × 10⁶ ×</span>
+[✓] Simulation converged in 12.8ms. Research paper: APS format.</div>
+          </div>
+
+          <div class="terminal-input-row">
+            <span class="term-prompt">dakshesh@termux:~$</span>
+            <input type="text" id="term-input" class="term-input" placeholder="Type a command (try 'cat about.txt' or 'help')..." autocomplete="off" spellcheck="false">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Projects Section
+       ========================================================================== -->
+  <section id="projects" class="projects-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Featured Work</span>
+        <h2 class="section-title">Things I Built From Scratch</h2>
+        <p class="section-subtitle">
+          Real mathematical models, distributed tools, and web experiments with zero commercial fluff or bloated boilerplates.
+        </p>
+      </div>
+
+      <div class="projects-filter-bar">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="physics">Physics &amp; Math</button>
+        <button class="filter-btn" data-filter="web">Web &amp; P2P</button>
+        <button class="filter-btn" data-filter="systems">Mobile &amp; Systems</button>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1: Quantum Tunneling -->
+        <article class="project-card" data-category="physics">
+          <div class="project-media">
+            <img src="assets/qm_barrier_profiles.png" alt="Quantum Tunneling Profiles" class="project-thumb">
+            <span class="project-category-badge">Physics Paper</span>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Quantum Tunneling Dynamics Solver</h3>
+            <p class="project-desc">
+              Computational research paper and pure-Python 1D Hamiltonian TDSE solver proving that asymmetric barrier curvature alters wavepacket transmission by up to 2.3×10⁶× over textbook models.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">NumPy</span>
+              <span class="tag">Crank-Nicolson</span>
+              <span class="tag">LaTeX/APS</span>
+            </div>
+            <div class="project-links">
+              <a href="https://dakshesh123-rgb.github.io/qm-project-website/" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-primary">Research Site</a>
+              <a href="https://github.com/dakshesh123-rgb/qm-project-website" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-secondary">GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: AI JEE Mentor -->
+        <article class="project-card" data-category="web">
+          <div class="project-media">
+            <img src="clips/video_ai_jee_mentor_thumb.jpg" alt="AI JEE Mentor" class="project-thumb">
+            <span class="project-category-badge">Study Helper</span>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">AI JEE Socratic Mentor</h3>
+            <p class="project-desc">
+              An intelligent, first-principles tutoring interface for competitive physics and calculus students. Rather than dumping raw answers, it guides students through multi-step Socratic reasoning.
+            </p>
+            <div class="project-tags">
+              <span class="tag">React 19</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Three.js</span>
+              <span class="tag">Cloudflare Pages</span>
+            </div>
+            <div class="project-links">
+              <a href="https://ai-jee-mentor-bxa.caffeine.xyz/" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-primary">Live Demo</a>
+              <a href="https://github.com/dakshesh123-rgb/ai-jee-mentor" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-secondary">GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3: Aether P2P -->
+        <article class="project-card" data-category="web">
+          <div class="project-media">
+            <img src="clips/video_aether_p2p_thumb.jpg" alt="Aether P2P Mesh" class="project-thumb">
+            <span class="project-category-badge">P2P Security</span>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Aether P2P Encrypted Mesh</h3>
+            <p class="project-desc">
+              Zero-server, browser-to-browser encrypted communication protocol using WebRTC data channels with ECDH P-256 key exchange and client-side AES-GCM transport.
+            </p>
+            <div class="project-tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">WebRTC</span>
+              <span class="tag">Web Crypto API</span>
+              <span class="tag">P2P</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/dakshesh123-rgb/aether-p2p" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-secondary">GitHub Repo</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4: Pythonix -->
+        <article class="project-card" data-category="web">
+          <div class="project-media">
+            <img src="assets/qm_shape_factor.png" alt="Pythonix Sandbox" class="project-thumb">
+            <span class="project-category-badge">Compiler/AST</span>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Pythonix Cloud Sandbox</h3>
+            <p class="project-desc">
+              Instant in-browser pseudocode-to-Python execution sandbox and AST static analyzer designed for rapid algorithm prototyping without server lag.
+            </p>
+            <div class="project-tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">Python AST</span>
+              <span class="tag">Cloudflare Workers</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/dakshesh123-rgb/pythonix" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-secondary">GitHub Repo</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 5: Nocturne Focus -->
+        <article class="project-card" data-category="systems">
+          <div class="project-media">
+            <img src="assets/qm_wavepacket.png" alt="Nocturne System" class="project-thumb">
+            <span class="project-category-badge">Mobile Systems</span>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Nocturne Protocol</h3>
+            <p class="project-desc">
+              Circadian enforcement and screen blackout system designed to kill late-night dopamine loops on mobile devices through scotopic red UI and touch dials.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Vanilla JS</span>
+              <span class="tag">CSS Tokens</span>
+              <span class="tag">Haptics</span>
+            </div>
+            <div class="project-links">
+              <a href="#terminal" class="project-btn project-btn-secondary">View in Termux</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 6: Android RE Lab -->
+        <article class="project-card" data-category="systems">
+          <div class="project-media">
+            <img src="assets/qm_resonant_tunneling.png" alt="Reverse Engineering" class="project-thumb">
+            <span class="project-category-badge">Reverse Engineering</span>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Dalvik &amp; Native App Decompilation</h3>
+            <p class="project-desc">
+              Reverse-engineering production Android APKs (Supernova, Abmaxx, Ballblast) inside Termux using Apktool, Smali dissasembly, and Radare2 on native ARM64.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Smali</span>
+              <span class="tag">ARM64 Assembly</span>
+              <span class="tag">Radare2</span>
+              <span class="tag">Apktool</span>
+            </div>
+            <div class="project-links">
+              <a href="#terminal" class="project-btn project-btn-secondary">View in Termux</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Builder Story & Philosophy
+       ========================================================================== -->
+  <section id="philosophy" class="philosophy-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Human Story</span>
+        <h2 class="section-title">Philosophy, Discipline &amp; The Phone Lab</h2>
+        <p class="section-subtitle">
+          How I build as a 16-year-old student, why I reject bloated boilerplates, and how physical discipline powers my code.
+        </p>
+      </div>
+
+      <div class="story-grid">
+        <div class="story-card">
+          <span class="story-card-icon">📱</span>
+          <h3 class="story-card-title">The Constraint of a 6-Inch Screen</h3>
+          <p class="story-card-body">
+            I do not own a fancy desktop setup. Every single repository I run, from Crank-Nicolson differential equations to WebRTC peer meshes, is written on an Android phone using Termux. 
+            <br><br>
+            A 6-inch screen forces extreme discipline. You cannot afford bloated 300MB node_modules directories, slow bundlers, or messy architecture. You write clean, modular, zero-dependency code that runs blisteringly fast on native ARM64.
+          </p>
+        </div>
+
+        <div class="story-card">
+          <span class="story-card-icon">🏋️</span>
+          <h3 class="story-card-title">When Mind Doubts, The Body Acts</h3>
+          <p class="story-card-body">
+            Being an intense thinker who reads Dostoevsky (especially <em>Notes from Underground</em>) comes with a dangerous trap: analytical paralysis. When you overthink, you freeze.
+            <br><br>
+            My antidote is raw physical discipline: lifting heavy weights in the gym, maintaining strict focus, and instantly executing. Physical grounding cuts through mental doubt. In code as in lifting: stack undeniable proof of work.
+          </p>
+        </div>
+
+        <div class="story-card">
+          <span class="story-card-icon">⚔️</span>
+          <h3 class="story-card-title">The 4 Creeds I Live By</h3>
+          <ul class="creed-list">
+            <li class="creed-item">
+              <span class="creed-number">01</span>
+              <span><strong>Never apologize for high ambition:</strong> The world is shaped by those who refuse to be lukewarm.</span>
+            </li>
+            <li class="creed-item">
+              <span class="creed-number">02</span>
+              <span><strong>When the mind doubts, the body acts:</strong> Physical discipline kills analytical paralysis every single time.</span>
+            </li>
+            <li class="creed-item">
+              <span class="creed-number">03</span>
+              <span><strong>Master the hard things first:</strong> Differential equations, low-level compilers, and math create permanent leverage.</span>
+            </li>
+            <li class="creed-item">
+              <span class="creed-number">04</span>
+              <span><strong>Stack proof, not words:</strong> Don't talk about what you will build. Ship it and let the artifact speak.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Proof of Work & Hack Club Stardance
+       ========================================================================== -->
+  <section id="proof" class="proof-section">
+    <div class="container">
+      <div class="proof-card-banner">
+        <div class="proof-content">
+          <h3>Built for Hack Club Stardance 2026</h3>
+          <p>
+            I am participating in Hack Club Stardance as <strong>@dakshesh236</strong>. All of my coding hours are tracked live through the Hackatime API directly from my phone. Verified devlogs, screenshots, and source code are open to the entire hacker community.
+          </p>
+          <div class="hero-actions">
+            <a href="https://stardance.hackclub.com/projects/69869" target="_blank" rel="noopener noreferrer" class="btn-primary">
+              <span>View Stardance Project #69869</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
             </a>
-
-            <!-- Center: Multi-Page Navigation Bar (Desktop) -->
-            <nav class="hidden md:flex items-center gap-1 p-1 rounded-full theme-pill border theme-border font-mono text-xs">
-                <button onclick="switchPage('works')" id="nav-btn-works" class="nav-tab active px-3.5 py-1.5 rounded-full transition-all flex items-center gap-1.5">
-                    <i class="ph-bold ph-squares-four"></i>
-                    <span>Works</span>
-                </button>
-                <button onclick="switchPage('termux')" id="nav-btn-termux" class="nav-tab px-3.5 py-1.5 rounded-full theme-text-sec hover:text-white transition-all flex items-center gap-1.5">
-                    <i class="ph-bold ph-terminal-window"></i>
-                    <span>Termux Lab</span>
-                </button>
-                <button onclick="switchPage('philosophy')" id="nav-btn-philosophy" class="nav-tab px-3.5 py-1.5 rounded-full theme-text-sec hover:text-white transition-all flex items-center gap-1.5">
-                    <i class="ph-bold ph-book-open"></i>
-                    <span>Philosophy</span>
-                </button>
-                <button onclick="switchPage('registry')" id="nav-btn-registry" class="nav-tab px-3.5 py-1.5 rounded-full theme-text-sec hover:text-white transition-all flex items-center gap-1.5">
-                    <i class="ph-bold ph-table"></i>
-                    <span>Systems Registry</span>
-                </button>
-                <button onclick="switchPage('devlogs')" id="nav-btn-devlogs" class="nav-tab px-3.5 py-1.5 rounded-full theme-text-sec hover:text-white transition-all flex items-center gap-1.5">
-                    <i class="ph-bold ph-newspaper"></i>
-                    <span>Devlogs</span>
-                </button>
-                <button onclick="switchPage('about')" id="nav-btn-about" class="nav-tab px-3.5 py-1.5 rounded-full theme-text-sec hover:text-white transition-all flex items-center gap-1.5">
-                    <i class="ph-bold ph-user"></i>
-                    <span>About</span>
-                </button>
-            </nav>
-
-            <!-- Right: External Links & Theme Toggle -->
-            <div class="flex items-center gap-2 sm:gap-3 shrink-0">
-                <a href="https://github.com/dakshesh123-rgb" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border theme-border theme-pill font-mono text-xs hover:border-[#FF5500] transition-colors" title="GitHub">
-                    <i class="ph-bold ph-github-logo text-sm"></i>
-                    <span>GitHub</span>
-                </a>
-                
-                <a href="https://substack.com/@dakshesh003?utm_source=share&amp;utm_medium=android&amp;r=882xgd" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border theme-border theme-pill font-mono text-xs hover:border-[#FF5500] transition-colors" title="Substack">
-                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
-                    <span>Substack</span>
-                </a>
-
-                <button onclick="toggleTheme()" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full border theme-border theme-pill flex items-center justify-center hover:border-[#FF5500] transition-colors" title="Toggle Dark/Light Mode">
-                    <i id="theme-icon" class="ph ph-sun text-base"></i>
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <!-- =====================================================
-         3. MAIN APP SHELL WITH DISCRETE PAGES
-         ===================================================== -->
-    <main class="max-w-[1440px] mx-auto px-4 sm:px-8 pt-3 sm:pt-5 pb-28 md:pb-16 transition-all duration-300">
-        
-        <!-- =================================================
-             PAGE 1: WORKS & SHOWCASE (CENTRAL IPHONE VIDEO)
-             ================================================= -->
-        <div id="page-works" class="portfolio-page active-page space-y-12">
-            
-            <!-- Hero Announcement with Blended Header Banner -->
-            <div class="text-center max-w-3xl mx-auto space-y-3">
-                
-                <!-- NEW: Blended Golden Calligraphy Header Banner -->
-                <div class="hero-banner-wrap">
-                    <img 
-                        src="IMG_20261015_150433.jpg" 
-                        alt="The world is your 888" 
-                        class="hero-banner-img"
-                        onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,' + encodeURIComponent('<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 600 155&quot;><defs><linearGradient id=&quot;g&quot; x1=&quot;0%&quot; y1=&quot;0%&quot; x2=&quot;100%&quot; y2=&quot;100%&quot;><stop offset=&quot;0%&quot; stop-color=&quot;%23FFE082&quot;/><stop offset=&quot;50%&quot; stop-color=&quot;%23ECA038&quot;/><stop offset=&quot;100%&quot; stop-color=&quot;%23B86B14&quot;/></linearGradient></defs><rect width=&quot;600&quot; height=&quot;155&quot; fill=&quot;%23000000&quot;/><text x=&quot;50%&quot; y=&quot;64&quot; fill=&quot;url(%23g)&quot; font-family=&quot;Great Vibes, Instrument Serif, Georgia, serif&quot; font-style=&quot;italic&quot; font-size=&quot;44&quot; text-anchor=&quot;middle&quot; letter-spacing=&quot;1.5&quot;>The world is your</text><text x=&quot;50%&quot; y=&quot;136&quot; fill=&quot;url(%23g)&quot; font-family=&quot;Instrument Serif, Georgia, serif&quot; font-style=&quot;italic&quot; font-size=&quot;34&quot; text-anchor=&quot;middle&quot; letter-spacing=&quot;3&quot;>888</text></svg>');"
-                    >
-                </div>
-
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full theme-pill border theme-border font-mono text-[11px] text-[#FF5500]">
-                    <span class="w-1.5 h-1.5 rounded-full bg-[#00E676] animate-pulse"></span>
-                    <span>RESEARCH // LOW-LEVEL SYSTEMS // P2P</span>
-                </div>
-                <h1 class="font-display font-bold text-3xl sm:text-5xl lg:text-6xl tracking-tight text-balance">
-                    First-principles engineering.<br>
-                    <span class="font-serif italic font-normal text-zinc-400">Philosophical yet pragmatic.</span>
-                </h1>
-                <p class="text-xs sm:text-sm theme-text-sec leading-relaxed max-w-xl mx-auto">
-                    Curious with a polymath approach. Writing numerical quantum mechanics solvers, serverless WebRTC data channels, and circadian architectures—engineered directly on mobile hardware.
-                </p>
-            </div>
-
-            <!-- =====================================================
-                 CENTERPIECE: IPHONE SHOWCASE WITH VIDEO PLAYER
-                 ===================================================== -->
-            <div class="py-4">
-                <div class="text-center font-mono text-[11px] theme-text-muted uppercase tracking-wider mb-4 flex items-center justify-center gap-2">
-                    <i class="ph-bold ph-device-mobile-camera text-base text-[#FF5500]"></i>
-                    <span>INTERACTIVE MOBILE SYSTEM DEMO</span>
-                </div>
-
-                <!-- Central iPhone 16 Pro Device Frame -->
-                <div class="iphone-case mx-auto">
-                    <!-- Bezel & Inside Screen -->
-                    <div class="iphone-screen flex flex-col justify-between">
-                        
-                        <!-- Dynamic Island -->
-                        <div class="iphone-island">
-                            <div class="sensor-dot"></div>
-                            <div class="camera-lens"></div>
-                        </div>
-
-                        <!-- Mini Top Status Bar -->
-                        <div class="pt-3 px-5 flex items-center justify-between font-mono text-[10px] text-white/80 z-20 pointer-events-none">
-                            <span id="iphone-clock">09:05</span>
-                            <div class="flex items-center gap-1.5">
-                                <i class="ph-bold ph-wifi-high text-xs"></i>
-                                <i class="ph-bold ph-battery-charging text-sm"></i>
-                            </div>
-                        </div>
-
-                        <!-- Active Video Container -->
-                        <div class="relative w-full h-full flex items-center justify-center overflow-hidden bg-black">
-                            <video id="iphone-video" src="clips/video_ai_jee_mentor_web.mp4" poster="clips/video_ai_jee_mentor_thumb.jpg" autoplay="" loop="" muted="" playsinline="" class="w-full h-full object-cover">
-                            </video>
-
-                            <!-- Gradient Protection for Overlays -->
-                            <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none z-10"></div>
-                            <div class="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/60 to-transparent pointer-events-none z-10"></div>
-
-                            <!-- Screen In-Player HUD (Bottom Overlay) -->
-                            <div class="absolute inset-x-0 bottom-4 px-4 z-20 space-y-2">
-                                <div class="bg-black/70 backdrop-blur-md p-3 rounded-2xl border border-white/10 text-left">
-                                    <div class="flex items-center justify-between text-[10px] font-mono text-[#FF5500] font-semibold mb-1">
-                                        <span id="clip-index-tag">CLIP 01 / 02</span>
-                                        <span class="text-[#00E676] flex items-center gap-1">
-                                            <span class="w-1.5 h-1.5 rounded-full bg-[#00E676] animate-pulse"></span>
-                                            LIVE WORK
-                                        </span>
-                                    </div>
-                                    <h4 id="clip-title-tag" class="font-display font-bold text-sm text-white truncate">
-                                        AI JEE Socratic Mentor
-                                    </h4>
-                                    <p id="clip-desc-tag" class="text-[11px] text-zinc-300 line-clamp-2 mt-0.5 leading-snug">
-                                        Socratic problem solver guiding through JEE Advanced physics &amp; math from first principles.
-                                    </p>
-                                </div>
-
-                                <!-- In-Phone Video Transport Controls -->
-                                <div class="flex items-center justify-between gap-2 px-1">
-                                    <button onclick="prevVideoClip()" class="w-8 h-8 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center transition-colors">
-                                        <i class="ph-fill ph-caret-left text-sm"></i>
-                                    </button>
-                                    <div class="flex items-center gap-2">
-                                        <button onclick="toggleVideoPlayback()" id="video-play-btn" class="px-3 py-1.5 rounded-full bg-[#FF5500] text-white font-mono text-[10px] font-bold flex items-center gap-1 hover:opacity-90 transition-opacity">
-                                            <i id="play-pause-icon" class="ph-fill ph-pause"></i>
-                                            <span id="play-pause-text">PAUSE</span>
-                                        </button>
-                                        <button onclick="toggleVideoMute()" id="video-mute-btn" class="w-8 h-8 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center transition-colors">
-                                            <i id="mute-icon" class="ph-bold ph-speaker-slash text-xs"></i>
-                                        </button>
-                                    </div>
-                                    <button onclick="nextVideoClip()" class="w-8 h-8 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center transition-colors">
-                                        <i class="ph-fill ph-caret-right text-sm"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Home Bar -->
-                        <div class="iphone-home-bar"></div>
-                    </div>
-                </div>
-
-                <!-- Playlist Selector Pills Underneath iPhone -->
-                <div class="max-w-xl mx-auto mt-6">
-                    <div class="flex items-center justify-center gap-2 flex-wrap font-mono text-[11px]">
-                        <button onclick="loadVideoClip(0)" id="clip-btn-0" class="clip-selector active px-4 py-2 rounded-xl border border-[#FF5500] bg-[#FF5500]/15 text-[#FF5500] font-semibold transition-all">
-                            01. AI JEE Mentor
-                        </button>
-                        <button onclick="loadVideoClip(1)" id="clip-btn-1" class="clip-selector px-4 py-2 rounded-xl border theme-border theme-pill theme-text-sec hover:border-[#FF5500] transition-all">
-                            02. Aether P2P
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Curated Works Grid (Categorized) -->
-            <div class="space-y-4 pt-6">
-                <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b theme-border pb-3">
-                    <div>
-                        <span class="font-mono text-[10px] text-[#FF5500] uppercase tracking-wider font-bold">
-                            // VERIFIABLE CODEBASES
-                        </span>
-                        <h2 class="font-display font-bold text-2xl sm:text-3xl tracking-tight mt-0.5">
-                            Curated Projects
-                        </h2>
-                    </div>
-                    <div class="flex items-center gap-1.5 font-mono text-[11px]">
-                        <button onclick="filterWorks('all')" class="work-filter active px-2.5 py-1 rounded-full bg-[#FF5500] text-white" data-cat="all">All</button>
-                        <button onclick="filterWorks('physics')" class="work-filter px-2.5 py-1 rounded-full theme-pill border theme-border theme-text-sec hover:text-white" data-cat="physics">Physics</button>
-                        <button onclick="filterWorks('systems')" class="work-filter px-2.5 py-1 rounded-full theme-pill border theme-border theme-text-sec hover:text-white" data-cat="systems">Systems &amp; P2P</button>
-                        <button onclick="filterWorks('tools')" class="work-filter px-2.5 py-1 rounded-full theme-pill border theme-border theme-text-sec hover:text-white" data-cat="tools">Tools</button>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="works-grid">
-
-                    <!-- 01. Quantum Mechanics Paper -->
-                    <div class="work-card p-5 rounded-3xl border theme-border theme-bg-sec flex flex-col justify-between" data-cat="physics">
-                        <div>
-                            <div class="flex items-start justify-between gap-2 mb-2">
-                                <span class="font-mono text-xs px-2 py-0.5 rounded bg-[#FF5500]/15 text-[#FF5500] font-bold">01</span>
-                                <span class="font-mono text-[10px] theme-text-muted">PHYSICS // SOLVER</span>
-                            </div>
-                            <h3 class="font-display font-bold text-lg tracking-tight mb-1.5">
-                                Quantum Tunneling Dynamics
-                            </h3>
-                            <p class="text-xs theme-text-sec leading-relaxed mb-4">
-                                Pure Python 1D finite-difference Hamiltonian solver using Sturm sequence bisection and Crank-Nicolson TDSE. Proved barrier curvature alters transmission coefficients by up to 2.3×10⁶× compared to textbook rectangular barriers.
-                            </p>
-                        </div>
-                        <div class="space-y-3 pt-2 border-t theme-border">
-                            <div class="flex flex-wrap gap-1 font-mono text-[10px]">
-                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">Pure Python</span>
-                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">Sturm Bisection</span>
-                            </div>
-                            <div class="flex items-center gap-2 font-mono text-xs">
-                                <a href="https://dakshesh123-rgb.github.io/qm-project-website/" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-full bg-[#FF5500] text-white font-semibold text-[11px] hover:opacity-90">
-                                    Research Site ↗
-                                </a>
-                                <a href="https://github.com/dakshesh123-rgb/qm-project-website" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-full border theme-border theme-pill theme-text-sec hover:border-[#FF5500] text-[11px]">
-                                    GitHub
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 02. Nocturne Protocol -->
-                    <div class="work-card p-5 rounded-3xl border theme-border theme-bg-sec flex flex-col justify-between" data-cat="tools">
-                        <div>
-                            <div class="flex items-start justify-between gap-2 mb-2">
-                                <span class="font-mono text-xs px-2 py-0.5 rounded bg-[#FF5500]/15 text-[#FF5500] font-bold">02</span>
-                                <span class="font-mono text-[10px] theme-text-muted">CIRCADIAN // APP</span>
-                            </div>
-                            <h3 class="font-display font-bold text-lg tracking-tight mb-1.5">
-                                NOCTURNE // PROTOCOL
-                            </h3>
-                            <p class="text-xs theme-text-sec leading-relaxed mb-4">
-                                Brutalist-editorial circadian enforcement and phone blackout system with 56px touch dial bedtime scheduler, scotopic red mode, and guided parasympathetic breathing pacer.
-                            </p>
-                        </div>
-                        <div class="space-y-3 pt-2 border-t theme-border">
-                            <div class="flex flex-wrap gap-1 font-mono text-[10px]">
-                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">Tailwind CSS</span>
-                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">Dual Viewport</span>
-                            </div>
-                            <div class="flex items-center gap-2 font-mono text-xs">
-                                <button onclick="loadVideoClip(0)" class="px-3 py-1 rounded-full border border-[#00E676]/30 bg-[#00E676]/10 text-[#00E676] text-[11px] font-semibold flex items-center gap-1">
-                                    <i class="ph-fill ph-play"></i>
-                                    <span>Play in Phone</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 03. Aether P2P -->
-                    <div class="work-card p-5 rounded-3xl border theme-border theme-bg-sec flex flex-col justify-between" data-cat="systems">
-                        <div>
-                            <div class="flex items-start justify-between gap-2 mb-2">
-                                <span class="font-mono text-xs px-2 py-0.5 rounded bg-[#FF5500]/15 text-[#FF5500] font-bold">03</span>
-                                <span class="font-mono text-[10px] theme-text-muted">P2P // ENCRYPTED</span>
-                            </div>
-                            <h3 class="font-display font-bold text-lg tracking-tight mb-1.5">
-                                Aether P2P Encrypted Mesh
-                            </h3>
-                            <p class="text-xs theme-text-sec leading-relaxed mb-4">
-                                Serverless, browser-to-browser communication protocol utilizing WebRTC data channels with ECDH P-256 key exchange and AES-256-GCM zero-knowledge transport.
-                            </p>
-                        </div>
-                        <div class="space-y-3 pt-2 border-t theme-border">
-                            <div class="flex flex-wrap gap-1 font-mono text-[10px]">
-                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">WebRTC</span>
-                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">AES-256-GCM</span>
-                            </div>
-                            <div class="flex items-center gap-2 font-mono text-xs">
-                                <a href="https://aether-p2p.pages.dev" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-full bg-[#FF5500] text-white font-semibold text-[11px] hover:opacity-90">
-                                    Live App ↗
-                                </a>
-                                <a href="https://github.com/dakshesh123-rgb/aether-p2p" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-full border theme-border theme-pill theme-text-sec hover:border-[#FF5500] text-[11px]">
-                                    GitHub
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 04. Pure Python StatArb -->
-                    <div class="work-card p-5 rounded-3xl border theme-border theme-bg-sec flex flex-col justify-between" data-cat="physics">
-                        <div>
-                            <div class="flex items-start justify-between gap-2 mb-2">
-                                <span class="font-mono text-xs px-2 py-0.5 rounded bg-[#FF5500]/15 text-[#FF5500] font-bold">04</span>
-                                <span class="font-mono text-[10px] theme-text-muted">QUANT // ALGORITHMS</span>
-                            </div>
-                            <h3 class="font-display font-bold text-lg tracking-tight mb-1.5">
-                                Zero-Dependency StatArb
-                            </h3>
-                            <p class="text-xs theme-text-sec leading-relaxed mb-4">
-                                Algorithmic trading simulation written in the Python standard library with zero external math packages. Implements Householder QR tridiagonalization and Ornstein-Uhlenbeck SDEs.
-                            </p>
-                        </div>
-                        <div class="space-y-3 pt-2 border-t theme-border">
-                            <div class="flex flex-wrap gap-1 font-mono text-[10px]">
-                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">Pure Python</span>
-                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">Householder QR</span>
-                            </div>
-                            <div class="flex items-center gap-2 font-mono text-xs">
-                                <a href="https://github.com/dakshesh123-rgb/pure-python-statarb" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-full border theme-border theme-pill theme-text-sec hover:border-[#FF5500] text-[11px]">
-                                    GitHub Repo ↗
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 05. AI JEE Mentor -->
-                    <div class="work-card p-5 rounded-3xl border theme-border theme-bg-sec flex flex-col justify-between" data-cat="tools">
-                        <div>
-                            <div class="flex items-start justify-between gap-2 mb-2">
-                                <span class="font-mono text-xs px-2 py-0.5 rounded bg-[#FF5500]/15 text-[#FF5500] font-bold">05</span>
-                                <span class="font-mono text-[10px] theme-text-muted">COGNITIVE // PHYSICS</span>
-                            </div>
-                            <h3 class="font-display font-bold text-lg tracking-tight mb-1.5">
-                                AI JEE Socratic Mentor
-                            </h3>
-                            <p class="text-xs theme-text-sec leading-relaxed mb-4">
-                                Socratic reasoning interface tuned for competitive examination physics and calculus, guiding users through first-principles derivations instead of canned answers.
-                            </p>
-                        </div>
-                        <div class="space-y-3 pt-2 border-t theme-border">
-                            <div class="flex flex-wrap gap-1 font-mono text-[10px]">
-                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">Socratic Logic</span>
-                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">Cloudflare</span>
-                            </div>
-                            <div class="flex items-center gap-2 font-mono text-xs">
-                                <a href="https://ai-jee-mentor-2eu.pages.dev" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-full bg-[#FF5500] text-white font-semibold text-[11px] hover:opacity-90">
-                                    Prototype ↗
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 06. Pythonix -->
-                    <div class="work-card p-5 rounded-3xl border theme-border theme-bg-sec flex flex-col justify-between" data-cat="tools">
-                        <div>
-                            <div class="flex items-start justify-between gap-2 mb-2">
-                                <span class="font-mono text-xs px-2 py-0.5 rounded bg-[#FF5500]/15 text-[#FF5500] font-bold">06</span>
-                                <span class="font-mono text-[10px] theme-text-muted">SANDBOX // RUNTIME</span>
-                            </div>
-                            <h3 class="font-display font-bold text-lg tracking-tight mb-1.5">
-                                Pythonix Cloud Playground
-                            </h3>
-                            <p class="text-xs theme-text-sec leading-relaxed mb-4">
-                                Zero-latency in-browser interactive Python execution playground and AST analyzer deployed on Cloudflare Workers.
-                            </p>
-                        </div>
-                        <div class="space-y-3 pt-2 border-t theme-border">
-                            <div class="flex flex-wrap gap-1 font-mono text-[10px]">
-                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">Python AST</span>
-                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">Cloudflare</span>
-                            </div>
-                            <div class="flex items-center gap-2 font-mono text-xs">
-                                <a href="https://github.com/dakshesh123-rgb/pythonix" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-full border theme-border theme-pill theme-text-sec hover:border-[#FF5500] text-[11px]">
-                                    GitHub ↗
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 07. Personal Portfolio & Systems Hub -->
-                    <div class="work-card p-5 rounded-3xl border theme-border theme-bg-sec flex flex-col justify-between" data-cat="tools">
-                        <div>
-                            <div class="flex items-start justify-between gap-2 mb-2">
-                                <span class="font-mono text-xs px-2 py-0.5 rounded bg-[#FF5500]/15 text-[#FF5500] font-bold">07</span>
-                                <span class="font-mono text-[10px] theme-text-muted">PORTFOLIO // HUB</span>
-                            </div>
-                            <h3 class="font-display font-bold text-lg tracking-tight mb-1.5">
-                                Personal Portfolio &amp; Systems Hub
-                            </h3>
-                            <p class="text-xs theme-text-sec leading-relaxed mb-4">
-                                Brutalist-editorial digital notebook, systems registry, and interactive simulation console. Deployed on Cloudflare Pages edge with GSAP animations, interactive phone showcase, and Hack Club Stardance devlogs.
-                            </p>
-                        </div>
-                        <div class="space-y-3 pt-2 border-t theme-border">
-                            <div class="flex flex-wrap gap-1 font-mono text-[10px]">
-                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">Tailwind CSS</span>
-                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">GSAP 3.12</span>
-                                <span class="px-2 py-0.5 rounded theme-pill border theme-border">Cloudflare Edge</span>
-                            </div>
-                            <div class="flex items-center gap-2 font-mono text-xs">
-                                <a href="https://dakshesh-portfolio.pages.dev" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-full bg-[#FF5500] text-white font-semibold text-[11px] hover:opacity-90">
-                                    Live App ↗
-                                </a>
-                                <a href="https://github.com/dakshesh123-rgb/portfolio" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-full border theme-border theme-pill theme-text-sec hover:border-[#FF5500] text-[11px]">
-                                    GitHub
-                                </a>
-                                <a href="https://stardance.hackclub.com/projects/69869" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-full border border-[#EC3750]/30 bg-[#EC3750]/10 text-[#EC3750] text-[11px] font-semibold flex items-center gap-1">
-                                    <i class="ph-fill ph-star"></i>
-                                    <span>Stardance</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+            <a href="https://stardance.hackclub.com/@dakshesh236" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+              <span>Stardance Profile</span>
+            </a>
+          </div>
         </div>
 
-        <!-- =================================================
-             PAGE 2: THE TERMUX MOBILE LAB (INTERACTIVE CLI)
-             ================================================= -->
-        <div id="page-termux" class="portfolio-page space-y-8">
-            <div class="border-b theme-border pb-4">
-                <span class="font-mono text-[10px] text-[#00E676] uppercase tracking-wider font-bold">
-                    // UNCONVENTIONAL HARDWARE RIG
-                </span>
-                <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight mt-1">
-                    The Termux Mobile Workstation
-                </h2>
-                <p class="text-sm theme-text-sec max-w-2xl mt-1.5 leading-relaxed">
-                    Rather than depending on desktop rigs, I configured a complete Unix development laboratory directly on an Android device using Termux and PRoot Linux.
-                </p>
-            </div>
+        <div class="proof-meta-grid">
+          <div class="proof-meta-box">
+            <span class="proof-meta-num">13h 12m</span>
+            <span class="proof-meta-label">Hackatime Hours</span>
+          </div>
+          <div class="proof-meta-box">
+            <span class="proof-meta-num">#69869</span>
+            <span class="proof-meta-label">Stardance ID</span>
+          </div>
+          <div class="proof-meta-box">
+            <span class="proof-meta-num">14 Proj</span>
+            <span class="proof-meta-label">Tracked Run</span>
+          </div>
+          <div class="proof-meta-box">
+            <span class="proof-meta-num">100%</span>
+            <span class="proof-meta-label">Open Source</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <!-- 3 Architecture Pillars -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div class="p-5 rounded-3xl border theme-border theme-bg-sec space-y-2">
-                    <div class="w-8 h-8 rounded-xl bg-[#00E676]/15 text-[#00E676] font-mono font-bold flex items-center justify-center text-xs">
-                        01
-                    </div>
-                    <h3 class="font-display font-bold text-base">Constraints Breed Discipline</h3>
-                    <p class="text-xs theme-text-sec leading-relaxed">
-                        Operating without multi-monitor excess forces clean, minimalist code, standard library mastery, and efficient numerical algorithms.
-                    </p>
-                </div>
-
-                <div class="p-5 rounded-3xl border theme-border theme-bg-sec space-y-2">
-                    <div class="w-8 h-8 rounded-xl bg-[#FF5500]/15 text-[#FF5500] font-mono font-bold flex items-center justify-center text-xs">
-                        02
-                    </div>
-                    <h3 class="font-display font-bold text-base">Native ARM64 Execution</h3>
-                    <p class="text-xs theme-text-sec leading-relaxed">
-                        Running PRoot Ubuntu directly on octa-core ARM64 hardware allows instantaneous compilation of differential equation solvers and matrix algorithms.
-                    </p>
-                </div>
-
-                <div class="p-5 rounded-3xl border theme-border theme-bg-sec space-y-2">
-                    <div class="w-8 h-8 rounded-xl bg-[#00E676]/15 text-[#00E676] font-mono font-bold flex items-center justify-center text-xs">
-                        03
-                    </div>
-                    <h3 class="font-display font-bold text-base">Always-Available Shell</h3>
-                    <p class="text-xs theme-text-sec leading-relaxed">
-                        Whether writing notes, testing quantum tunneling equations, or deploying to Cloudflare, the entire pipeline travels wherever I go.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Interactive Terminal Emulator -->
-            <div class="rounded-3xl border theme-border overflow-hidden shadow-2xl" style="background-color: var(--terminal-bg);">
-                <!-- Window Topbar -->
-                <div class="px-5 py-3.5 border-b theme-border flex items-center justify-between text-xs font-mono theme-text-muted bg-black/40">
-                    <div class="flex items-center gap-2">
-                        <span class="w-3 h-3 rounded-full bg-[#DC2626]/80"></span>
-                        <span class="w-3 h-3 rounded-full bg-[#FFB800]/80"></span>
-                        <span class="w-3 h-3 rounded-full bg-[#00E676]/80"></span>
-                        <span class="ml-2 text-white/80">dakshesh@termux: ~</span>
-                    </div>
-                    <span class="text-[11px] hidden sm:inline text-zinc-500">ARM64 Handset • Linux 5.10 • PRoot Ubuntu</span>
-                </div>
-
-                <!-- Terminal Output Window -->
-                <div class="p-5 sm:p-6 font-mono text-xs space-y-3 min-h-[260px] max-h-[420px] overflow-y-auto text-zinc-300" id="term-log">
-                    <div>
-                        <span class="text-[#00E676]">dakshesh@handset</span>:<span class="text-[#FF5500]">~</span>$ uname -mrs<br>
-                        <span class="text-zinc-400">Linux 5.10.149-android aarch64 (PRoot Ubuntu)</span>
-                    </div>
-                    <div>
-                        <span class="text-[#00E676]">dakshesh@handset</span>:<span class="text-[#FF5500]">~</span>$ cat ~/rig_specs.txt<br>
-                        <span class="text-zinc-400">
-                        • Environment: Termux + PRoot Linux (Ubuntu 24.04)<br>
-                        • Editor: Neovim with custom keybindings<br>
-                        • Numerical stack: Python 3 standard library (no dependencies)<br>
-                        • Primary repositories: /root/qm_project • /root/portfolio
-                        </span>
-                    </div>
-                    <div id="term-dynamic"></div>
-                    <div class="flex items-center gap-1">
-                        <span class="text-[#00E676]">dakshesh@handset</span>:<span class="text-[#FF5500]">~</span>$&nbsp;<span id="term-cmd-display" class="text-white"></span><span class="term-cursor"></span>
-                    </div>
-                </div>
-
-                <!-- Interactive Command Preset Buttons -->
-                <div class="p-3.5 border-t theme-border bg-black/30 flex flex-wrap items-center gap-2 font-mono text-[11px]">
-                    <span class="text-zinc-500 text-[10px] mr-1">RUN:</span>
-                    <button onclick="runTermCmd('qm_solver')" class="px-3 py-1 rounded-lg theme-pill border theme-border hover:border-[#00E676] text-zinc-300 hover:text-white transition-colors">
-                        ./run_qm_solver.py
-                    </button>
-                    <button onclick="runTermCmd('neofetch')" class="px-3 py-1 rounded-lg theme-pill border theme-border hover:border-[#00E676] text-zinc-300 hover:text-white transition-colors">
-                        neofetch
-                    </button>
-                    <button onclick="runTermCmd('philosophy')" class="px-3 py-1 rounded-lg theme-pill border theme-border hover:border-[#00E676] text-zinc-300 hover:text-white transition-colors">
-                        cat philosophy.txt
-                    </button>
-                    <button onclick="runTermCmd('git_status')" class="px-3 py-1 rounded-lg theme-pill border theme-border hover:border-[#00E676] text-zinc-300 hover:text-white transition-colors">
-                        git status
-                    </button>
-                    <button onclick="runTermCmd('clear')" class="px-3 py-1 rounded-lg theme-pill border theme-border hover:border-[#DC2626] text-zinc-400 hover:text-white transition-colors ml-auto">
-                        clear
-                    </button>
-                </div>
-            </div>
+  <!-- ==========================================================================
+       Footer
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h4>DAKSHESH DAS</h4>
+          <p>16-Year-Old Researcher &amp; Builder • 11th Grade • Handcrafted on Termux</p>
         </div>
 
-        <!-- =================================================
-             PAGE 3: PHILOSOPHY & INQUIRIES
-             ================================================= -->
-        <div id="page-philosophy" class="portfolio-page space-y-8">
-            <div class="border-b theme-border pb-4">
-                <span class="font-mono text-[10px] text-[#FF5500] uppercase tracking-wider font-bold">
-                    // AUTHENTIC INQUIRIES
-                </span>
-                <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight mt-1">
-                    Philosophy Without Exaggeration
-                </h2>
-                <p class="text-sm theme-text-sec max-w-2xl mt-1.5 leading-relaxed">
-                    Extracted directly from personal reading notes. Core reflections on breaking analytical paralysis through physical grounding and disciplined execution.
-                </p>
-            </div>
-
-            <!-- 4 Grounded Pillars -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                
-                <div class="p-6 rounded-3xl border theme-border theme-bg-sec space-y-2.5">
-                    <div class="flex items-center gap-2 font-mono text-xs text-[#FF5500]">
-                        <i class="ph-bold ph-lightning text-sm"></i>
-                        <span class="font-bold">THE "UNDERGROUND" INERTIA</span>
-                    </div>
-                    <h3 class="font-display font-bold text-lg">Overcoming Analytical Paralysis</h3>
-                    <p class="text-xs sm:text-sm theme-text-sec leading-relaxed">
-                        Dostoevsky's <em>Notes from Underground</em> illustrates the acute danger of hyper-consciousness: over-analyzing reality until you are completely paralyzed. You cannot defeat analytical doubt with more analysis. The only real remedy is physical grounding—daily training, lifting, and shipping code. When the mind hesitates, the body acts.
-                    </p>
-                </div>
-
-                <div class="p-6 rounded-3xl border theme-border theme-bg-sec space-y-2.5">
-                    <div class="flex items-center gap-2 font-mono text-xs text-[#00E676]">
-                        <i class="ph-bold ph-check-square-offset text-sm"></i>
-                        <span class="font-bold">CONSUMPTION TO IMPLEMENTATION</span>
-                    </div>
-                    <h3 class="font-display font-bold text-lg">No Fluff, Just Practice</h3>
-                    <p class="text-xs sm:text-sm theme-text-sec leading-relaxed">
-                        Consuming information without an immediate practical target is entertainment masquerading as work. Every piece of knowledge consumed must be distilled into a practical habit, a working solver, or a verifiable script within a set deadline.
-                    </p>
-                </div>
-
-                <div class="p-6 rounded-3xl border theme-border theme-bg-sec space-y-2.5">
-                    <div class="flex items-center gap-2 font-mono text-xs text-[#FF5500]">
-                        <i class="ph-bold ph-chart-pie-slice text-sm"></i>
-                        <span class="font-bold">THE LAW OF 33%</span>
-                    </div>
-                    <h3 class="font-display font-bold text-lg">Grounded Calibration</h3>
-                    <p class="text-xs sm:text-sm theme-text-sec leading-relaxed">
-                        Spend 33% of your time with mentors and books that stretch your boundaries; 33% with peers on the same journey to build together; and 33% teaching and simplifying principles for those starting out. It keeps you humble while eliminating stagnation.
-                    </p>
-                </div>
-
-                <div class="p-6 rounded-3xl border theme-border theme-bg-sec space-y-2.5">
-                    <div class="flex items-center gap-2 font-mono text-xs text-[#00E676]">
-                        <i class="ph-bold ph-compass text-sm"></i>
-                        <span class="font-bold">DUTY &amp; DETACHMENT</span>
-                    </div>
-                    <h3 class="font-display font-bold text-lg">Gita &amp; Stoic Principles</h3>
-                    <p class="text-xs sm:text-sm theme-text-sec leading-relaxed">
-                        Constant neurotic attachment to public praise, hype, or external outcomes produces anxiety. Focusing strictly on one's duty—solving the math, refining the code, maintaining physical health—allows endurance without burnout.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Reading List Strip -->
-            <div class="p-6 rounded-3xl border theme-border theme-bg-sec space-y-3">
-                <div class="font-mono text-xs theme-text-muted uppercase tracking-wider flex items-center justify-between">
-                    <span>Reading Archive • Texts Read</span>
-                    <span class="text-[10px]">DIRECT FROM NOTES</span>
-                </div>
-                <div class="flex flex-wrap gap-2 font-mono text-xs">
-                    <span class="px-3 py-1.5 rounded-xl theme-pill border theme-border">Notes from Underground (Dostoevsky)</span>
-                    <span class="px-3 py-1.5 rounded-xl theme-pill border theme-border">Bhagavad Gita</span>
-                    <span class="px-3 py-1.5 rounded-xl theme-pill border theme-border">Meditations (Marcus Aurelius)</span>
-                    <span class="px-3 py-1.5 rounded-xl theme-pill border theme-border">1984 (George Orwell)</span>
-                    <span class="px-3 py-1.5 rounded-xl theme-pill border theme-border">Arthashastra &amp; Chanakya Neeti</span>
-                    <span class="px-3 py-1.5 rounded-xl theme-pill border theme-border">Zero to One (Peter Thiel)</span>
-                    <span class="px-3 py-1.5 rounded-xl theme-pill border theme-border">White Nights (Dostoevsky)</span>
-                    <span class="px-3 py-1.5 rounded-xl theme-pill border theme-border">Ikigai</span>
-                </div>
-            </div>
+        <div class="footer-socials">
+          <a href="https://github.com/dakshesh123-rgb" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
+          <a href="https://stardance.hackclub.com/@dakshesh236" target="_blank" rel="noopener noreferrer" class="footer-link">Hack Club</a>
+          <a href="https://dakshesh123-rgb.github.io/qm-project-website/" target="_blank" rel="noopener noreferrer" class="footer-link">Quantum Research</a>
         </div>
+      </div>
 
-        <!-- =================================================
-             PAGE 4: SYSTEMS REGISTRY (FULL SPECIFICATIONS)
-             ================================================= -->
-        <div id="page-registry" class="portfolio-page space-y-8">
-            <div class="border-b theme-border pb-4">
-                <span class="font-mono text-[10px] text-[#FF5500] uppercase tracking-wider font-bold">
-                    // TECHNICAL SPECIFICATIONS
-                </span>
-                <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight mt-1">
-                    Systems Registry
-                </h2>
-                <p class="text-sm theme-text-sec max-w-2xl mt-1.5 leading-relaxed">
-                    A comprehensive, transparent archive of all computational codebases, papers, and deployed platforms.
-                </p>
-            </div>
+      <div class="footer-bottom">
+        <p>Handcrafted with semantic HTML5, pure CSS3, and vanilla JS. No bloated templates. Hosted on Cloudflare Pages. © 2026 Dakshesh Das.</p>
+      </div>
+    </div>
+  </footer>
 
-            <div class="rounded-3xl border theme-border theme-bg-sec overflow-hidden">
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left font-mono text-xs">
-                        <thead>
-                            <tr class="border-b theme-border bg-white/[0.02] text-zinc-400">
-                                <th class="py-3.5 px-4 font-semibold">#</th>
-                                <th class="py-3.5 px-4 font-semibold">System Name</th>
-                                <th class="py-3.5 px-4 font-semibold hidden md:table-cell">Discipline</th>
-                                <th class="py-3.5 px-4 font-semibold">Technical Foundation</th>
-                                <th class="py-3.5 px-4 font-semibold text-right">Access</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y theme-border">
-                            <tr class="hover:bg-white/[0.02] transition-colors">
-                                <td class="py-3.5 px-4 text-[#FF5500] font-bold">01</td>
-                                <td class="py-3.5 px-4 font-medium font-sans">Quantum Tunneling Dynamics</td>
-                                <td class="py-3.5 px-4 theme-text-muted hidden md:table-cell">Computational Physics</td>
-                                <td class="py-3.5 px-4 theme-text-sec text-[11px]">Pure Python Sturm &amp; Crank-Nicolson</td>
-                                <td class="py-3.5 px-4 text-right">
-                                    <a href="https://dakshesh123-rgb.github.io/qm-project-website/" target="_blank" rel="noopener noreferrer" class="text-[#FF5500] hover:underline">Site ↗</a>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-white/[0.02] transition-colors">
-                                <td class="py-3.5 px-4 text-[#FF5500] font-bold">02</td>
-                                <td class="py-3.5 px-4 font-medium font-sans">Nocturne Protocol</td>
-                                <td class="py-3.5 px-4 theme-text-muted hidden md:table-cell">Circadian Architecture</td>
-                                <td class="py-3.5 px-4 theme-text-sec text-[11px]">Brutalist Phone Lock &amp; Breathing Pacer</td>
-                                <td class="py-3.5 px-4 text-right text-zinc-500">Local</td>
-                            </tr>
-                            <tr class="hover:bg-white/[0.02] transition-colors">
-                                <td class="py-3.5 px-4 text-[#FF5500] font-bold">03</td>
-                                <td class="py-3.5 px-4 font-medium font-sans">Aether P2P Encrypted Mesh</td>
-                                <td class="py-3.5 px-4 theme-text-muted hidden md:table-cell">Distributed Systems</td>
-                                <td class="py-3.5 px-4 theme-text-sec text-[11px]">Serverless WebRTC ECDH P-256</td>
-                                <td class="py-3.5 px-4 text-right">
-                                    <a href="https://aether-p2p.pages.dev" target="_blank" rel="noopener noreferrer" class="text-[#FF5500] hover:underline">App ↗</a>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-white/[0.02] transition-colors">
-                                <td class="py-3.5 px-4 text-[#FF5500] font-bold">04</td>
-                                <td class="py-3.5 px-4 font-medium font-sans">Zero-Dependency StatArb</td>
-                                <td class="py-3.5 px-4 theme-text-muted hidden md:table-cell">Algorithmic Finance</td>
-                                <td class="py-3.5 px-4 theme-text-sec text-[11px]">Householder QR &amp; Ornstein-Uhlenbeck</td>
-                                <td class="py-3.5 px-4 text-right">
-                                    <a href="https://github.com/dakshesh123-rgb/pure-python-statarb" target="_blank" rel="noopener noreferrer" class="text-[#FF5500] hover:underline">Git ↗</a>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-white/[0.02] transition-colors">
-                                <td class="py-3.5 px-4 text-[#FF5500] font-bold">05</td>
-                                <td class="py-3.5 px-4 font-medium font-sans">AI JEE Socratic Mentor</td>
-                                <td class="py-3.5 px-4 theme-text-muted hidden md:table-cell">Educational AI</td>
-                                <td class="py-3.5 px-4 theme-text-sec text-[11px]">First-Principles Physics Derivations</td>
-                                <td class="py-3.5 px-4 text-right">
-                                    <a href="https://ai-jee-mentor-2eu.pages.dev" target="_blank" rel="noopener noreferrer" class="text-[#FF5500] hover:underline">App ↗</a>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-white/[0.02] transition-colors">
-                                <td class="py-3.5 px-4 text-[#FF5500] font-bold">06</td>
-                                <td class="py-3.5 px-4 font-medium font-sans">Pythonix Cloud Sandbox</td>
-                                <td class="py-3.5 px-4 theme-text-muted hidden md:table-cell">Developer Runtime</td>
-                                <td class="py-3.5 px-4 theme-text-sec text-[11px]">Client-Side In-Browser Python AST</td>
-                                <td class="py-3.5 px-4 text-right">
-                                    <a href="https://github.com/dakshesh123-rgb/pythonix" target="_blank" rel="noopener noreferrer" class="text-[#FF5500] hover:underline">Git ↗</a>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-white/[0.02] transition-colors">
-                                <td class="py-3.5 px-4 text-[#FF5500] font-bold">07</td>
-                                <td class="py-3.5 px-4 font-medium font-sans">Personal Portfolio &amp; Systems Hub</td>
-                                <td class="py-3.5 px-4 theme-text-muted hidden md:table-cell">Web Systems &amp; UI</td>
-                                <td class="py-3.5 px-4 theme-text-sec text-[11px]">Cloudflare Edge, GSAP &amp; Stardance Sync</td>
-                                <td class="py-3.5 px-4 text-right">
-                                    <a href="https://dakshesh-portfolio.pages.dev" target="_blank" rel="noopener noreferrer" class="text-[#FF5500] hover:underline">Site ↗</a>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-white/[0.02] transition-colors">
-                                <td class="py-3.5 px-4 text-[#FF5500] font-bold">08</td>
-                                <td class="py-3.5 px-4 font-medium font-sans">Usage Analytics</td>
-                                <td class="py-3.5 px-4 theme-text-muted hidden md:table-cell">Android Systems</td>
-                                <td class="py-3.5 px-4 theme-text-sec text-[11px]">Kotlin Compose Screen-Time Tracker</td>
-                                <td class="py-3.5 px-4 text-right text-zinc-500">APK</td>
-                            </tr>
-                            <tr class="hover:bg-white/[0.02] transition-colors">
-                                <td class="py-3.5 px-4 text-[#FF5500] font-bold">09</td>
-                                <td class="py-3.5 px-4 font-medium font-sans">Personal Essays Blog</td>
-                                <td class="py-3.5 px-4 theme-text-muted hidden md:table-cell">Philosophy &amp; Notes</td>
-                                <td class="py-3.5 px-4 theme-text-sec text-[11px]">Cloudflare Edge + Vanilla JS</td>
-                                <td class="py-3.5 px-4 text-right">
-                                    <a href="https://essay-blog-3ne.pages.dev" target="_blank" rel="noopener noreferrer" class="text-[#FF5500] hover:underline">Blog ↗</a>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-white/[0.02] transition-colors">
-                                <td class="py-3.5 px-4 text-[#FF5500] font-bold">10</td>
-                                <td class="py-3.5 px-4 font-medium font-sans">GPS Globe Visualizer</td>
-                                <td class="py-3.5 px-4 theme-text-muted hidden md:table-cell">Geospatial</td>
-                                <td class="py-3.5 px-4 theme-text-sec text-[11px]">3D Satellite Coordinate Plotter</td>
-                                <td class="py-3.5 px-4 text-right">
-                                    <a href="https://github.com/dakshesh123-rgb/gps-globe" target="_blank" rel="noopener noreferrer" class="text-[#FF5500] hover:underline">Git ↗</a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <!-- =================================================
-             PAGE 5: ABOUT & MANIFESTO
-             ================================================= -->
-        <div id="page-about" class="portfolio-page space-y-8">
-            <div class="border-b theme-border pb-4">
-                <span class="font-mono text-[10px] text-[#FF5500] uppercase tracking-wider font-bold">
-                    // CURIOUS • POLYMATH APPROACH
-                </span>
-                <div class="flex items-center gap-3 sm:gap-4 mt-2">
-                    <img 
-                        src="Screenshot_20260930_200509.jpg" 
-                        alt="Dakshesh" 
-                        class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl object-cover border border-[#FF5500]/40 shadow-sm shrink-0 hover:scale-105 transition-transform"
-                        onerror="this.onerror=null; this.src='avatar_dakshesh.jpg';"
-                    >
-                    <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight">
-                        About Dakshesh
-                    </h2>
-                </div>
-                <p class="text-sm theme-text-sec max-w-2xl mt-1.5 leading-relaxed">
-                    Born 2010. Philosophical yet pragmatic. Building systems from mathematical foundations and physical grounding.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-                <!-- Left Bio Column -->
-                <div class="md:col-span-7 space-y-4 text-sm leading-relaxed theme-text-sec">
-                    <p>
-                        I work from first principles across computational physics, low-level tooling, algorithms, and philosophy. I care about understanding every line of code down to the fundamental differential equations rather than relying on bloated, black-box libraries.
-                    </p>
-                    <p>
-                        Most of my code is written and tested directly on an Android device using Termux and PRoot Linux. The physical and computational constraints of mobile hardware strip away unnecessary distraction and enforce clean, standard-library-first thinking.
-                    </p>
-                    
-                    <div class="p-5 rounded-3xl theme-bg-sec border theme-border space-y-2 mt-4">
-                        <div class="font-mono text-xs text-[#FF5500] font-bold uppercase tracking-wider">
-                            Personal Creed
-                        </div>
-                        <ul class="font-mono text-xs space-y-1.5 text-zinc-300">
-                            <li>1. Think deeply, act intentionally.</li>
-                            <li>2. When in doubt, the body acts. Physical discipline kills analytical paralysis.</li>
-                            <li>3. Master the hard things first. Mathematics, algorithms, and leverage.</li>
-                            <li>4. Stack verifiable proof, not empty words.</li>
-                            <li>5. Be Human!</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Right Quick Specs Column -->
-                <div class="md:col-span-5 space-y-4 font-mono text-xs">
-                    <div class="p-5 rounded-3xl theme-bg-sec border theme-border space-y-3">
-                        <div class="theme-text-muted uppercase text-[10px] tracking-wider font-semibold">
-                            Core Specifications
-                        </div>
-                        <div class="flex items-center justify-between border-b theme-border pb-2">
-                            <span class="theme-text-muted">Born:</span>
-                            <span class="font-semibold text-white">2010</span>
-                        </div>
-                        <div class="flex items-center justify-between border-b theme-border pb-2">
-                            <span class="theme-text-muted">Approach:</span>
-                            <span class="font-semibold text-white">Polymath • Pragmatic</span>
-                        </div>
-                        <div class="flex items-center justify-between border-b theme-border pb-2">
-                            <span class="theme-text-muted">Primary Rig:</span>
-                            <span class="font-semibold text-white">Android + Termux PRoot</span>
-                        </div>
-                        <div class="flex items-center justify-between border-b theme-border pb-2">
-                            <span class="theme-text-muted">Languages:</span>
-                            <span class="font-semibold text-white">Python 3, C, Shell, JS</span>
-                        </div>
-                        <div class="flex items-center justify-between border-b theme-border pb-2">
-                            <span class="theme-text-muted">Repositories:</span>
-                            <span class="font-semibold text-[#00E676]">11 Public Repos</span>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <span class="theme-text-muted">System Time:</span>
-                            <span id="utc-clock" class="font-semibold text-[#FF5500]">09:05:55 UTC</span>
-                        </div>
-                    </div>
-
-                    <!-- Direct Contact Links -->
-                    <div class="grid grid-cols-2 gap-2">
-                        <a href="https://github.com/dakshesh123-rgb" target="_blank" rel="noopener noreferrer" class="p-3 rounded-2xl theme-bg-sec border theme-border hover:border-[#FF5500] text-center transition-colors">
-                            <i class="ph-bold ph-github-logo text-base block mb-1"></i>
-                            <span class="text-xs">GitHub</span>
-                        </a>
-                        <a href="https://substack.com/@dakshesh003?utm_source=share&amp;utm_medium=android&amp;r=882xgd" target="_blank" rel="noopener noreferrer" class="p-3 rounded-2xl theme-bg-sec border theme-border hover:border-[#FF5500] text-center transition-colors">
-                            <svg class="w-4 h-4 fill-current mx-auto mb-1" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
-                            <span class="text-xs">Substack</span>
-                        </a>
-                        <a href="mailto:dasdakshesh123@gmail.com" class="p-3 rounded-2xl theme-bg-sec border theme-border hover:border-[#FF5500] text-center transition-colors">
-                            <i class="ph-bold ph-envelope text-base block mb-1"></i>
-                            <span class="text-xs">Email</span>
-                        </a>
-                        <a href="https://essay-blog-3ne.pages.dev" target="_blank" rel="noopener noreferrer" class="p-3 rounded-2xl theme-bg-sec border theme-border hover:border-[#FF5500] text-center transition-colors">
-                            <i class="ph-bold ph-notebook text-base block mb-1"></i>
-                            <span class="text-xs">Essays</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- =================================================
-             PAGE 6: DEVLOGS & STARDANCE HACK CLUB STATION
-             ================================================= -->
-        <div id="page-devlogs" class="portfolio-page space-y-8" style="display: none;">
-            <div class="border-b theme-border pb-4 flex flex-col md:flex-row md:items-end justify-between gap-4">
-                <div>
-                    <div class="flex items-center gap-2">
-                        <span class="font-mono text-[10px] text-[#EC3750] uppercase tracking-wider font-bold flex items-center gap-1.5">
-                            <span class="w-2 h-2 rounded-full bg-[#EC3750] animate-pulse"></span>
-                            // HACK CLUB STARDANCE TELEMETRY
-                        </span>
-                        <span class="font-mono text-[10px] px-2 py-0.5 rounded-full bg-[#EC3750]/15 text-[#EC3750] border border-[#EC3750]/30 font-semibold">
-                            BUILDER @dakshesh236
-                        </span>
-                    </div>
-                    <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight mt-1">
-                        Engineering Devlogs &amp; Dispatches
-                    </h2>
-                    <p class="text-sm theme-text-sec max-w-2xl mt-1.5 leading-relaxed">
-                        Unfiltered, chronological developer logs, time-tracked work sprints, and architectural breakthroughs logged across Hack Club Stardance and personal repositories.
-                    </p>
-                </div>
-                <div class="flex items-center gap-2 shrink-0">
-                    <a href="https://stardance.hackclub.com/@dakshesh236" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-full border border-[#EC3750]/40 bg-[#EC3750]/10 text-[#EC3750] text-xs font-mono font-semibold flex items-center gap-1.5 hover:bg-[#EC3750]/20 transition-all">
-                        <i class="ph-bold ph-arrow-up-right"></i>
-                        <span>Stardance Profile</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Stardance Projects Grid -->
-            <div class="space-y-4">
-                <div class="flex items-center justify-between">
-                    <span class="font-mono text-xs uppercase text-zinc-400 font-bold tracking-wider">// STARDANCE REGISTERED PROJECTS</span>
-                    <span class="font-mono text-[11px] theme-text-muted">3 ACTIVE CODEBASES</span>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <!-- Project 1: Portfolio -->
-                    <div class="p-4 rounded-2xl border theme-border theme-bg-sec flex flex-col justify-between space-y-3">
-                        <div>
-                            <div class="flex items-center justify-between text-xs font-mono mb-1.5">
-                                <span class="text-[#EC3750] font-bold">#69869</span>
-                                <span class="px-2 py-0.5 rounded bg-[#00E676]/10 text-[#00E676] text-[10px]">LIVE ON EDGE</span>
-                            </div>
-                            <h4 class="font-display font-bold text-base tracking-tight mb-1">Portfolio &amp; Systems Hub</h4>
-                            <p class="text-xs theme-text-sec leading-relaxed">Brutalist-editorial digital notebook, systems registry, and interactive simulation console with GSAP animations.</p>
-                        </div>
-                        <div class="pt-2 border-t theme-border flex items-center justify-between font-mono text-xs">
-                            <a href="https://dakshesh-portfolio.pages.dev" target="_blank" rel="noopener noreferrer" class="text-[#FF5500] hover:underline">dakshesh-portfolio.pages.dev ↗</a>
-                            <a href="https://stardance.hackclub.com/projects/69869" target="_blank" rel="noopener noreferrer" class="theme-text-muted hover:text-white">Stardance ↗</a>
-                        </div>
-                    </div>
-
-                    <!-- Project 2: QM Solver -->
-                    <div class="p-4 rounded-2xl border theme-border theme-bg-sec flex flex-col justify-between space-y-3">
-                        <div>
-                            <div class="flex items-center justify-between text-xs font-mono mb-1.5">
-                                <span class="text-[#EC3750] font-bold">#68268</span>
-                                <span class="px-2 py-0.5 rounded bg-[#38BDF8]/10 text-[#38BDF8] text-[10px]">RESEARCH PAPER</span>
-                            </div>
-                            <h4 class="font-display font-bold text-base tracking-tight mb-1">Quantum Tunneling Dynamics</h4>
-                            <p class="text-xs theme-text-sec leading-relaxed">Computational quantum physics research solving 1D TDSE barrier curvature transmission divergence.</p>
-                        </div>
-                        <div class="pt-2 border-t theme-border flex items-center justify-between font-mono text-xs">
-                            <a href="https://dakshesh123-rgb.github.io/qm-project-website/" target="_blank" rel="noopener noreferrer" class="text-[#FF5500] hover:underline">Research Site ↗</a>
-                            <a href="https://stardance.hackclub.com/projects/68268" target="_blank" rel="noopener noreferrer" class="theme-text-muted hover:text-white">Stardance ↗</a>
-                        </div>
-                    </div>
-
-                    <!-- Project 3: AI JEE Mentor -->
-                    <div class="p-4 rounded-2xl border theme-border theme-bg-sec flex flex-col justify-between space-y-3">
-                        <div>
-                            <div class="flex items-center justify-between text-xs font-mono mb-1.5">
-                                <span class="text-[#EC3750] font-bold">#20886</span>
-                                <span class="px-2 py-0.5 rounded bg-[#A855F7]/10 text-[#A855F7] text-[10px]">PROTOTYPE</span>
-                            </div>
-                            <h4 class="font-display font-bold text-base tracking-tight mb-1">AI JEE Socratic Mentor</h4>
-                            <p class="text-xs theme-text-sec leading-relaxed">First-principles physics &amp; calculus Socratic problem solver for competitive examination candidates.</p>
-                        </div>
-                        <div class="pt-2 border-t theme-border flex items-center justify-between font-mono text-xs">
-                            <a href="https://ai-jee-mentor-2eu.pages.dev" target="_blank" rel="noopener noreferrer" class="text-[#FF5500] hover:underline">Live Prototype ↗</a>
-                            <a href="https://stardance.hackclub.com/projects/20886" target="_blank" rel="noopener noreferrer" class="theme-text-muted hover:text-white">Stardance ↗</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Chronological Devlog Feed -->
-            <div class="space-y-6">
-                <div class="flex items-center justify-between border-b theme-border pb-2">
-                    <span class="font-mono text-xs uppercase text-zinc-400 font-bold tracking-wider">// CHRONOLOGICAL DEVLOG LOGS</span>
-                    <span class="font-mono text-[11px] theme-text-muted">SORTED BY RECENCY</span>
-                </div>
-
-                <!-- Devlog Entry 01: Portfolio -->
-                <article class="p-6 rounded-3xl border theme-border theme-bg-sec space-y-4">
-                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b theme-border pb-3">
-                        <div class="flex items-center gap-2">
-                            <span class="font-mono text-xs px-2.5 py-1 rounded-full bg-[#EC3750]/15 text-[#EC3750] font-bold border border-[#EC3750]/30">
-                                DEVLOG #01
-                            </span>
-                            <span class="font-mono text-xs text-white font-semibold">Personal Portfolio &amp; Systems Hub</span>
-                            <span class="font-mono text-[11px] text-[#00E676]">// PROJECT #69869</span>
-                        </div>
-                        <div class="font-mono text-xs theme-text-muted flex items-center gap-3">
-                            <span><i class="ph ph-clock mr-1"></i>Logged: 14h 20m</span>
-                            <span><i class="ph ph-calendar-blank mr-1"></i>Oct 15, 2026</span>
-                        </div>
-                    </div>
-                    <div class="prose prose-invert max-w-none text-xs sm:text-sm theme-text-sec space-y-3 leading-relaxed">
-                        <p class="text-white font-medium">
-                            Architected and shipped the unified digital systems notebook and brutalist-editorial portfolio at <a href="https://dakshesh-portfolio.pages.dev" target="_blank" class="text-[#FF5500] underline font-mono">dakshesh-portfolio.pages.dev</a>.
-                        </p>
-                        <p>
-                            Replaced conventional static portfolio grids with a zero-reload multi-page application shell powered by GSAP 3.12 timeline animations, stateful URL hash routing (<code class="text-[#FF5500] font-mono px-1 rounded bg-black/40">#works</code>, <code class="text-[#FF5500] font-mono px-1 rounded bg-black/40">#termux</code>, <code class="text-[#FF5500] font-mono px-1 rounded bg-black/40">#registry</code>, <code class="text-[#FF5500] font-mono px-1 rounded bg-black/40">#devlogs</code>), and real-time Stardance API telemetry.
-                        </p>
-                        <div class="p-3.5 rounded-xl bg-black/40 border theme-border font-mono text-xs space-y-1 text-zinc-300">
-                            <div class="text-[#00E676] font-semibold">// Technical Highlights:</div>
-                            <div>• 60fps interactive iPhone canvas with Nocturne Protocol circadian dial &amp; parasympathetic breathing guide.</div>
-                            <div>• Pure Python and WebRTC systems registry with transparent code verification links.</div>
-                            <div>• Deployed with Cloudflare Pages automated edge pipeline and sub-50ms TTFB worldwide.</div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Devlog Entry 02: QM Paper -->
-                <article class="p-6 rounded-3xl border theme-border theme-bg-sec space-y-4">
-                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b theme-border pb-3">
-                        <div class="flex items-center gap-2">
-                            <span class="font-mono text-xs px-2.5 py-1 rounded-full bg-[#38BDF8]/15 text-[#38BDF8] font-bold border border-[#38BDF8]/30">
-                                DEVLOG #02
-                            </span>
-                            <span class="font-mono text-xs text-white font-semibold">Quantum Tunneling Dynamics Solver</span>
-                            <span class="font-mono text-[11px] text-[#38BDF8]">// PROJECT #68268</span>
-                        </div>
-                        <div class="font-mono text-xs theme-text-muted flex items-center gap-3">
-                            <span><i class="ph ph-clock mr-1"></i>Logged: 36h 45m</span>
-                            <span><i class="ph ph-calendar-blank mr-1"></i>Oct 06, 2026</span>
-                        </div>
-                    </div>
-                    <div class="prose prose-invert max-w-none text-xs sm:text-sm theme-text-sec space-y-3 leading-relaxed">
-                        <p class="text-white font-medium">
-                            Resolved curvature transmission divergence in 1D Time-Dependent Schrödinger Equation (TDSE) simulations using Sturm sequence bisection tridiagonal solver.
-                        </p>
-                        <p>
-                            Standard rectangular barrier models fail to capture the exponential decay damping when boundary gradients are non-zero. By formulating a pure-Python finite difference grid without heavyweight BLAS dependencies, verified transmission coefficients differing by up to 2.3×10⁶× from textbook approximations.
-                        </p>
-                        <div class="flex items-center gap-2 font-mono text-xs pt-1">
-                            <a href="https://dakshesh123-rgb.github.io/qm-project-website/" target="_blank" rel="noopener noreferrer" class="text-[#FF5500] hover:underline">Read Research Paper ↗</a>
-                            <span class="theme-text-muted">•</span>
-                            <a href="https://github.com/dakshesh123-rgb/qm-project-website" target="_blank" rel="noopener noreferrer" class="theme-text-muted hover:text-white">GitHub Solver Code ↗</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Devlog Entry 03: AI JEE Mentor -->
-                <article class="p-6 rounded-3xl border theme-border theme-bg-sec space-y-4">
-                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b theme-border pb-3">
-                        <div class="flex items-center gap-2">
-                            <span class="font-mono text-xs px-2.5 py-1 rounded-full bg-[#A855F7]/15 text-[#A855F7] font-bold border border-[#A855F7]/30">
-                                DEVLOG #03
-                            </span>
-                            <span class="font-mono text-xs text-white font-semibold">AI JEE Socratic Reasoning Engine</span>
-                            <span class="font-mono text-[11px] text-[#A855F7]">// PROJECT #20886</span>
-                        </div>
-                        <div class="font-mono text-xs theme-text-muted flex items-center gap-3">
-                            <span><i class="ph ph-clock mr-1"></i>Logged: 22h 10m</span>
-                            <span><i class="ph ph-calendar-blank mr-1"></i>Sep 29, 2026</span>
-                        </div>
-                    </div>
-                    <div class="prose prose-invert max-w-none text-xs sm:text-sm theme-text-sec space-y-3 leading-relaxed">
-                        <p class="text-white font-medium">
-                            Constructed multi-modal Socratic physics derivation graph capable of analyzing raw student camera uploads and guiding through JEE Advanced calculus/mechanics proofs.
-                        </p>
-                        <p>
-                            Refactored backend inferencing onto edge workers to eliminate cold-start latency. Built constraint gates ensuring the AI asks illuminating diagnostic questions rather than spitting out end solutions, accelerating genuine conceptual mastery.
-                        </p>
-                        <div class="flex items-center gap-2 font-mono text-xs pt-1">
-                            <a href="https://ai-jee-mentor-2eu.pages.dev" target="_blank" rel="noopener noreferrer" class="text-[#FF5500] hover:underline">Open Live Prototype ↗</a>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </div>
-
-        <!-- Global Minimal Footer -->
-        <footer class="mt-16 pt-8 border-t theme-border font-mono text-xs theme-text-muted flex flex-col sm:flex-row items-center justify-between gap-3">
-            <div>
-                dakshesh das • autonomous systems • 2026
-            </div>
-            <div class="flex items-center gap-4">
-                <a href="https://github.com/dakshesh123-rgb" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">GitHub</a>
-                <a href="https://substack.com/@dakshesh003?utm_source=share&amp;utm_medium=android&amp;r=882xgd" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Substack</a>
-                <a href="#" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;" class="hover:text-white transition-colors">Top ↑</a>
-            </div>
-        </footer>
-    </main>
-
-    <!-- =====================================================
-         4. MOBILE QUICK BOTTOM DOCK (MOBILE PHONES ONLY)
-         ===================================================== -->
-    <nav class="md:hidden fixed bottom-0 inset-x-0 z-40 p-2.5 bg-black/85 backdrop-blur-xl border-t theme-border">
-        <div class="max-w-md mx-auto grid grid-cols-6 gap-1 font-mono text-[9px] sm:text-[10px] text-center">
-            <button onclick="switchPage('works')" id="mob-nav-works" class="py-2 px-1 rounded-xl bg-[#FF5500] text-white flex flex-col items-center gap-0.5">
-                <i class="ph-bold ph-squares-four text-sm"></i>
-                <span>Works</span>
-            </button>
-            <button onclick="switchPage('termux')" id="mob-nav-termux" class="py-2 px-1 rounded-xl theme-pill theme-text-sec flex flex-col items-center gap-0.5">
-                <i class="ph-bold ph-terminal text-sm"></i>
-                <span>Termux</span>
-            </button>
-            <button onclick="switchPage('philosophy')" id="mob-nav-philosophy" class="py-2 px-1 rounded-xl theme-pill theme-text-sec flex flex-col items-center gap-0.5">
-                <i class="ph-bold ph-book-open text-sm"></i>
-                <span>Notes</span>
-            </button>
-            <button onclick="switchPage('registry')" id="mob-nav-registry" class="py-2 px-1 rounded-xl theme-pill theme-text-sec flex flex-col items-center gap-0.5">
-                <i class="ph-bold ph-table text-sm"></i>
-                <span>Systems</span>
-            </button>
-            <button onclick="switchPage('devlogs')" id="mob-nav-devlogs" class="py-2 px-1 rounded-xl theme-pill theme-text-sec flex flex-col items-center gap-0.5">
-                <i class="ph-bold ph-newspaper text-sm"></i>
-                <span>Devlogs</span>
-            </button>
-            <button onclick="switchPage('about')" id="mob-nav-about" class="py-2 px-1 rounded-xl theme-pill theme-text-sec flex flex-col items-center gap-0.5">
-                <i class="ph-bold ph-user text-sm"></i>
-                <span>About</span>
-            </button>
-        </div>
-    </nav>
-
-    <!-- =====================================================
-         5. CORE JAVASCRIPT LOGIC
-         ===================================================== -->
-    <script>
-        // --- 1. Video Showcase Catalog Data ---
-        const videoClips = [
-            {
-                src: "clips/video_ai_jee_mentor_web.mp4",
-                fallbackSrc: "clips/video_ai_jee_mentor.mp4",
-                thumb: "clips/video_ai_jee_mentor_thumb.jpg",
-                index: "CLIP 01 / 02",
-                title: "AI JEE Socratic Mentor",
-                desc: "Socratic problem solver guiding through JEE Advanced physics & math from first principles."
-            },
-            {
-                src: "clips/video_aether_p2p_web.mp4",
-                fallbackSrc: "clips/video_aether_p2p.mp4",
-                thumb: "clips/video_aether_p2p_thumb.jpg",
-                index: "CLIP 02 / 02",
-                title: "Aether P2P Encrypted Mesh",
-                desc: "Browser-native peer-to-peer data transport over WebRTC channels with zero central relays."
-            }
-        ];
-
-        let currentClipIdx = 0;
-        const iphoneVid = document.getElementById('iphone-video');
-
-        function loadVideoClip(idx) {
-            currentClipIdx = (idx + videoClips.length) % videoClips.length;
-            const clip = videoClips[currentClipIdx];
-            
-            if (iphoneVid) {
-                iphoneVid.onerror = () => {
-                    if (clip.fallbackSrc && !iphoneVid.src.includes(clip.fallbackSrc)) {
-                        iphoneVid.src = clip.fallbackSrc;
-                        iphoneVid.load();
-                        iphoneVid.play().catch(() => {});
-                    }
-                };
-                iphoneVid.src = clip.src;
-                iphoneVid.poster = clip.thumb;
-                iphoneVid.load();
-                iphoneVid.play().catch(() => {});
-            }
-
-            document.getElementById('clip-index-tag').textContent = clip.index;
-            document.getElementById('clip-title-tag').textContent = clip.title;
-            document.getElementById('clip-desc-tag').textContent = clip.desc;
-
-            // Update selector button styles
-            for (let i = 0; i < videoClips.length; i++) {
-                const btn = document.getElementById(`clip-btn-${i}`);
-                if (btn) {
-                    if (i === currentClipIdx) {
-                        btn.className = 'clip-selector active px-4 py-2 rounded-xl border border-[#FF5500] bg-[#FF5500]/15 text-[#FF5500] font-semibold transition-all';
-                    } else {
-                        btn.className = 'clip-selector px-4 py-2 rounded-xl border theme-border theme-pill theme-text-sec hover:border-[#FF5500] transition-all';
-                    }
-                }
-            }
-
-            updatePlayPauseButton(true);
-        }
-
-        function nextVideoClip() {
-            loadVideoClip(currentClipIdx + 1);
-        }
-
-        function prevVideoClip() {
-            loadVideoClip(currentClipIdx - 1);
-        }
-
-        function toggleVideoPlayback() {
-            if (!iphoneVid) return;
-            if (iphoneVid.paused) {
-                iphoneVid.play();
-                updatePlayPauseButton(true);
-            } else {
-                iphoneVid.pause();
-                updatePlayPauseButton(false);
-            }
-        }
-
-        function updatePlayPauseButton(isPlaying) {
-            const icon = document.getElementById('play-pause-icon');
-            const txt = document.getElementById('play-pause-text');
-            if (icon && txt) {
-                icon.className = isPlaying ? 'ph-fill ph-pause' : 'ph-fill ph-play';
-                txt.textContent = isPlaying ? 'PAUSE' : 'PLAY';
-            }
-        }
-
-        function toggleVideoMute() {
-            if (!iphoneVid) return;
-            iphoneVid.muted = !iphoneVid.muted;
-            const muteIcon = document.getElementById('mute-icon');
-            if (muteIcon) {
-                muteIcon.className = iphoneVid.muted ? 'ph-bold ph-speaker-slash text-xs' : 'ph-bold ph-speaker-high text-xs';
-            }
-        }
-
-        // --- 2. Multi-Page View Switcher ---
-        const pageIds = ['works', 'termux', 'philosophy', 'registry', 'devlogs', 'about'];
-
-        function switchPage(pageKey) {
-            if (!pageIds.includes(pageKey)) pageKey = 'works';
-
-            pageIds.forEach(id => {
-                const pageEl = document.getElementById(`page-${id}`);
-                const navBtn = document.getElementById(`nav-btn-${id}`);
-                const mobBtn = document.getElementById(`mob-nav-${id}`);
-
-                if (id === pageKey) {
-                    if (pageEl) {
-                        pageEl.style.display = 'block';
-                        if (typeof gsap !== 'undefined') {
-                            gsap.fromTo(pageEl, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" });
-                        } else {
-                            pageEl.style.opacity = '1';
-                        }
-                    }
-                    if (navBtn) navBtn.className = 'nav-tab active px-3.5 py-1.5 rounded-full transition-all flex items-center gap-1.5';
-                    if (mobBtn) mobBtn.className = 'py-2 px-1 rounded-xl bg-[#FF5500] text-white flex flex-col items-center gap-0.5';
-                } else {
-                    if (pageEl) pageEl.style.display = 'none';
-                    if (navBtn) navBtn.className = 'nav-tab px-3.5 py-1.5 rounded-full theme-text-sec hover:text-white transition-all flex items-center gap-1.5';
-                    if (mobBtn) mobBtn.className = 'py-2 px-1 rounded-xl theme-pill theme-text-sec flex flex-col items-center gap-0.5';
-                }
-            });
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            history.replaceState(null, '', `#${pageKey}`);
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            const hash = window.location.hash.replace('#', '');
-            if (pageIds.includes(hash)) {
-                switchPage(hash);
-            }
-        });
-
-        // --- 3. Works Filter ---
-        function filterWorks(cat) {
-            const cards = document.querySelectorAll('#works-grid .work-card');
-            cards.forEach(card => {
-                const cardCat = card.getAttribute('data-cat');
-                if (cat === 'all' || cardCat === cat) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-
-            document.querySelectorAll('.work-filter').forEach(btn => {
-                if (btn.getAttribute('data-cat') === cat) {
-                    btn.className = 'work-filter active px-2.5 py-1 rounded-full bg-[#FF5500] text-white';
-                } else {
-                    btn.className = 'work-filter px-2.5 py-1 rounded-full theme-pill border theme-border theme-text-sec hover:text-white';
-                }
-            });
-        }
-
-        // --- 4. Grand Preloader Animation ---
-        let preloaderSkipped = false;
-
-        function skipPreloader() {
-            if (preloaderSkipped) return;
-            preloaderSkipped = true;
-            const pre = document.getElementById('preloader');
-            if (pre) {
-                if (typeof gsap !== 'undefined') {
-                    gsap.to(pre, {
-                        yPercent: -100,
-                        duration: 0.5,
-                        ease: "expo.inOut",
-                        onComplete: () => { pre.style.display = 'none'; }
-                    });
-                } else {
-                    pre.style.opacity = '0';
-                    pre.style.transition = 'opacity 0.3s ease';
-                    setTimeout(() => { pre.style.display = 'none'; }, 300);
-                }
-            }
-        }
-
-        (function runPreloader() {
-            const pre = document.getElementById('preloader');
-            if (typeof gsap === 'undefined') {
-                if (pre) {
-                    setTimeout(() => {
-                        pre.style.opacity = '0';
-                        pre.style.transition = 'opacity 0.5s ease';
-                        setTimeout(() => { pre.style.display = 'none'; }, 500);
-                    }, 5500);
-                }
-                return;
-            }
-
-            let counterObj = { val: 0 };
-            const counterEl = document.getElementById('pre-counter');
-            const barEl = document.getElementById('pre-bar');
-            const statusEl = document.getElementById('pre-status');
-
-            gsap.to(counterObj, {
-                val: 100,
-                duration: 5.2,
-                ease: "power1.inOut",
-                onUpdate: () => {
-                    if (preloaderSkipped) return;
-                    const v = Math.round(counterObj.val);
-                    if (counterEl) counterEl.textContent = `${String(v).padStart(2, '0')}%`;
-                    if (barEl) barEl.style.width = `${v}%`;
-                    if (v < 25 && statusEl) {
-                        statusEl.textContent = 'INITIALIZING QUANTUM STATE & NUMERICAL CORE...';
-                    } else if (v >= 25 && v < 55 && statusEl) {
-                        statusEl.textContent = 'CALIBRATING ARM64 RUNTIME & P2P CHANNELS...';
-                    } else if (v >= 55 && v < 85 && statusEl) {
-                        statusEl.textContent = 'SYNCHRONIZING CIRCADIAN PROTOCOL & LOCAL GRAPH...';
-                    } else if (v >= 85 && statusEl) {
-                        statusEl.textContent = 'RECONSTRUCTION READY • OPENING WORKSPACE...';
-                    }
-                },
-                onComplete: () => {
-                    if (preloaderSkipped) return;
-                    gsap.to('#preloader', {
-                        yPercent: -100,
-                        duration: 0.8,
-                        ease: "expo.inOut",
-                        onComplete: () => {
-                            const p = document.getElementById('preloader');
-                            if (p) p.style.display = 'none';
-                        }
-                    });
-                }
-            });
-        })();
-
-        // --- 5. UTC Clock Update ---
-        function updateUtcClock() {
-            const now = new Date();
-            const timeStr = now.toISOString().slice(11, 19) + ' UTC';
-            const utcEl = document.getElementById('utc-clock');
-            if (utcEl) utcEl.textContent = timeStr;
-
-            const hours = String(now.getUTCHours()).padStart(2, '0');
-            const mins = String(now.getUTCMinutes()).padStart(2, '0');
-            const iphoneClock = document.getElementById('iphone-clock');
-            if (iphoneClock) iphoneClock.textContent = `${hours}:${mins}`;
-        }
-        setInterval(updateUtcClock, 1000);
-        updateUtcClock();
-
-        // --- 6. Dark / Light Theme Toggle ---
-        function toggleTheme() {
-            const html = document.documentElement;
-            const current = html.getAttribute('data-theme') || 'dark';
-            const next = current === 'dark' ? 'light' : 'dark';
-            html.setAttribute('data-theme', next);
-            localStorage.setItem('dakshesh_theme', next);
-            
-            const icon = document.getElementById('theme-icon');
-            if (icon) {
-                icon.className = next === 'dark' ? 'ph ph-sun text-base' : 'ph ph-moon text-base';
-            }
-        }
-
-        (function initTheme() {
-            const saved = localStorage.getItem('dakshesh_theme');
-            if (saved) {
-                document.documentElement.setAttribute('data-theme', saved);
-                const icon = document.getElementById('theme-icon');
-                if (icon) {
-                    icon.className = saved === 'dark' ? 'ph ph-sun text-base' : 'ph ph-moon text-base';
-                }
-            }
-        })();
-
-        // --- 7. Termux Terminal Simulator Commands ---
-        const terminalCommands = {
-            qm_solver: [
-                "$ python3 verify_pure_python.py",
-                "[*] Initializing Tridiagonal Hamiltonian Grid (N=400)...",
-                "[+] Sturm sequence bisection initialized. Precision: 1e-12",
-                "[+] Eigenstate 0: E = 0.499998 (Exact Harmonic: 0.500000, Error: 0.0004%)",
-                "[+] Eigenstate 1: E = 1.499992 (Exact Harmonic: 1.500000, Error: 0.0005%)",
-                "[*] Testing non-standard barrier profiles: Exponential vs Gaussian vs Rectangular",
-                "[!] Curvature Shape Factor S = 2.3e+06 amplifies transmission coefficient.",
-                "[✓] Calculation completed in 0.18s using pure standard library. 0 external deps."
-            ],
-            neofetch: [
-                "$ neofetch",
-                "       _,met$$$$$gg.          dakshesh@termux-handset",
-                "    ,g$$$$$$$$$$$$$$$P.       -----------------------",
-                "  ,g$$P\"\"       \"\"\"Y$$.\".     OS: Ubuntu 24.04 (PRoot on Android)",
-                " ,$$P'              `$$$.     Host: ARM64 Octa-Core Handset", "',$$P       ,ggs.     `$$b:   Kernel: 5.10.149-android aarch64",
-                "`d$$'     ,$P\"'   .    $$$    Uptime: 14 days, 6 hours", " $$P      d$'     ,    $$P    Shell: bash 5.2.26", " $$:      $.   -  ,d$$'     Editor: Neovim", " $$;      Y$b._   _,d$P'      Memory: 1820MiB / 7480MiB", " Y$$.    `.`\"Y$$$$P\"'         Primary Langs: Python 3, C, Shell, HTML/JS"
-            ],
-            philosophy: [
-                "$ cat ~/notes/mindset.txt",
-                "--------------------------------------------------",
-                "1. DOSTOEVSKY: Consciousness without physical action = analytical paralysis.",
-                "2. GROUNDING: When the brain overthinks, train the body and write the code.",
-                "3. GITA: Perform duty with relentless care; discard neurotic attachment to hype.",
-                "4. 33% RULE: 1/3 mentors, 1/3 peers, 1/3 learners. Keep yourself anchored.",
-                "5. EXECUTION: Theory is merely thought until tested."
-            ],
-            git_status: [
-                "$ git -C ~/qm_project status",
-                "On branch main",
-                "Your branch is up to date with 'origin/main'.",
-                "Untracked files:",
-                "  (use \"git add <file>...\" to include in what will be committed)",
-                "    day6_wavepacket.py",
-                "    figures/shape_factor_v3.png",
-                "nothing added to commit but untracked files present."
-            ]
-        };
-
-        function runTermCmd(cmdKey) {
-            const termDisplay = document.getElementById('term-cmd-display');
-            const termDynamic = document.getElementById('term-dynamic');
-            const termLog = document.getElementById('term-log');
-
-            if (cmdKey === 'clear') {
-                termDynamic.innerHTML = '';
-                termDisplay.textContent = '';
-                return;
-            }
-
-            const lines = terminalCommands[cmdKey];
-            if (!lines) return;
-
-            termDisplay.textContent = lines[0].replace('$ ', '');
-            
-            setTimeout(() => {
-                const block = document.createElement('div');
-                block.className = 'mt-2 border-t border-zinc-800 pt-2 text-zinc-300';
-                
-                const cmdHtml = `<div class="text-[#00E676] font-semibold">${lines[0]}</div>`;
-                const outputHtml = lines.slice(1).map(l => `<div class="text-zinc-400 whitespace-pre-wrap">${escapeHtml(l)}</div>`).join('');
-                
-                block.innerHTML = cmdHtml + outputHtml;
-                termDynamic.appendChild(block);
-                termDisplay.textContent = '';
-                termLog.scrollTop = termLog.scrollHeight;
-            }, 250);
-        }
-
-        function escapeHtml(text) {
-            const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
-            return text.replace(/[&<>"']/g, m => map[m]);
-        }
-    </script>
+  <script src="main.js"></script>
 </body>
 </html>
